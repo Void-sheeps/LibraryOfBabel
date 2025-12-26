@@ -1,0 +1,51 @@
+{
+  // Agora related configuration
+  "app_id": "YOUR_AGORA_APP_ID",  // Agora App ID
+  "app_certificate": "YOUR_AGORA_APP_CERTIFICATE",  // Agora App Certificate
+
+  // Customer authentication information
+  "customer_key": "YOUR_CUSTOMER_KEY",  // Customer Key
+  "customer_secret": "YOUR_CUSTOMER_SECRET",  // Customer Secret
+
+  // Automatic Speech Recognition (ASR) configuration
+  "asr": {
+    "language": "zh-CN"  // Recognition language, default Chinese (supports Chinese-English mixed)
+  },
+
+  // System parameters configuration
+  "parameters": {
+    "output_audio_codec": "G722",  // RTC streaming audio codec format, supported formats: "PCMU" "PCMA" "G722" "OPUS" "OPUSFB"
+    "transcript": {               // Subtitle feature parameter configuration
+      "enable": false             // Disable subtitle feature
+    }
+  },
+
+  // Text-to-Speech (TTS) configuration
+  "tts": {
+    "vendor": "YOUR_TTS_VENDOR",  // TTS service provider
+    "params": {
+
+    }
+  },
+
+  // Session timeout configuration
+  "idle_timeout": 30,  // Session timeout (seconds)
+
+  // Large Language Model (LLM) configuration
+  "llm": {
+    "url": "YOUR_LLM_API_URL",  // LLM service URL
+    "params": {
+      "model": "YOUR_LLM_MODEL"  // Model used
+    },
+    "api_key": "YOUR_LLM_API_KEY",  // LLM service API key
+    "system_messages": [  // System preset messages
+      {
+        "role": "system",
+        "content": "You are a helpful chatbot."
+      }
+    ],
+    "max_history": 10,  // Maximum history records
+    "greeting_message": "Hello, I'm your AI assistant. How can I help you?",  // Greeting message
+    "failure_message": "Sorry, I am unable to answer your question..."  // Failure message
+  }
+}

@@ -1,51 +1,67 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+from typing import List, Tuple
 
-# Parâmetros
-num_points = 300000
-# 8 vértices do cubo unitário
-vertices = np.array([
-    [0,0,0], [1,0,0], [1,1,0], [0,1,0],
-    [0,0,1], [1,0,1], [1,1,1], [0,1,1]
+# --- Constants ---
+NUM_POINTS: int = 300000
+DISCARD_INITIAL: int = 100
+CONTRACTION_FACTOR: float = 0.5
+NUM_VERTICES: int = 8
+FIG_SIZE: Tuple[int, int] = (12, 10)
+POINT_SIZE: float = 0.5
+POINT_ALPHA: float = 0.7
+TITLE_FONT_SIZE: int = 14
+
+# 8 vertices of the unit cube
+VERTICES: np.ndarray = np.array([
+    [0, 0, 0], [1, 0, 0], [1, 1, 0], [0, 1, 0],
+    [0, 0, 1], [1, 0, 1], [1, 1, 1], [0, 1, 1]
 ])
 
-# Cores em HSV para gradiente bonito em 3D (convertidas para RGB)
-def hsv_to_rgb(h, s=1.0, v=1.0):
+# --- Functions ---
+def hsv_to_rgb(h: float, s: float = 1.0, v: float = 1.0) -> Tuple[float, float, float]:
+    """Converts HSV color to RGB color."""
     import colorsys
     return colorsys.hsv_to_rgb(h, s, v)
 
-vertex_colors = [hsv_to_rgb(i/8.0) for i in range(8)]  # Arco-íris ao redor do cubo
+# --- Main Simulation ---
+if __name__ == "__main__":
+    # Generate a rainbow of colors around the cube
+    vertex_colors: List[Tuple[float, float, float]] = [hsv_to_rgb(i / float(NUM_VERTICES)) for i in range(NUM_VERTICES)]
 
-# Ponto inicial no centro
-point = np.array([0.5, 0.5, 0.5])
+    # Initial point at the center
+    point: np.ndarray = np.array([0.5, 0.5, 0.5])
 
-x, y, z, c = [], [], [], []
+    x: List[float] = []
+    y: List[float] = []
+    z: List[float] = []
+    c: List[Tuple[float, float, float]] = []
 
-for i in range(num_points):
-    idx = np.random.randint(0, 8)
-    chosen_vertex = vertices[idx]
-    chosen_color = vertex_colors[idx]
+    for i in range(NUM_POINTS):
+        idx: int = np.random.randint(0, NUM_VERTICES)
+        chosen_vertex: np.ndarray = VERTICES[idx]
+        chosen_color: Tuple[float, float, float] = vertex_colors[idx]
 
-    # Contração 0.5
-    point = (point + chosen_vertex) / 2.0
+        # Contraction
+        point = (point + chosen_vertex) * CONTRACTION_FACTOR
 
-    # Descartar primeiros pontos
-    if i > 100:
-        x.append(point[0])
-        y.append(point[1])
-        z.append(point[2])
-        c.append(chosen_color)
+        # Discard initial points
+        if i > DISCARD_INITIAL:
+            x.append(point[0])
+            y.append(point[1])
+            z.append(point[2])
+            c.append(chosen_color)
 
-# Plot 3D
-fig = plt.figure(figsize=(12, 10))
-ax = fig.add_subplot(111, projection='3d')
-ax.scatter(x, y, z, c=c, s=0.5, alpha=0.7, depthshade=True)
+    # --- Plotting ---
+    fig = plt.figure(figsize=FIG_SIZE)
+    ax = fig.add_subplot(111, projection='3d')
+    ax.scatter(x, y, z, c=c, s=POINT_SIZE, alpha=POINT_ALPHA, depthshade=True)
 
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
-ax.set_title('Jogo do Caos 3D - Atrator Fractal em Cubo (Volume Constante)\n'
-             f'{num_points} pontos', fontsize=14)
-ax.set_box_aspect([1,1,1])  # Proporção igual
-plt.savefig('fractal_cube.png')
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_title('3D Chaos Game - Fractal Attractor in a Cube (Constant Volume)\n'
+                 f'{NUM_POINTS} points', fontsize=TITLE_FONT_SIZE)
+    ax.set_box_aspect([1, 1, 1])  # Equal proportion
+    plt.savefig('fractal_cube.png')

@@ -80,10 +80,10 @@ class LoB(object):
         hex_addr = ''
         depth = int(random.random()*(self.length_of_page - len(search_str)))
         front_padding = ''
-        for x in xrange(depth):
+        for x in range(depth):
             front_padding += self.digs[int(random.random() * len(self.digs))]
         back_padding = ''
-        for x in xrange(self.length_of_page - (depth + len(search_str))):
+        for x in range(self.length_of_page - (depth + len(search_str))):
             back_padding += self.digs[int(random.random() * len(self.digs))]
         search_str = front_padding + search_str + back_padding
         hex_addr = self.int2base(self.stringToNumber(search_str) + (loc_int * self.loc_mult), self.number_of_an)
@@ -156,7 +156,7 @@ class LoB(object):
         digits = []
         while x:
             digits.append(self.digs[x % 29])
-            x /= 29
+            x //= 29
         if sign < 0:
             digits.append('-')
         digits.reverse()
@@ -164,7 +164,7 @@ class LoB(object):
 
     def stringToNumber(self, iString):
         result = 0
-        for x in xrange(len(iString)):
+        for x in range(len(iString)):
             result += self.digs.index(iString[len(iString)-x-1])*pow(29, x)
         return result
 
@@ -179,7 +179,7 @@ class LoB(object):
         digits = []
         while x:
             digits.append(self.an[x % base])
-            x /= base
+            x //= base
         if sign < 0:
             digits.append('-')
         digits.reverse()

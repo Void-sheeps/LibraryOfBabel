@@ -187,3 +187,4 @@ This repository also contains a `static/` directory that houses conceptual piece
 
 - **[Jules Mnemoise](./static/jules_mnemoise.js)**: A JavaScript file that serves as a metaphorical exploration of meta-cognition and self-auditing for an AI agent.
 - **[Hex Color Protocol](./static/hex_color_protocol.html)**: An HTML file that visualizes a cryptographic hash as a unique color palette, exploring the idea of digital ownership.
+- **[Jules Engine](./static/jules_engine.js)**: A JavaScript file that defines a deterministic, auditable engine for processing frames of data through a series of conceptual stages.

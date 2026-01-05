@@ -79,30 +79,59 @@
 
     let autoInterval = null;
 
-    function glowColor(value) {
-      // value entre 0 e 1
-      const r_white = 255 * value;
-      const g_white = 255 * value;
-      const b_white = 255 * value;
+    function glowColor(value){
+        // =============================
+        // Camada 0: Crash White
+        // =============================
+        const r_white = 255 * value;
+        const g_white = 255 * value;
+        const b_white = 255 * value;
 
-      const r_cian = 0;
-      const g_cian = 120 * value;
-      const b_cian = 150 * value;
+        // =============================
+        // Camada 1: Azul Cianeto
+        // =============================
+        const r_cian = 0;
+        const g_cian = 120 * value;
+        const b_cian = 150 * value;
 
-      const r_morf = Math.floor(180 * value * 0.6);
-      const g_morf = Math.floor(170 * value * 0.6);
-      const b_morf = Math.floor(50 * value * 0.2);
+        // =============================
+        // Camada 2: Amarelo Morfina
+        // =============================
+        const r_morf = Math.floor(180 * value * 0.6);
+        const g_morf = Math.floor(170 * value * 0.6);
+        const b_morf = Math.floor(50 * value * 0.2);
 
-      const r_metal = Math.floor(100 * value);
-      const g_metal = Math.floor(100 * value * 0.8);
-      const b_metal = Math.floor(110 * value * 0.5);
+        // =============================
+        // Camada 3: Imã Cinza Chumbo + Rádio Isótopo
+        // =============================
+        const r_metal = Math.floor(100 * value + Math.random()*50);
+        const g_metal = Math.floor(100 * value*0.8 + Math.random()*30);
+        const b_metal = Math.floor(110 * value*0.5 + Math.random()*20);
 
-      const r = Math.min(255, r_white*0.2 + r_cian + r_morf + r_metal);
-      const g = Math.min(255, g_white*0.2 + g_cian + g_morf + g_metal);
-      const b = Math.min(255, b_white*0.2 + b_cian + b_morf + b_metal);
+        // =============================
+        // Camada 4: Cinza Kevlar Dupont (overlay protetor)
+        // =============================
+        // Mantém opacidade parcial (0.2-0.4), apenas “peso” visual
+        const r_kevlar = 80;
+        const g_kevlar = 80;
+        const b_kevlar = 85;
 
-      const alpha = 0.6 + 0.3 * Math.random(); // mais visível no fundo preto
-      return `rgba(${Math.floor(r)},${Math.floor(g)},${Math.floor(b)},${alpha})`;
+        // =============================
+        // Combinação final
+        // =============================
+        let r = Math.min(255, r_white*0.2 + r_cian + r_morf + r_metal);
+        let g = Math.min(255, g_white*0.2 + g_cian + g_morf + g_metal);
+        let b = Math.min(255, b_white*0.2 + b_cian + b_morf + b_metal);
+
+        // Aplicando Kevlar Dupont como overlay
+        r = Math.min(255, r*0.8 + r_kevlar*0.2);
+        g = Math.min(255, g*0.8 + g_kevlar*0.2);
+        b = Math.min(255, b*0.8 + b_kevlar*0.2);
+
+        // Alpha final pulsante
+        const alpha = 0.6 + 0.3 * Math.random();
+
+        return `rgba(${Math.floor(r)},${Math.floor(g)},${Math.floor(b)},${alpha})`;
     }
 
     function medirLatencia(deltaMs) {

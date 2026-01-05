@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste 8B - Glow CRT</title>
+  <style>
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding: 20px;
+    }
+    #crt {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 30px auto;
+      max-width: 400px;
+      padding: 20px;
+      background: #111;
+      border: 2px solid #333;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    }
+    .pixel {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+      transition: all 0.3s ease;
+    }
+    #log {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: left;
+      background: #111;
+      padding: 15px;
+      border-radius: 8px;
+      height: 200px;
+      overflow-y: auto;
+      border: 1px solid #0f0;
+    }
+    h1 { color: cyan; text-shadow: 0 0 10px cyan; }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #222;
+      color: cyan;
+      border: 2px solid cyan;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover { background: cyan; color: black; }
+  </style>
+</head>
+<body>
+  <h1>TESTE 8B - GLOW CRT</h1>
+  <button id="run">Executar Novo Teste</button>
+  <button id="auto">Modo Automático (ON/OFF)</button>
+
+  <div id="crt"></div>
+
+  <pre id="log">> Aguardando execução...</pre>
+
+  <script>
+    "use strict";
+
+    const NUM_DISPAROS = 8;
+    const LIMIAR_CRASH_MS = 180;
+
+    const crt = document.getElementById('crt');
+    const log = document.getElementById('log');
+    const btnRun = document.getElementById('run');
+    const btnAuto = document.getElementById('auto');
+
+    let autoInterval = null;
+
+    function glowColor(value) {
+      // value entre 0 e 1
+      const r_white = 255 * value;
+      const g_white = 255 * value;
+      const b_white = 255 * value;
+
+      const r_cian = 0;
+      const g_cian = 120 * value;
+      const b_cian = 150 * value;
+
+      const r_morf = Math.floor(180 * value * 0.6);
+      const g_morf = Math.floor(170 * value * 0.6);
+      const b_morf = Math.floor(50 * value * 0.2);
+
+      const r_metal = Math.floor(100 * value);
+      const g_metal = Math.floor(100 * value * 0.8);
+      const b_metal = Math.floor(110 * value * 0.5);
+
+      const r = Math.min(255, r_white*0.2 + r_cian + r_morf + r_metal);
+      const g = Math.min(255, g_white*0.2 + g_cian + g_morf + g_metal);
+      const b = Math.min(255, b_white*0.2 + b_cian + b_morf + b_metal);
+
+      const alpha = 0.6 + 0.3 * Math.random(); // mais visível no fundo preto
+      return `rgba(${Math.floor(r)},${Math.floor(g)},${Math.floor(b)},${alpha})`;
+    }
+
+    function medirLatencia(deltaMs) {
+      const pct = ((deltaMs / LIMIAR_CRASH_MS) * 100).toFixed(1);
+      const risco = deltaMs > LIMIAR_CRASH_MS ? 'CRASH!' : deltaMs > 150 ? 'ALTO' : 'OK';
+      return { ms: deltaMs, s: (deltaMs/1000).toFixed(3), pct, risco };
+    }
+
+    function teste8B() {
+      const disparos = [];
+      log.innerHTML += `\n> TESTE 8B INICIADO - ${new Date().toLocaleTimeString()}\n`;
+
+      crt.innerHTML = '';
+
+      for (let i = 0; i < NUM_DISPAROS; i++) {
+        const word = Math.floor(Math.random() * 256);
+        const delta = Math.random() * 250; // 0 a 250ms
+        const latencia = medirLatencia(delta);
+
+        disparos.push({ index: i+1, word8: word, latencia });
+
+        // Log
+        const corRisco = latencia.risco === 'CRASH!' ? '#ff0000' : latencia.risco === 'ALTO' ? '#ffff00' : '#00ff00';
+        log.innerHTML += `Disparo ${i+1}: Word8=<span style="color:#0ff">${word}</span> | ` +
+                         `${latencia.ms.toFixed(0)}ms (${latencia.pct}%) <span style="color:${corRisco}">${latencia.risco}</span>\n`;
+
+        // Pixel visual
+        const pixel = document.createElement('div');
+        pixel.className = 'pixel';
+        pixel.style.backgroundColor = glowColor(word / 255);
+        pixel.title = `Disparo ${i+1}\nWord8: ${word}\nLatência: ${latencia.ms.toFixed(0)}ms (${latencia.pct}%)`;
+        crt.appendChild(pixel);
+      }
+
+      log.scrollTop = log.scrollHeight;
+    }
+
+    btnRun.addEventListener('click', teste8B);
+
+    btnAuto.addEventListener('click', () => {
+      if (autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = null;
+        btnAuto.textContent = 'Modo Automático (ON/OFF)';
+      } else {
+        teste8B(); // executa uma vez imediatamente
+        autoInterval = setInterval(teste8B, 3000); // a cada 3 segundos
+        btnAuto.textContent = 'Modo Automático (ON)';
+      }
+    });
+
+    // Execução inicial
+    teste8B();
+  </script>
+</body>
+</html>

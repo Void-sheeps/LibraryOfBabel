@@ -25,3 +25,9 @@ The code is written in Portuguese and is designed to be compatible with various 
 This JavaScript file, titled "Taxonomic Reaction: Restoration of Biological Structure," is a conceptual piece that simulates the processing of a "malignant frame" of pixel data. The script defines a function, `SALVAR_ALMA` ("SAVE_SOUL"), which performs a bitwise inversion on the input data, symbolizing a "purge" or "restoration."
 
 The code is written in Portuguese and includes a narrative that frames the technical operations as a biological or spiritual process. It is designed to be safely integrated into a web environment, with an event listener for a custom "CD_Insertion" event. Like the other files in this directory, `taxonomic_reaction.js` is a thematic exploration of data processing and is not a functional part of the main application.
+
+## `glow_crt_test.html`
+
+This HTML file, titled "Teste 8B - Glow CRT," is a self-contained conceptual piece that simulates a "Glow CRT" display. It generates a series of "disparos" (shots) with random values and latencies, visualizing them as glowing pixels on a simulated CRT screen.
+
+The file includes HTML, CSS, and JavaScript, and it provides a log of the simulated test runs. The code is written in Portuguese and, like the other files in this directory, is a thematic exploration of technology and data visualization. It is not a functional part of the main application.

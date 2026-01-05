@@ -19,3 +19,9 @@ The file is self-contained and includes HTML, CSS, and JavaScript. The code comm
 This JavaScript file defines a deterministic, auditable engine for processing frames of data through a series of conceptual stages: "Nemesis" (perturbation), "Opressão" (oppression/limit), and "Absoluta" (absolute/judgment). It uses symbolic states and outcomes ("sentenças") to represent the processing logic.
 
 The code is written in Portuguese and is designed to be compatible with various JavaScript environments. Like the other files in this directory, `jules_engine.js` is a conceptual piece, exploring themes of determinism, auditability, and the imposition of rules on a system. It is not integrated into the main application.
+
+## `taxonomic_reaction.js`
+
+This JavaScript file, titled "Taxonomic Reaction: Restoration of Biological Structure," is a conceptual piece that simulates the processing of a "malignant frame" of pixel data. The script defines a function, `SALVAR_ALMA` ("SAVE_SOUL"), which performs a bitwise inversion on the input data, symbolizing a "purge" or "restoration."
+
+The code is written in Portuguese and includes a narrative that frames the technical operations as a biological or spiritual process. It is designed to be safely integrated into a web environment, with an event listener for a custom "CD_Insertion" event. Like the other files in this directory, `taxonomic_reaction.js` is a thematic exploration of data processing and is not a functional part of the main application.

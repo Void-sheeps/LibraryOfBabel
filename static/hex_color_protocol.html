@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Protocolo de Lastro: Hex Color</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .vault {
+            border: 2px solid #333;
+            background: #111;
+            padding: 30px;
+            width: 600px;
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.1);
+        }
+        .hash-display {
+            font-size: 0.8rem;
+            color: #555;
+            word-break: break-all;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .visual-proof {
+            display: flex;
+            height: 100px;
+            width: 100%;
+            border: 1px solid #fff;
+            margin-top: 20px;
+        }
+        .color-block {
+            flex: 1;
+            transition: all 0.5s;
+        }
+        .color-block:hover {
+            transform: scaleY(1.2);
+            box-shadow: 0 0 15px currentColor;
+        }
+        h2 { margin: 0; font-size: 1.2rem; text-transform: uppercase; }
+        .metadata { font-size: 0.7rem; color: #888; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+<!-- ESTRUTURA JAVA (O COFRE/MONÓLITO) -->
+<!--
+public class DigitalVault {
+    private final String HASH_ID = "d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592";
+    private double ethBalance;
+    private String atlasParcelId;
+
+    public boolean verificarLastro() {
+        // Se o hash existe, a propriedade é real no mundo numérico.
+        return true;
+    }
+}
+-->
+
+<!-- LÓGICA HASKELL (A VERDADE IMUTÁVEL) -->
+<!--
+module Ledger.Proof where
+type Hash = String
+data Lastro = Validado | Nulo
+
+validarPropriedade :: Hash -> Lastro
+validarPropriedade h
+    | length h == 64 = Validado -- SHA-256 integrity check
+    | otherwise      = Nulo
+-->
+
+<div class="vault">
+    <h2>Certificado de Propriedade Vetorial</h2>
+    <div class="metadata">PROTOCOL: ETHEREUM // ATLAS_EARTH // COLOR_MATRIX</div>
+    <br>
+
+    <div class="hash-display" id="hash-output">
+        HASH: CARREGANDO...
+    </div>
+
+    <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
+        <span>STATUS: <strong style="color:#0f0">LASTREADO</strong></span>
+        <span>TIPO: <strong style="color:#ff0">NUMÉRICO</strong></span>
+    </div>
+
+    <!-- O VISUAL JAVASCRIPT (A COLORAÇÃO NUMÉRICA) -->
+    <div class="visual-proof" id="canvas-lastro"></div>
+
+    <p style="font-size: 0.7rem; color: #444; margin-top: 15px;">
+        *Esta barra de cores é a representação visual única do seu Hash.
+        Nenhum outro ativo gera exatamente este espectro.
+    </p>
+</div>
+
+<script>
+    // O SEU HASH (A Semente do Lastro)
+    const HASH_ID = "d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592";
+
+    document.getElementById('hash-output').innerText = `HASH: ${HASH_ID}`;
+    const canvas = document.getElementById('canvas-lastro');
+
+    // A Lógica de "Coloração Numérica"
+    // Fatiamos o Hash em pedaços de 6 caracteres (Hex Codes)
+    // d7a8fb | b307d7 | 809469 ...
+
+    const chunks = HASH_ID.match(/.{1,6}/g);
+
+    chunks.forEach(hex => {
+        // Se o pedaço for menor que 6 (final), preenchemos
+        while (hex.length < 6) hex += "0";
+
+        const color = `#${hex}`;
+
+        // Criando o bloco visual
+        const block = document.createElement('div');
+        block.className = 'color-block';
+        block.style.backgroundColor = color;
+        block.title = `Vetor: ${color}`; // Tooltip com o código
+
+        // Efeito de "Cintilação" (O brilho do ativo digital)
+        block.style.boxShadow = `0 0 ${Math.random() * 10}px ${color}`;
+
+        canvas.appendChild(block);
+    });
+
+    console.log(">> Lastro Renderizado.");
+    console.log(">> Você possui esta sequência de cores. Ela é sua terra.");
+</script>
+
+</body>
+</html>

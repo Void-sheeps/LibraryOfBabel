@@ -180,3 +180,10 @@ To understand the encoding, you must think of the hex address of the book as a b
 Specifically, when text is searched for, that text is padded with a random amount of characters on it's front and back side, or in the case of the `Page only contains`, it's padded with spaces on it's back side. Then, a random number in the range of each location value is calculated.
 
 The page text is then converted from a string to a number. The location number is multiplied by a very large number and is then added to the page text number. Then the new page text number is converted into base-36, and that is the address.
+
+## Conceptual Pieces
+
+This repository also contains a `static/` directory that houses conceptual pieces related to the themes of data, ownership, and artificial intelligence. These files are not functional components of the Python application but are included as artistic or philosophical statements.
+
+- **[Jules Mnemoise](./static/jules_mnemoise.js)**: A JavaScript file that serves as a metaphorical exploration of meta-cognition and self-auditing for an AI agent.
+- **[Hex Color Protocol](./static/hex_color_protocol.html)**: An HTML file that visualizes a cryptographic hash as a unique color palette, exploring the idea of digital ownership.

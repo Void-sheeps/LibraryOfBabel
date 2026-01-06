@@ -188,3 +188,5 @@ This repository also contains a `static/` directory that houses conceptual piece
 - **[Jules Mnemoise](./static/jules_mnemoise.js)**: A JavaScript file that serves as a metaphorical exploration of meta-cognition and self-auditing for an AI agent.
 - **[Hex Color Protocol](./static/hex_color_protocol.html)**: An HTML file that visualizes a cryptographic hash as a unique color palette, exploring the idea of digital ownership.
 - **[MetaRede](./static/MetaRede.hs)**: A Haskell script that explores themes of authority and reality manipulation in a multi-agent system.
+- **[Cambio.Ontologico](./static/Cambio.Ontologico.hs)**: A Haskell script that explores the concept of ontological change and the transformation of value in digital systems.
+- **[cambio_simbolico.js](./static/cambio_simbolico.js)**: A Node.js script that complements the Haskell scripts by simulating the output of a symbolic exchange system.

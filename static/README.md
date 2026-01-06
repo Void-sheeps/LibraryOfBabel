@@ -25,3 +25,9 @@ The script is not intended for execution within the main Python application but 
 This Haskell script serves as a conceptual piece exploring the theme of "ontological change," or the transformation of a concept's fundamental nature. It models a system where human-readable symbols (like `#` and `$`) are "transubstantiated" into internal, system-level tokens with distinct meanings.
 
 The script is not meant for direct execution in the project but is included as a philosophical commentary on how value and identity are represented and transformed in digital systems, making it a thematic fit for the repository's collection of computational curiosities.
+
+## `cambio_simbolico.js`
+
+This Node.js script complements the themes in `Cambio.Ontologico.hs` by providing a simulated output of a "symbolic exchange" system. It is a conceptual piece that, when run with specific arguments, displays a static text illustrating the asymmetry of value between a human user's input and the system's internal processing.
+
+Like the other conceptual pieces, this script is not intended for functional use in the application but serves as a statement on the nature of digital representation and value.

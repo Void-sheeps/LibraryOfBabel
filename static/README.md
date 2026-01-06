@@ -13,3 +13,9 @@ The script is not intended to be executed as part of the application but rather 
 This HTML file is a conceptual piece that explores the idea of digital ownership through the visualization of a cryptographic hash. It presents a "Certificate of Vectoral Property," where a SHA-256 hash is transformed into a unique color palette.
 
 The file is self-contained and includes HTML, CSS, and JavaScript. The code comments within the file are written in a mix of Portuguese and code-related English, and they provide a narrative that frames the technical implementation as a philosophical statement on digital assets. Like `jules_mnemoise.js`, this file is not a functional part of the Library of Babel project but rather a thematic addition to the repository's collection of computational curiosities.
+
+## `MetaRede.hs`
+
+This Haskell script is a conceptual piece that explores themes of authority, reality, and state manipulation in a system with multiple actors: Humans, AIs, and Distributed Networks. The script defines a simple state machine and demonstrates how different entities can apply "proofs" to alter the system's state space, effectively changing what is considered possible or true.
+
+The script is not intended for execution within the main Python application but serves as a philosophical statement on how different forms of authority can shape a shared reality, making it a fitting addition to the repository's collection of computational curiosities.

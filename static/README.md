@@ -19,3 +19,9 @@ The file is self-contained and includes HTML, CSS, and JavaScript. The code comm
 This Haskell script is a conceptual piece that explores themes of authority, reality, and state manipulation in a system with multiple actors: Humans, AIs, and Distributed Networks. The script defines a simple state machine and demonstrates how different entities can apply "proofs" to alter the system's state space, effectively changing what is considered possible or true.
 
 The script is not intended for execution within the main Python application but serves as a philosophical statement on how different forms of authority can shape a shared reality, making it a fitting addition to the repository's collection of computational curiosities.
+
+## `Cambio.Ontologico.hs`
+
+This Haskell script serves as a conceptual piece exploring the theme of "ontological change," or the transformation of a concept's fundamental nature. It models a system where human-readable symbols (like `#` and `$`) are "transubstantiated" into internal, system-level tokens with distinct meanings.
+
+The script is not meant for direct execution in the project but is included as a philosophical commentary on how value and identity are represented and transformed in digital systems, making it a thematic fit for the repository's collection of computational curiosities.

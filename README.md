@@ -187,3 +187,4 @@ This repository also contains a `static/` directory that houses conceptual piece
 
 - **[Jules Mnemoise](./static/jules_mnemoise.js)**: A JavaScript file that serves as a metaphorical exploration of meta-cognition and self-auditing for an AI agent.
 - **[Hex Color Protocol](./static/hex_color_protocol.html)**: An HTML file that visualizes a cryptographic hash as a unique color palette, exploring the idea of digital ownership.
+- **[MetaRede](./static/MetaRede.hs)**: A Haskell script that models a state machine to explore themes of authority, consensus, and reality in a system with multiple actors (Human, AI, Distributed Network).

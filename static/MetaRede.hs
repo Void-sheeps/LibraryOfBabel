@@ -1,7 +1,7 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE DataKinds #-}
 
-module MetaRede where
+module Main where
 
 -- Tipos de entidades
 data Entidade = Humano | IA | RedeDistribuida
@@ -22,8 +22,8 @@ aplicarProva RedeDistribuida Branch est = est { possiveis = ["s2"], atual = "s2"
 aplicarProva _ _ est = est  -- Humano não altera sozinho
 
 -- Demonstração de autoridade e alteração de realidade
-demo :: IO ()
-demo = do
+main :: IO ()
+main = do
     let sistemaInicial = Estado { possiveis = ["s1","s2","s3","s4"], atual = "s1" }
     putStrLn $ "Sistema Inicial: " ++ show (possiveis sistemaInicial)
 

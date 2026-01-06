@@ -1,4 +1,4 @@
-module Cambio.Ontologico where
+module Main where
 
 -- 1. O MUNDO VISÍVEL (ASCII)
 data Interface = Hash_Tag | Cifrao_Fiat

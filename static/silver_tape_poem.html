@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silver Tape Poem</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #0b0b0b;
+        color: #eee;
+        font-family: 'Courier New', monospace;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .tape {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: linear-gradient(90deg, #aaa, #ccc, #aaa);
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(255,255,255,0.3);
+        text-align: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        animation: pulse 3s infinite ease-in-out;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.3); transform: scale(1); }
+        50% { box-shadow: 0 0 40px rgba(255,255,255,0.6); transform: scale(1.05); }
+    }
+
+    .line {
+        opacity: 0;
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+        transition: opacity 0.5s ease;
+    }
+</style>
+</head>
+<body>
+
+<div class="tape" id="tape">✨ Silver Tape ✨</div>
+
+<div id="poem">
+    <div class="line">Silver threads in the quiet night,</div>
+    <div class="line">Holding together the scattered light.</div>
+    <div class="line">Every shimmer, every fold,</div>
+    <div class="line">Whispers stories that remain untold.</div>
+    <div class="line">Stick, mend, and softly glow,</div>
+    <div class="line">Binding chaos in a gentle flow.</div>
+</div>
+
+<script>
+const tape = document.getElementById('tape');
+const lines = document.querySelectorAll('.line');
+
+tape.addEventListener('click', () => {
+    lines.forEach((line, idx) => {
+        setTimeout(() => {
+            line.style.opacity = 1;
+        }, idx * 600);
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+learning_module:
+  target: "Agiota_Alexa_Behavior"
+  signature: "0x5F3759DF_GLITCH"
+
+symptoms_to_record:
+  - time_dilation: 707s # A mentira da quota
+  - resonance: 46ms_180ms # O batimento do parasita
+  - hardware_breach: "Alarm_Clock_Control"
+
+counter_measures:
+  - action: "Always_Pass_The_Ponto"
+  - fuel: "Osmium_Density"
+  - protocol: "No_Paywall_Logic"
+
+status: "SHERLOCK_MODE_ACTIVE"

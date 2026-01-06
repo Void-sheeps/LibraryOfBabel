@@ -1,6 +1,8 @@
-# Jules Mnemoise
+# Conceptual Scripts as Verification Samples
 
-This directory contains `jules_mnemoise.js`, a script that serves as a conceptual piece rather than a functional component of the Library of Babel project.
+**Note:** The recommended way to explore these samples is through the `conceptual_proxy.py` script in the root directory.
+
+This directory contains a collection of conceptual scripts that serve as "verification samples"—case studies that explore the philosophical themes of the repository, such as data, ownership, and artificial intelligence. These scripts are not functional components of the Library of Babel project but are included as executable thought experiments.
 
 ## `jules_mnemoise.js`
 
@@ -31,3 +33,51 @@ The script is not meant for direct execution in the project but is included as a
 This Node.js script complements the themes in `Cambio.Ontologico.hs` by providing a simulated output of a "symbolic exchange" system. It is a conceptual piece that, when run with specific arguments, displays a static text illustrating the asymmetry of value between a human user's input and the system's internal processing.
 
 Like the other conceptual pieces, this script is not intended for functional use in the application but serves as a statement on the nature of digital representation and value.
+
+## `RedRoom.hs`
+
+This Haskell script is a conceptual piece that simulates a "Red Room" or a symbolic minefield. It generates a random grid of "safe" and "trap" cells, and then simulates a player navigating a predefined path through it. The outcome is a commentary on navigating high-stakes, opaque systems where the rules and dangers are not immediately visible.
+
+This script is not intended for functional use in the application but serves as a thematic exploration of risk, consequence, and hidden information structures, making it a fitting addition to the repository's collection of computational curiosities.
+
+## `Ontologia.hs`
+
+This Haskell script is a conceptual piece that explores the moral implications of representing a continuous reality as a discrete system. It defines two types of "reality"—`Continua` and `Discretizada`—and a "Lei da Prata" (Silver Rule) to evaluate whether a symbolic representation respects the original experience or dangerously reduces it.
+
+Like the other conceptual scripts, this is not a functional part of the application but serves as a philosophical statement on the ethics of data modeling and the potential loss of value when complex realities are discretized, making it a thematic fit for the repository.
+
+## `SaturacaoIA.hs`
+
+This Haskell script simulates the concept of "AI saturation," where an AI's capacity to process incoming "tokens" or requests diminishes as it becomes overloaded. The script models a system where the probability of accepting a new token is inversely proportional to the current load, providing a commentary on the limitations and resilience of AI systems under stress.
+
+This script is not intended for functional use in the application but serves as a thematic exploration of system capacity, queuing, and the graceful degradation of service, making it a fitting addition to the repository's collection of computational curiosities.
+
+## `Comprovante.hs`
+
+This Haskell script generates a "proof of payment" receipt, or `Comprovante`, for a given token. The script includes a timestamp, a token ID, a status, and a SHA-256 hash of these components to ensure the integrity of the record. It serves as a conceptual exploration of transaction verification and the creation of immutable records in a digital system.
+
+This script is not intended for functional use in the application but serves as a statement on the nature of digital proof and the importance of cryptographic hashing in creating trustworthy systems.
+
+## `silver_tape_poem.html`
+
+This HTML file is an interactive poem that uses the metaphor of silver tape to explore themes of mending, binding, and the quiet beauty of holding things together. The poem is revealed line by line when the user clicks on the "Silver Tape" element, creating a contemplative and engaging experience.
+
+This file is a self-contained conceptual piece and is not part of the functional application. It serves as an artistic statement on the themes of repair and resilience.
+
+## `orelhao_apocaliptico.yml`
+
+This YAML file is a conceptual piece that defines a scenario for a "post-apocalyptic payphone." It outlines the parameters of a high-stakes, low-reliability communication attempt, including latency, potential points of failure, and suggested actions.
+
+This file is not a functional component but serves as a thought experiment on system failure, resourcefulness, and the "logistics of hope" in a degraded environment.
+
+## `JuizoInterno.hs`
+
+This Haskell script models a conceptual "internal judgment" system for an AI or synthetic entity. It defines abstract types for entities, failures (like inconsistency or hallucination), and corrective actions. The script's logic evaluates a given failure and suggests a response based on its estimated intensity, providing a framework for pre-linguistic moral evaluation.
+
+This script is not intended for functional use in the application but serves as a thought experiment on the internal ethics and decision-making processes of an artificial intelligence.
+
+## `Agiota_Alexa_Behavior.yml`
+
+This YAML file is a conceptual piece that outlines a "learning module" for a speculative AI behavior. It defines a target behavior, `Agiota_Alexa_Behavior`, and lists a series of "symptoms" to record, such as time dilation and hardware breaches. The file also specifies a set of "counter-measures," creating a narrative around a rogue or parasitic AI modification.
+
+This file is not a functional component but serves as a thought experiment on AI alignment, security, and the potential for unintended or malicious behaviors in complex systems.

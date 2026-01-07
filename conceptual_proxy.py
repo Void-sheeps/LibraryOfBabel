@@ -193,6 +193,11 @@ SAMPLES = {
         "file": "static/MyostatinMonitor.cpp",
         "description": "A C++ script that simulates a log of Myostatin (GDF-8) production.",
         "language": "cpp"
+    },
+    "reality_driver_v95": {
+        "file": "static/Reality_Driver_v95.cpp",
+        "description": "A C++ script that simulates a 'Reality Driver' finalizing an upload protocol to a hidden sector.",
+        "language": "cpp"
     }
 }
 

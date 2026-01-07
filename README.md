@@ -251,5 +251,6 @@ python conceptual_proxy.py <directive> --action route
 - **fortuna_algorithmi**: A Haskell script that simulates the "I'm Feeling Lucky" feature of a search engine.
 - **provisao_crq**: A C++ script that simulates a "liquidity scheduling algorithm" for a future financial obligation.
 - **myostatin_monitor**: A C++ script that simulates a log of Myostatin (GDF-8) production.
+- **reality_driver_v95**: A C++ script that simulates a 'Reality Driver' finalizing an upload protocol to a hidden sector.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

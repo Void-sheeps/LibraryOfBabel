@@ -1,59 +1,47 @@
--- |
--- Module      : SpinHidrogenio56k
--- Description : Simulação Quântica do Spin do Hidrogênio via Modem 56k
--- Principle   : O spin do elétron do hidrogênio como um qubit, onde 'up' e 'down'
---               são análogos aos sinais de 'carrier' de um modem 56k.
--- |
+-- SpinHidrogenio56k.hs
+-- Mapeia o ângulo de spin de um elétron de hidrogênio para um sinal analógico de modem.
+-- Conceito: A "assinatura" fundamental de um sistema como sua forma mais simples de comunicação.
 
 module Main where
 
-import System.Random (randomRIO)
+import System.Random
 
--- | O estado quântico do spin do elétron, representado como um 'Qubit'
-data Spin = Up | Down deriving (Show, Eq)
+-- O ângulo de spin do elétron de hidrogênio (um valor entre 0 e 2*pi)
+type SpinAngle = Double
 
--- | Medição do spin. Na mecânica quântica, a medição colapsa o estado.
--- | Aqui, simulamos isso com uma escolha aleatória.
-medirSpin :: IO Spin
-medirSpin = do
-    resultado <- randomRIO (0, 1 :: Int)
-    return $ if resultado == 0 then Up else Down
+-- A "qualidade" do sinal de modem correspondente
+data SignalQuality = RuidoBranco | SinalFraco | Handshake56k | Technosignature deriving (Show, Eq)
 
--- | Simula a "transmissão" do estado de spin através de um canal ruidoso (o modem 56k)
--- | Há uma chance de o spin "flipar" (inverter)
-transmitirSinal :: Spin -> IO Spin
-transmitirSinal s = do
-    ruido <- randomRIO (0, 100 :: Int)
-    -- 10% de chance de flipar o spin
-    return $ if ruido < 10 then flipSpin s else s
+-- Gera um ângulo de spin aleatório
+randomSpinAngle :: IO SpinAngle
+randomSpinAngle = randomRIO (0.0, 2 * pi)
 
--- | Inverte o spin
-flipSpin :: Spin -> Spin
-flipSpin Up = Down
-flipSpin Down = Up
+-- Mapeia o ângulo de spin para a qualidade do sinal
+-- A "technosignature" está em uma faixa muito estreita, análoga à linha de 21cm do hidrogênio.
+angleToSignal :: SpinAngle -> SignalQuality
+angleToSignal angle
+    -- A "linha de hidrogênio" metafórica: uma faixa muito específica
+    | abs (angle - pi) < 0.01 = Technosignature
+    -- Uma faixa um pouco mais ampla para um handshake bem-sucedido
+    | abs (angle - pi) < 0.2  = Handshake56k
+    -- Uma faixa ainda mais ampla para um sinal reconhecível, mas fraco
+    | abs (angle - pi) < 0.8  = SinalFraco
+    -- Todo o resto é ruído
+    | otherwise               = RuidoBranco
+
+-- Simula a observação do sinal
+observeSignal :: IO ()
+observeSignal = do
+    angle <- randomSpinAngle
+    let quality = angleToSignal angle
+    putStrLn $ "Ângulo de Spin detectado: " ++ show angle
+    putStrLn $ "Qualidade do Sinal: " ++ show quality
+    if quality == Technosignature
+        then putStrLn "[CONCLUSÃO] Assinatura tecnológica inequívoca. Origem: Desconhecida."
+        else putStrLn "[CONCLUSÃO] Nenhuma assinatura anômala detectada."
 
 main :: IO ()
 main = do
-    putStrLn "=== SIMULADOR QUÂNTICO 'HYDRO-DIAL' ==="
-
-    -- 1. Preparando o estado inicial (análogo a um átomo de hidrogênio)
-    let estadoInicial = Up
-    putStrLn $ "Estado de spin inicial preparado: " ++ show estadoInicial
-
-    -- 2. "Transmitindo" o estado através do modem 56k (canal ruidoso)
-    putStrLn "Transmitindo o estado via 'linha de 56k'... pode haver interferência."
-    estadoTransmitido <- transmitirSinal estadoInicial
-
-    -- 3. "Medindo" o estado no destino
-    putStrLn "Realizando a medição do spin no destino..."
-    estadoMedido <- medirSpin
-
-    -- 4. Análise dos resultados
-    putStrLn $ "Estado de spin medido no destino: " ++ show estadoMedido
-    putStrLn ""
-
-    if estadoInicial == estadoMedido
-        then putStrLn "[CONCLUSÃO]: A informação quântica foi transmitida com sucesso (dentro da probabilidade)."
-        else putStrLn "[CONCLUSÃO]: A informação foi corrompida pelo ruído no canal (ou colapsou para um estado diferente)."
-
-    putStrLn "[SIGNIFICADO]: A fragilidade de um estado quântico é análoga à instabilidade de uma conexão dial-up. Ambos são canais de informação sensíveis ao 'ruído' do universo."
+    putStrLn "--- INICIANDO PROTOCOLO DE OBSERVAÇÃO 56K/H ---"
+    putStrLn "Varrendo o espectro em busca de assinaturas de spin..."
+    observeSignal

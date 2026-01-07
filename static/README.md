@@ -129,3 +129,9 @@ This file is not a functional component but serves as a thought experiment on th
 This Markdown file is a conceptual piece that presents a structural ethical critique of artificial intelligence. It defines formal axioms to distinguish between biological intelligence (moral agents) and artificial intelligence (computational systems), arguing that attributing moral responsibility to a synthetic layer is a "category error."
 
 This file is not a functional component but serves as a thought experiment on AI alignment and ethics, emphasizing that responsibility remains exclusively with biological agents.
+
+## `monolith_banana.html`
+
+This HTML file is an interactive, animated art piece that explores the symbolic relationship between order (a monolith), chaos (a banana), and connection (silver tape). The scene is accompanied by a "terminal" that displays a sequence of cryptic, system-like messages, creating a narrative of a symbiotic, sleeping machine.
+
+This file is not a functional component but serves as a thought experiment on the aesthetics of information, the balance of structure and absurdity, and the quiet integrity of systems at rest.

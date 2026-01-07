@@ -98,6 +98,11 @@ SAMPLES = {
         "file": "static/Structural_Ethical_Critique.md",
         "description": "A structural ethical critique of AI.",
         "language": "cat"
+    },
+    "monolith_banana": {
+        "file": "static/monolith_banana.html",
+        "description": "An interactive HTML art piece.",
+        "language": "browser"
     }
 }
 

@@ -181,6 +181,18 @@ Specifically, when text is searched for, that text is padded with a random amoun
 
 The page text is then converted from a string to a number. The location number is multiplied by a very large number and is then added to the page text number. Then the new page text number is converted into base-36, and that is the address.
 
+## Prerequisites
+
+To run all conceptual samples, you will need the following dependencies installed:
+
+- **Python 3**: For running the main `conceptual_proxy.py` script.
+- **GHC (Glasgow Haskell Compiler)**: For compiling and running Haskell (`.hs`) scripts.
+- **G++ (GNU C++ Compiler)**: For compiling and running C++ (`.cpp`) scripts.
+- **Node.js**: For executing JavaScript (`.js`) scripts.
+- **Haskell Libraries**: Some Haskell scripts may require additional libraries. These can typically be installed using `cabal` or `stack`. Key dependencies include:
+  - `cryptonite`
+  - `base16-bytestring`
+
 ## Conceptual Terminal
 
 This repository contains a collection of "verification samples"—conceptual scripts that serve as executable thought experiments. The primary interface for these samples is the **Conceptual Terminal**, a proxy script that frames the interaction itself as part of the concept.

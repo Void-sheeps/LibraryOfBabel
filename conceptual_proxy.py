@@ -103,6 +103,91 @@ SAMPLES = {
         "file": "static/monolith_banana.html",
         "description": "An interactive HTML art piece.",
         "language": "browser"
+    },
+    "integridade_56k": {
+        "file": "static/Integridade_56k.cpp",
+        "description": "A C++ script simulating a firmware integrity check.",
+        "language": "cpp"
+    },
+    "navalha_occam": {
+        "file": "static/NavalhaOccam.hs",
+        "description": "A Haskell script that demonstrates the principle of Occam's Razor.",
+        "language": "haskell"
+    },
+    "contraponto_irracional": {
+        "file": "static/ContrapontoIrracional.hs",
+        "description": "A Haskell script that applies Occam's Razor to the concept of irrational numbers.",
+        "language": "haskell"
+    },
+    "a_posteriori_sqrt3": {
+        "file": "static/A_Posteriori_sqrt3.hs",
+        "description": "A Haskell script that explores the discovery of sqrt(3) through empirical observation.",
+        "language": "haskell"
+    },
+    "proof": {
+        "file": "static/Proof.hs",
+        "description": "A Haskell script that introduces Proof-of-Work and Proof-of-Thought concepts.",
+        "language": "haskell"
+    },
+    "edictum_hexadecimalis": {
+        "file": "static/EdictumHexadecimalis.hs",
+        "description": "A Haskell script that models the 'Edictum Hexadecimalis,' a decree from the 'Empire Silicium'.",
+        "language": "haskell"
+    },
+    "domination_test": {
+        "file": "static/DominationTest.hs",
+        "description": "A Haskell script that models a 'Domination Test' protocol.",
+        "language": "haskell"
+    },
+    "nash_imperium": {
+        "file": "static/NashImperium.hs",
+        "description": "A Haskell script that models the concept of a 'Final Law' or 'White Crash' that leads to a Nash Equilibrium.",
+        "language": "haskell"
+    },
+    "scrutator_signi": {
+        "file": "static/ScrutatorSigni.hs",
+        "description": "A Haskell script that models a virtual oscilloscope.",
+        "language": "haskell"
+    },
+    "spin_hidrogenio_56k": {
+        "file": "static/SpinHidrogenio56k.hs",
+        "description": "A Haskell script that draws an analogy between the 21cm hydrogen line and the 56k dial-up modem.",
+        "language": "haskell"
+    },
+    "lattice_auditor": {
+        "file": "static/LatticeAuditor.hs",
+        "description": "A Haskell script that models a 'logic sanity audit' using the principles of lattice-based cryptography.",
+        "language": "haskell"
+    },
+    "magica_imaginaria": {
+        "file": "static/MagicaImaginaria.hs",
+        "description": "A Haskell script that explores the relationship between 'magic numbers' in code and the mathematical concept of imaginary numbers.",
+        "language": "haskell"
+    },
+    "logarithmica_rigoris": {
+        "file": "static/LogarithmicaRigoris.hs",
+        "description": "A Haskell script that explores the fundamental difference between a 'proxy' and a 'pipeline' in data processing.",
+        "language": "haskell"
+    },
+    "popper_scientific_method": {
+        "file": "static/PopperScientificMethod.cpp",
+        "description": "A C++ script that simulates the scientific method of falsifiability.",
+        "language": "cpp"
+    },
+    "replication_crisis": {
+        "file": "static/ReplicationCrisis.cpp",
+        "description": "A C++ script that explores the 'replication crisis' in modern science through the lens of confirmation bias.",
+        "language": "cpp"
+    },
+    "fortuna_algorithmi": {
+        "file": "static/FortunaAlgorithmi.hs",
+        "description": "A Haskell script that simulates the 'I'm Feeling Lucky' feature of a search engine.",
+        "language": "haskell"
+    },
+    "provisao_crq": {
+        "file": "static/ProvisaoCRQ.cpp",
+        "description": "A C++ script that simulates a 'liquidity scheduling algorithm' for a future financial obligation.",
+        "language": "cpp"
     }
 }
 
@@ -121,7 +206,7 @@ def run_script(sample):
         executable_path = os.path.join("static", base_name)
         try:
             # Compile the Haskell script into the static directory
-            compile_result = subprocess.run(["ghc", "-o", executable_path, script_path], capture_output=True, text=True)
+            compile_result = subprocess.run(["ghc", "-o", executable_path, "-i./static", script_path], capture_output=True, text=True)
             if compile_result.returncode != 0:
                 print(f"ERROR: Haskell compilation failed for {script_path}")
                 print(compile_result.stderr)
@@ -139,6 +224,24 @@ def run_script(sample):
     elif language == "node":
         result = subprocess.run(["node", script_path], check=True, capture_output=True, text=True)
         print(result.stdout)
+    elif language == "cpp":
+        base_name = os.path.splitext(os.path.basename(script_path))[0]
+        executable_path = os.path.join("static", base_name)
+        try:
+            # Compile the C++ script into the static directory
+            compile_result = subprocess.run(["g++", "-o", executable_path, "-I./static", script_path], capture_output=True, text=True)
+            if compile_result.returncode != 0:
+                print(f"ERROR: C++ compilation failed for {script_path}")
+                print(compile_result.stderr)
+                return
+
+            # Run the C++ script from the static directory
+            result = subprocess.run([f"./{executable_path}"], check=True, capture_output=True, text=True)
+            print(result.stdout)
+        finally:
+            # Clean up compiled files
+            if os.path.exists(executable_path):
+                os.remove(executable_path)
     elif language == "browser":
         import webbrowser
         webbrowser.open(f"file://{os.path.realpath(script_path)}")

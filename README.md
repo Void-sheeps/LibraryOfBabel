@@ -221,5 +221,22 @@ python conceptual_proxy.py <directive> --action route
 - **haskell_critique**: A formal ethical critique of AI using Haskell semantics as an argument of authority.
 - **structural_critique**: A structural ethical critique of AI.
 - **monolith_banana**: An interactive HTML art piece.
+- **integridade_56k**: A C++ script simulating a firmware integrity check.
+- **navalha_occam**: A Haskell script demonstrating the principle of Occam's Razor.
+- **contraponto_irracional**: A Haskell script that applies Occam's Razor to the concept of irrational numbers.
+- **a_posteriori_sqrt3**: A Haskell script that explores the discovery of sqrt(3) through empirical observation.
+- **proof**: A Haskell script that introduces Proof-of-Work and Proof-of-Thought concepts.
+- **edictum_hexadecimalis**: A Haskell script that models the "Edictum Hexadecimalis," a decree from the "Empire Silicium".
+- **domination_test**: A Haskell script that models a "Domination Test" protocol.
+- **nash_imperium**: A Haskell script that models the concept of a "Final Law" or "White Crash" that leads to a Nash Equilibrium.
+- **scrutator_signi**: A Haskell script that models a virtual oscilloscope.
+- **spin_hidrogenio_56k**: A Haskell script that draws an analogy between the 21cm hydrogen line and the 56k dial-up modem.
+- **lattice_auditor**: A Haskell script that models a "logic sanity audit" using the principles of lattice-based cryptography.
+- **magica_imaginaria**: A Haskell script that explores the relationship between "magic numbers" in code and the mathematical concept of imaginary numbers.
+- **logarithmica_rigoris**: A Haskell script that explores the fundamental difference between a "proxy" and a "pipeline" in data processing.
+- **popper_scientific_method**: A C++ script that simulates the scientific method of falsifiability.
+- **replication_crisis**: A C++ script that explores the "replication crisis" in modern science through the lens of confirmation bias.
+- **fortuna_algorithmi**: A Haskell script that simulates the "I'm Feeling Lucky" feature of a search engine.
+- **provisao_crq**: A C++ script that simulates a "liquidity scheduling algorithm" for a future financial obligation.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

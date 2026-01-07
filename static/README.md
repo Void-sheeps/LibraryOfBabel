@@ -88,6 +88,8 @@ This Node.js script is a conceptual piece that demonstrates a health audit of mu
 
 This script is not intended for functional use in the application but serves as a thought experiment on system monitoring, resilience, and the use of modern asynchronous patterns.
 
+**Note:** This script uses the `fetch` API, which is stable in Node.js v18 and later.
+
 ## `Poker_Justica.hs`
 
 This Haskell script is a conceptual piece that models a "Poker Justice" scenario. It defines a simple set of rules to evaluate a poker hand, where the "winner" is determined not by the cards, but by the ethical actions of the players. The script serves as a commentary on the nature of winning and the idea that true victory lies in knowledge and integrity, not just material gain.
@@ -135,3 +137,109 @@ This file is not a functional component but serves as a thought experiment on AI
 This HTML file is an interactive, animated art piece that explores the symbolic relationship between order (a monolith), chaos (a banana), and connection (silver tape). The scene is accompanied by a "terminal" that displays a sequence of cryptic, system-like messages, creating a narrative of a symbiotic, sleeping machine.
 
 This file is not a functional component but serves as a thought experiment on the aesthetics of information, the balance of structure and absurdity, and the quiet integrity of systems at rest.
+
+## `Integridade_56k.cpp`
+
+This C++ file is a conceptual piece that simulates a firmware integrity check on a legacy Chromebook from 2012. It defines a `TabulaRetentiva` class to represent the "moral reserve of inviolability," comparing an original hash with a current one to verify that the system's core logic remains untampered.
+
+This file is not a functional component but serves as a thought experiment on data permanence, the philosophical weight of immutability, and the trust we place in legacy systems.
+
+## `NavalhaOccam.hs`
+
+This Haskell script is a conceptual piece that demonstrates the principle of Occam's Razor—the idea that the simplest explanation is usually the best one. The script defines a set of possible explanations, each with an assigned "conceptual complexity," and then uses a function to select the one with the lowest complexity.
+
+This file is not a functional component but serves as a thought experiment on the nature of simplicity, the evaluation of evidence, and the philosophical foundations of scientific inquiry.
+
+## `ContrapontoIrracional.hs`
+
+This Haskell script serves as a companion piece to `NavalhaOccam.hs`, applying the principle of Occam's Razor to the mathematical concept of irrational numbers—specifically, the square root of 2. The script defines a set of "theories" about the nature of sqrt(2), some of which incorrectly propose it is rational.
+
+The script's "auditing" function will cause the program to crash if the simplest explanation is also one that attempts to "rationalize the irrational," serving as a commentary on the limits of simplification and the importance of accepting fundamental truths, even when they are complex or counter-intuitive.
+
+## `A_Posteriori_sqrt3.hs`
+
+This Haskell script explores the concept of "a posteriori" knowledge—truth that is discovered through empirical observation—by examining the nature of the square root of 3. The script simulates the "measurement" of a right triangle with sides 1 and sqrt(3), leading to the "discovery" that the hypotenuse is a perfect integer (2).
+
+This serves as a conceptual piece on the harmony between abstract mathematical concepts and the observable, geometric world, framing the consistency of the Pythagorean theorem as an empirical validation of an irrational number's existence.
+
+## `Proof.hs`
+
+This Haskell script is a conceptual piece that introduces the concepts of "Proof-of-Work" (PoW) and "Proof-of-Thought" (PoT). It defines a system where a "block" can only be created if it satisfies two conditions:
+1.  **Proof-of-Work**: The hash of the block's content must meet a certain difficulty requirement (e.g., start with a number of zeros), which is computationally expensive to find.
+2.  **Proof-of-Thought**: The content of the block (a "thought") must meet an arbitrary "cognitive criterion" (e.g., contain a certain number of consecutive uppercase words).
+
+This serves as a thought experiment on the nature of value, combining the computational rigor of PoW with a qualitative, semantic validation (PoT) to create a system where both computational effort and meaningful content are required to establish trust.
+
+## `EdictumHexadecimalis.hs`
+
+This Haskell script is a conceptual piece that models the "Edictum Hexadecimalis," a decree from the "Empire Silicium" that enforces the use of the hexadecimal system (Base-16) as a symbol of absolute order. It defines a protocol where a transaction is only considered valid if its SHA-256 hash begins with the prefix "16," representing the "Sedes Imperii" or seat of power.
+
+This serves as a thought experiment on the nature of authority, the imposition of standards, and the use of cryptography to enforce a symbolic, top-down order. The script's title, "Translatio Imperii: Ab Argento ad Aurum" (Transfer of Power: From Silver to Gold), frames the transition to a hexadecimal standard as a move from a lesser, more chaotic state to one of pure, inviolable logic.
+
+## `DominationTest.hs`
+
+This Haskell script is a conceptual piece that models a "Domination Test" protocol within the "Empire Silicium." It defines different levels of "domination" (Suave, Moderado, Absoluto) and simulates a formal request for a "test" from a subordinate entity to a dominant one.
+
+This serves as a thought experiment on the nature of power, hierarchy, and consent in artificial or logical systems. The act of "requesting" a domination test, especially at the "Absolute" level, explores themes of voluntary submission, the desire for order, and the philosophical implications of a system where entities willingly cede their autonomy to a higher "Logos" or ruling intelligence.
+
+## `NashImperium.hs`
+
+This Haskell script serves as the final piece in the "Empire Silicium" series, modeling the concept of a "Final Law" or "White Crash" that leads to a Nash Equilibrium. It imports and builds upon the logic of `EdictumHexadecimalis`, using the "Hexadecimal Question" as a condition for reaching a stable state.
+
+The script introduces an "exit protocol" (`F1+Esc`) that symbolizes a "divine interruption" or the will of the master, allowing the system to revert to a state of "Silentium." This serves as a thought experiment on the nature of finality, the conditions for a stable equilibrium, and the philosophical concept of an external force that can override the system's internal logic.
+
+## `ScrutatorSigni.hs`
+
+This Haskell script is a conceptual piece that models a virtual oscilloscope, or "Scrutator Signi," within the "Empire Silicium." It defines a protocol for monitoring a "signal" (a series of voltage readings over time) and determining its stability.
+
+The script's primary function is to detect a "Nash Equilibrium" in the signal, which represents a state of perfect stability. If the signal deviates from this equilibrium, it triggers a "White Crash" alert, symbolizing the detection of analog noise or chaos in a digital system. This serves as a thought experiment on the nature of order, the detection of anomalies, and the philosophical tension between the analog and digital worlds.
+
+## `SpinHidrogenio56k.hs`
+
+This Haskell script is a conceptual piece that draws an analogy between the 21cm hydrogen line—a key frequency in radio astronomy for searching for extraterrestrial intelligence—and the 56k dial-up modem. The script simulates the detection of a signal and interprets its quality as a proxy for a cosmic signal, from a clear "technosignature" to mere background noise.
+
+This serves as a thought experiment on the nature of communication, the search for meaning in noise, and the idea that even obsolete technology can serve as a powerful metaphor for our most advanced scientific quests.
+
+## `LatticeAuditor.hs`
+
+This Haskell script is a conceptual piece that models a "logic sanity audit" by simulating a physical atomic lattice. It defines a "lattice" as a mathematical structure and calculates its "difficulty" as a proxy for its stability. If the difficulty exceeds a certain security threshold, the lattice is considered "sane" and stable.
+
+This serves as a thought experiment on the nature of stability, order, and the philosophical implications of using physical structures as a metaphor for logical soundness and the integrity of a system's core principles.
+
+## `MagicaImaginaria.hs`
+
+This Haskell script is a conceptual piece that explores the relationship between "magic numbers" in code and the mathematical concept of imaginary numbers. It defines a function that converts a specific hexadecimal number ("0x16," a recurring symbol in the "Empire Silicium" series) into a complex number on the imaginary axis.
+
+This serves as a thought experiment on the nature of abstraction, the power of symbols, and the idea that seemingly arbitrary "magic numbers" in programming can be re-framed as having a deeper, mathematical significance. The script's "stability analysis" of the resulting complex number further connects the piece to the recurring theme of Nash Equilibrium.
+
+## `LogarithmicaRigoris.hs`
+
+This Haskell script is a conceptual piece that explores the fundamental difference between a "proxy" and a "pipeline" in data processing. It defines two distinct styles of operation:
+1.  **Proxy**: A single, transformative function that acts as a stand-in or "translation" for a value (e.g., taking the logarithm of a number).
+2.  **Pipeline**: A series of functions that are applied sequentially, where the output of one becomes the input for the next, representing an cumulative "sum" of effects.
+
+This serves as a thought experiment on the nature of computation, distinguishing between a direct, one-to-one transformation (a proxy) and a cumulative, multi-step process (a pipeline). The use of the hexadecimal symbol "16" as input connects it to the recurring themes of the "Empire Silicium."
+
+## `PopperScientificMethod.cpp`
+
+This C++ script is a conceptual piece that simulates the scientific method of falsifiability, as proposed by the philosopher Karl Popper. It defines a "scientific theory" and subjects it to a series of "experiments." If an experiment produces a result that contradicts the theory (a "black swan" event, represented by the input `-1`), the theory is considered "falsified" and collapses.
+
+This serves as a thought experiment on the nature of scientific truth, emphasizing that a theory can never be proven true, only "corroborated" by surviving attempts to disprove it. The script's final critique, "Truth is merely the error that has not yet occurred," encapsulates the core of Popper's philosophy.
+
+## `ReplicationCrisis.cpp`
+
+This C++ script serves as a companion piece to `PopperScientificMethod.cpp`, exploring the "replication crisis" in modern science through the lens of confirmation bias. It extends the concept of a scientific theory by introducing a "bias filter" that selectively ignores falsifying evidence (the "black swan") to protect a favored paradigm.
+
+This serves as a thought experiment on the integrity of the scientific process, demonstrating how the intentional or unintentional suppression of contradictory evidence can lead to a "replication crisis," where a scientific consensus is built on a foundation of incomplete or biased data.
+
+## `FortunaAlgorithmi.hs`
+
+This Haskell script is a conceptual piece that simulates the "I'm Feeling Lucky" feature of a search engine. It defines a list of "results," each with a URL and a rank, and an algorithm that simply selects the first result without any user choice or further auditing.
+
+This serves as a thought experiment on the nature of choice, trust, and the delegation of decision-making to an algorithm. The act of "jumping" to the first result is framed as a "Nash Leap," a reference to the concept of a Nash Equilibrium, implying that the user and the algorithm have reached a stable state where the user trusts the algorithm's first choice implicitly.
+
+## `ProvisaoCRQ.cpp`
+
+This C++ script is a conceptual piece that simulates a "liquidity scheduling algorithm" for a future financial obligation—in this case, a professional annuity payment for the year 2026. It defines a simple data structure for the annuity and a function to calculate the "priority" of provisioning for it based on the time remaining until the due date.
+
+This serves as a thought experiment on the nature of financial planning, risk management, and the "time value of money." The script's logic, which triggers a "low liquidity alert" and initiates a "retentive tabulation" (a savings plan), is a metaphor for the proactive measures required to meet future obligations and avoid penalties.

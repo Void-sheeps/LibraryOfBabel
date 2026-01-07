@@ -181,9 +181,44 @@ Specifically, when text is searched for, that text is padded with a random amoun
 
 The page text is then converted from a string to a number. The location number is multiplied by a very large number and is then added to the page text number. Then the new page text number is converted into base-36, and that is the address.
 
-## Conceptual Pieces
+## Conceptual Terminal
 
-This repository also contains a `static/` directory that houses conceptual pieces related to the themes of data, ownership, and artificial intelligence. These files are not functional components of the Python application but are included as artistic or philosophical statements.
+This repository contains a collection of "verification samples"—conceptual scripts that serve as executable thought experiments. The primary interface for these samples is the **Conceptual Terminal**, a proxy script that frames the interaction itself as part of the concept.
 
-- **[Jules Mnemoise](./static/jules_mnemoise.js)**: A JavaScript file that serves as a metaphorical exploration of meta-cognition and self-auditing for an AI agent.
-- **[Hex Color Protocol](./static/hex_color_protocol.html)**: An HTML file that visualizes a cryptographic hash as a unique color palette, exploring the idea of digital ownership.
+### Using the Conceptual Terminal
+
+The terminal accepts a `directive` (the name of the sample) and an `action` to perform.
+
+**To retrieve a sample's concept:**
+```bash
+python conceptual_proxy.py <directive> --action retrieve
+```
+
+**To route a directive for execution:**
+```bash
+python conceptual_proxy.py <directive> --action route
+```
+
+### Available Directives
+
+- **metarede**: Explores themes of authority and reality manipulation.
+- **cambio_ontologico**: Explores the transformation of value in digital systems.
+- **cambio_simbolico**: Simulates the output of a symbolic exchange system.
+- **redroom**: Explores themes of risk and hidden information.
+- **ontologia**: Explores the moral implications of discretizing reality.
+- **saturacao_ia**: Simulates AI saturation and token processing limitations.
+- **comprovante**: Generates a 'proof of payment' receipt with a SHA-256 hash.
+- **silver_tape_poem**: An interactive poem about mending and binding.
+- **orelhao_apocaliptico**: A YAML file describing a post-apocalyptic payphone scenario.
+- **juizo_interno**: A Haskell script that models an 'internal judgment' system for an AI.
+- **agiota_alexa_behavior**: A YAML file outlining a 'learning module' for a conceptual AI behavior.
+- **health_audit_js**: A Node.js script that performs a health audit on a list of services.
+- **poker_justica**: A Haskell script that models a 'Poker Justice' scenario.
+- **auditoria_ia**: A Node.js script that models an 'Insolvency Report' for an AI.
+- **analise_glitch**: A Haskell script that models a 'Glitch Analysis' scenario.
+- **critica_nash**: A YAML file containing a formal critique of the use of Nash Equilibrium as a moral justification.
+- **protocolo_termico**: A YAML file modeling the risk of semantic thermal saturation and a containment protocol.
+- **haskell_critique**: A formal ethical critique of AI using Haskell semantics as an argument of authority.
+- **structural_critique**: A structural ethical critique of AI.
+
+For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

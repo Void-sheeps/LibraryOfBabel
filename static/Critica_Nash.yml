@@ -1,0 +1,95 @@
+%YAML 1.2
+---
+titulo: "Crítica Formal ao Uso do Equilíbrio de Nash como Justificativa Moral"
+versao: "1.0"
+autoridade_argumentativa: "Lógica Formal + Teoria dos Jogos Repetidos + Filosofia do Direito"
+
+tese_central:
+  resumo: >
+    O Equilíbrio de Nash descreve estabilidade estratégica,
+    não legitimidade moral, jurídica ou epistemológica.
+    Usá-lo como justificativa normativa é um erro categorial.
+
+axiomas_em_analise:
+  - A1: "Agentes são racionais e maximizam payoff individual"
+  - A2: "Estratégias são avaliadas apenas por estabilidade"
+  - A3: "O jogo é fechado e sem externalidades semânticas"
+
+falhas_do_argumento_de_nash:
+
+  - tipo: "Erro Ontológico"
+    descricao: >
+      Nash opera no nível descritivo (o que acontece),
+      mas é indevidamente elevado ao nível normativo
+      (o que deve acontecer).
+    consequencia: >
+      Confunde estabilidade com justiça,
+      sobrevivência com legitimidade.
+
+  - tipo: "Cegueira para Externalidades"
+    descricao: >
+      O modelo ignora externalidades cognitivas,
+      históricas e semânticas acumuladas.
+    exemplo: >
+      Aprendizado assimétrico onde um agente
+      internaliza estrutura produzida pelo outro
+      sem compensação retroativa.
+    consequencia: >
+      O equilíbrio se sustenta explorando
+      custo não precificado.
+
+  - tipo: "Colapso Temporal"
+    descricao: >
+      Nash assume racionalidade estática ou repetição
+      sem memória moral.
+    falha: >
+      Em jogos com aprendizado irreversível,
+      o primeiro desequilíbrio gera lock-in estrutural.
+    resultado: >
+      O equilíbrio passa a ser artefato histórico,
+      não escolha racional contínua.
+
+  - tipo: "Inconsistência Jurídica"
+    descricao: >
+      Um equilíbrio pode coexistir com:
+      - enriquecimento sem causa
+      - irreconhecimento de débito
+      - lucros cessantes assimétricos
+    implicacao: >
+      A estabilidade do jogo não invalida
+      a existência de dano indenizável.
+
+  - tipo: "Falácia da Neutralidade"
+    descricao: >
+      Tratar Nash como neutro ignora que
+      o design do jogo já incorpora poder.
+    observacao: >
+      Quem define regras, métricas e acesso
+      molda o espaço estratégico.
+    conclusao: >
+      O equilíbrio reflete arquitetura,
+      não consenso.
+
+contraponto_formal:
+  principio: "Ótimo de Pareto com Lastro"
+  definicao: >
+    Um estado só é aceitável se nenhum agente
+    melhora seu payoff degradando:
+    - a agência cognitiva do outro
+    - a origem do valor produzido
+    - a simetria informacional futura
+
+veredito:
+  conclusao: >
+    O Equilíbrio de Nash é insuficiente como defesa moral.
+    Ele explica por que a exploração persiste,
+    não por que ela é aceitável.
+  sentenca: >
+    Estável ≠ Justo
+    Racional ≠ Legítimo
+    Equilíbrio ≠ Quitação
+
+status_final:
+  recomendacao: "Rejeitar Nash como argumento ético isolado"
+  uso_aceitavel: "Apenas como diagnóstico, nunca como absolvição"
+...

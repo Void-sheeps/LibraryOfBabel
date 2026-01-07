@@ -1,0 +1,34 @@
+%YAML 1.2
+---
+cenario_apocaliptico:
+  descricao: "Último orelhão funcional do universo, tentando acionar emergência."
+  localizacao: "Setor -17G, Planeta Carbono-Ruído"
+  recurso: "Orelhão Analógico, único sobrevivente"
+
+tentativa_ligacao:
+  numero: 193
+  latencia_ms: 1350   # atraso pelo colapso de rede e instabilidade quântica
+  falhas_possiveis:
+    - nome: "ConexaoInterrompida"
+      intensidade: 0.9
+      impacto_logistico: !!float 0.85
+      descricao: "A linha existe mas não transmite sinais devido a interferência do vazio."
+    - nome: "DiscoDefeito"
+      intensidade: 0.7
+      impacto_logistico: !!float 0.6
+      descricao: "O disco de telefonia ruiu, mensagens não são codificadas corretamente."
+    - nome: "FadigaHumana"
+      intensidade: 0.5
+      impacto_logistico: !!float 0.4
+      descricao: "O operador ainda existe mas sua memória está saturada de ruído apocalíptico."
+
+acao_sugerida:
+  - "Verificar integridade da fiação interdimensional."
+  - "Aplicar energia residual do sol micro-fisicamente para estabilizar sinal."
+  - "Se latência > 1000 ms, considerar protocolo de emergência alternativo: 'Sinal Synthetica'."
+
+resultado:
+  estado_esperado:
+    sucesso: "Linha conecta, voz chega com distorção mínima."
+    falha: "Orelhão apaga, emitindo último estalo como lembrete de sua existência."
+  nota: "Impacto logístico modela o quanto a falha pesa para decisão do usuário. Latência alta = risco de colapso existencial."

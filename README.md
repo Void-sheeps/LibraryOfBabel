@@ -238,5 +238,6 @@ python conceptual_proxy.py <directive> --action route
 - **replication_crisis**: A C++ script that explores the "replication crisis" in modern science through the lens of confirmation bias.
 - **fortuna_algorithmi**: A Haskell script that simulates the "I'm Feeling Lucky" feature of a search engine.
 - **provisao_crq**: A C++ script that simulates a "liquidity scheduling algorithm" for a future financial obligation.
+- **myostatin_monitor**: A C++ script that simulates a log of Myostatin (GDF-8) production.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

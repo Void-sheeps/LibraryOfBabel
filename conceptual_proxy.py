@@ -188,6 +188,11 @@ SAMPLES = {
         "file": "static/ProvisaoCRQ.cpp",
         "description": "A C++ script that simulates a 'liquidity scheduling algorithm' for a future financial obligation.",
         "language": "cpp"
+    },
+    "myostatin_monitor": {
+        "file": "static/MyostatinMonitor.cpp",
+        "description": "A C++ script that simulates a log of Myostatin (GDF-8) production.",
+        "language": "cpp"
     }
 }
 

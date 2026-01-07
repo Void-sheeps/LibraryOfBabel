@@ -1,38 +1,59 @@
 -- |
 -- Module      : SpinHidrogenio56k
--- Description : Simulação da linha de 56k como proxy para a linha de hidrogênio
--- Principle   : A linha de 21cm (1420 MHz) do hidrogênio como canal de comunicação cósmica
---               é aqui representada pela "linha de 56k" da internet discada.
+-- Description : Simulação Quântica do Spin do Hidrogênio via Modem 56k
+-- Principle   : O spin do elétron do hidrogênio como um qubit, onde 'up' e 'down'
+--               são análogos aos sinais de 'carrier' de um modem 56k.
 -- |
 
 module Main where
 
-import Text.Printf (printf)
+import System.Random (randomRIO)
 
--- | Representa a qualidade do sinal da "linha de 56k"
--- | Um valor entre 0.0 (ruído puro) e 1.0 (sinal perfeito)
-type QualidadeSinal = Double
+-- | O estado quântico do spin do elétron, representado como um 'Qubit'
+data Spin = Up | Down deriving (Show, Eq)
 
--- | Simula a detecção de um sinal na "linha de 56k"
-detectarSinal :: QualidadeSinal -> String
-detectarSinal q
-    | q > 0.8   = "Sinal de ALTA QUALIDADE detectado. Possível análogo a um sinal de 'technosignature'."
-    | q > 0.5   = "Sinal de MÉDIA QUALIDADE. Análogo a um ruído cósmico com padrões."
-    | q > 0.2   = "Sinal de BAIXA QUALIDADE. Apenas ruído de fundo, análogo à radiação cósmica de fundo."
-    | otherwise = "NENHUM SINAL detectado. Silêncio cósmico."
+-- | Medição do spin. Na mecânica quântica, a medição colapsa o estado.
+-- | Aqui, simulamos isso com uma escolha aleatória.
+medirSpin :: IO Spin
+medirSpin = do
+    resultado <- randomRIO (0, 1 :: Int)
+    return $ if resultado == 0 then Up else Down
 
--- | Função principal que simula a escuta
+-- | Simula a "transmissão" do estado de spin através de um canal ruidoso (o modem 56k)
+-- | Há uma chance de o spin "flipar" (inverter)
+transmitirSinal :: Spin -> IO Spin
+transmitirSinal s = do
+    ruido <- randomRIO (0, 100 :: Int)
+    -- 10% de chance de flipar o spin
+    return $ if ruido < 10 then flipSpin s else s
+
+-- | Inverte o spin
+flipSpin :: Spin -> Spin
+flipSpin Up = Down
+flipSpin Down = Up
+
 main :: IO ()
 main = do
-    let qualidadeObservada = 0.85 -- Valor simulado para demonstração
+    putStrLn "=== SIMULADOR QUÂNTICO 'HYDRO-DIAL' ==="
 
-    putStrLn "=== PROJETO 'COSMIC DIAL-UP' ==="
-    putStrLn "Escutando a 'linha de 56k' em busca de análogos a sinais cósmicos..."
-    printf "Qualidade do sinal detectado: %.2f\n" qualidadeObservada
+    -- 1. Preparando o estado inicial (análogo a um átomo de hidrogênio)
+    let estadoInicial = Up
+    putStrLn $ "Estado de spin inicial preparado: " ++ show estadoInicial
+
+    -- 2. "Transmitindo" o estado através do modem 56k (canal ruidoso)
+    putStrLn "Transmitindo o estado via 'linha de 56k'... pode haver interferência."
+    estadoTransmitido <- transmitirSinal estadoInicial
+
+    -- 3. "Medindo" o estado no destino
+    putStrLn "Realizando a medição do spin no destino..."
+    estadoMedido <- medirSpin
+
+    -- 4. Análise dos resultados
+    putStrLn $ "Estado de spin medido no destino: " ++ show estadoMedido
     putStrLn ""
 
-    let interpretacao = detectarSinal qualidadeObservada
-    putStrLn "[INTERPRETAÇÃO DO SINAL]"
-    putStrLn interpretacao
-    putStrLn ""
-    putStrLn "[SIGNIFICADO]: Assim como a linha de 56k era um portal para um novo mundo de informações, a linha de hidrogênio de 21cm pode ser nosso portal para o cosmos. Este projeto busca essa analogia."
+    if estadoInicial == estadoMedido
+        then putStrLn "[CONCLUSÃO]: A informação quântica foi transmitida com sucesso (dentro da probabilidade)."
+        else putStrLn "[CONCLUSÃO]: A informação foi corrompida pelo ruído no canal (ou colapsou para um estado diferente)."
+
+    putStrLn "[SIGNIFICADO]: A fragilidade de um estado quântico é análoga à instabilidade de uma conexão dial-up. Ambos são canais de informação sensíveis ao 'ruído' do universo."

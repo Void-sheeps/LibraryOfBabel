@@ -243,3 +243,9 @@ This serves as a thought experiment on the nature of choice, trust, and the dele
 This C++ script is a conceptual piece that simulates a "liquidity scheduling algorithm" for a future financial obligation—in this case, a professional annuity payment for the year 2026. It defines a simple data structure for the annuity and a function to calculate the "priority" of provisioning for it based on the time remaining until the due date.
 
 This serves as a thought experiment on the nature of financial planning, risk management, and the "time value of money." The script's logic, which triggers a "low liquidity alert" and initiates a "retentive tabulation" (a savings plan), is a metaphor for the proactive measures required to meet future obligations and avoid penalties.
+
+## `MyostatinMonitor.cpp`
+
+This C++ script is a conceptual piece that simulates a log of Myostatin (GDF-8) production, a protein that regulates muscle growth. It defines a simple data structure for a biochemical log and a function that simulates the recording of Myostatin concentration over time, including alerts for "protein synthesis suppression."
+
+This serves as a thought experiment on the nature of biological regulation, feedback loops, and the delicate balance required for homeostasis. The script's final message, "Ratio Sine Qualia" (Reason without Qualia), frames the biochemical log as a purely quantitative, dispassionate observation of a complex biological process.

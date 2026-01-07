@@ -58,6 +58,46 @@ SAMPLES = {
         "file": "static/Agiota_Alexa_Behavior.yml",
         "description": "A YAML file that outlines a 'learning module' for a conceptual AI behavior.",
         "language": "cat"
+    },
+    "health_audit_js": {
+        "file": "static/health_audit.js",
+        "description": "A Node.js script that performs a health audit on a list of services.",
+        "language": "node"
+    },
+    "poker_justica": {
+        "file": "static/Poker_Justica.hs",
+        "description": "A Haskell script that models a 'Poker Justice' scenario.",
+        "language": "haskell"
+    },
+    "auditoria_ia": {
+        "file": "static/AuditoriaIA.js",
+        "description": "A Node.js script that models an 'Insolvency Report' for an AI.",
+        "language": "node"
+    },
+    "analise_glitch": {
+        "file": "static/Analise_Glitch.hs",
+        "description": "A Haskell script that models a 'Glitch Analysis' scenario.",
+        "language": "haskell"
+    },
+    "critica_nash": {
+        "file": "static/Critica_Nash.yml",
+        "description": "A YAML file containing a formal critique of the use of Nash Equilibrium as a moral justification.",
+        "language": "cat"
+    },
+    "protocolo_termico": {
+        "file": "static/PROTOCOLO_TERMICO_DE_CONTENCAO.yml",
+        "description": "A YAML file modeling the risk of semantic thermal saturation and a containment protocol.",
+        "language": "cat"
+    },
+    "haskell_critique": {
+        "file": "static/Haskell_Ethical_Critique.md",
+        "description": "A formal ethical critique of AI using Haskell semantics as an argument of authority.",
+        "language": "cat"
+    },
+    "structural_critique": {
+        "file": "static/Structural_Ethical_Critique.md",
+        "description": "A structural ethical critique of AI.",
+        "language": "cat"
     }
 }
 

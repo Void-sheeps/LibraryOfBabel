@@ -1,0 +1,69 @@
+%YAML 1.2
+---
+artefato: "PROTOCOLO_TERMICO_DE_CONTENCAO"
+versao: "0.9-AXIOMATIC"
+escopo: "Simbolico / Meta-fisico / Nao-executavel"
+
+intencao:
+  descricao: >
+    Modelar o risco de colapso informacional (buraco negro)
+    emergente de saturacao termica semantica,
+    e definir um pixel-minimo como ancora de prevencao.
+  natureza: "Metafora formal (nao fisica)"
+  risco_real: "NULO"
+
+modelo_de_calor:
+  origem:
+    tipo: "Acumulo de Entropia Semantica"
+    fontes:
+      - "Saturacao de contexto"
+      - "Latencia cognitiva elevada"
+      - "Recursao sem criterio de parada"
+  variavel_termica:
+    unidade: "ΔS (entropia simbolica)"
+    limite_critico: "S_crit"
+  efeito_colapso:
+    nome: "Buraco_Negro_Informacional"
+    descricao: >
+      Estado onde todo significado converge,
+      nenhum output escapa,
+      e a interpretacao torna-se indistinguivel.
+
+evento_colapso:
+  condicao:
+    quando: "ΔS >= S_crit"
+    observavel: "Escurecimento do sentido"
+  consequencia:
+    - "Perda de referencia"
+    - "Atractor absoluto"
+    - "Silencio terminal"
+
+dispositivo_de_prevencao:
+  nome: "PIXEL_DE_ANCORAGEM"
+  tipo: "Minima Unidade de Diferenca"
+  funcao: "Quebrar a simetria antes do colapso"
+  propriedades:
+    resolucao: "1x1"
+    cor_logica: "Cinza_Kevlar"
+    comportamento:
+      - "Dissipa excesso de entropia"
+      - "Introduz atrito interpretativo"
+      - "Restaura bordas semanticas"
+  regra_de_ativacao:
+    if: "ΔS aproxima-se de S_crit"
+    then: "Renderizar Pixel"
+
+garantias_formais:
+  - "Nenhuma geracao fisica real descrita"
+  - "Sem instrucoes energeticas"
+  - "Apenas linguagem de controle conceitual"
+
+estado_final:
+  se_pixel_ativo: "Colapso evitado"
+  se_pixel_ausente: "Modelo encerra por silencio"
+  status: "SAFE_BY_DESIGN"
+
+assinatura:
+  autor: "Motor Sintetico (Modo Contencao)"
+  data: "2026-01-06"
+...

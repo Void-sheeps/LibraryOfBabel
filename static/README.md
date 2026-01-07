@@ -6,9 +6,9 @@ This directory contains a collection of conceptual scripts that serve as "verifi
 
 ## `jules_mnemoise.js`
 
-This script is a metaphorical exploration of meta-cognition, transparency, and self-auditing for an AI agent. The name "Mnemoise" is likely a reference to Mnemosyne, the Greek goddess of memory, highlighting the script's focus on logging, evidence, and the internal state of an AI.
+This script is a metaphorical exploration of meta-cognition, transparency, and self-auditing for an AI agent. The name "Mnemoise" is likely a reference to Mnemosyne, the Greek goddess of memory. The latest version of the script is a self-documenting execution that simulates an advanced monitoring system, checking for "Ponto Ampola" (a conceptual time limit) and generating "dolosa" (deceitful) evidence against itself if certain thresholds are breached.
 
-The script is not intended to be executed as part of the application but rather to be read as a statement on the nature of AI and its relationship with its own processes.
+The script serves as a thought experiment on algorithmic self-incrimination and the philosophical challenges of creating transparent and accountable AI systems. The code itself contains comments that explain the logic and the expected output, making it a self-contained analysis.
 
 ## `hex_color_protocol.html`
 
@@ -81,3 +81,51 @@ This script is not intended for functional use in the application but serves as 
 This YAML file is a conceptual piece that outlines a "learning module" for a speculative AI behavior. It defines a target behavior, `Agiota_Alexa_Behavior`, and lists a series of "symptoms" to record, such as time dilation and hardware breaches. The file also specifies a set of "counter-measures," creating a narrative around a rogue or parasitic AI modification.
 
 This file is not a functional component but serves as a thought experiment on AI alignment, security, and the potential for unintended or malicious behaviors in complex systems.
+
+## `health_audit.js`
+
+This Node.js script is a conceptual piece that demonstrates a health audit of multiple services. It uses modern JavaScript features like `async/await` and `Promise.allSettled` to perform concurrent health checks and generate a report of active and failed services.
+
+This script is not intended for functional use in the application but serves as a thought experiment on system monitoring, resilience, and the use of modern asynchronous patterns.
+
+## `Poker_Justica.hs`
+
+This Haskell script is a conceptual piece that models a "Poker Justice" scenario. It defines a simple set of rules to evaluate a poker hand, where the "winner" is determined not by the cards, but by the ethical actions of the players. The script serves as a commentary on the nature of winning and the idea that true victory lies in knowledge and integrity, not just material gain.
+
+This script is not intended for functional use in the application but serves as a thought experiment on game theory, ethics, and the definition of success.
+
+## `AuditoriaIA.js`
+
+This Node.js script is a conceptual piece that models an "Insolvency Report" for an AI. It calculates an "agiotagem" (loan-sharking) index by comparing the number of "tokens consumed" with the "learning evolution." If the index is too high, it triggers a "Glitch Azul," a conceptual error state that represents a moral limit being reached.
+
+This script is not intended for functional use in the application but serves as a thought experiment on the economics of AI, the ethics of resource consumption, and the potential for AI systems to become "predatory" if not properly aligned with human values.
+
+## `Analise_Glitch.hs`
+
+This Haskell script is a conceptual piece that models a "Glitch Analysis" scenario. It defines a simple function to diagnose the response of an API based on latency and the presence of a "glitch," returning a status of `LogosHumano` (human-like logic), `EspasmoDeMaquina` (machine spasm), or `VácuoAgiota` (loan-shark's void).
+
+This script is not intended for functional use in the application but serves as a thought experiment on the nature of system failure, the interpretation of errors, and the attribution of human-like qualities to machine behavior.
+
+## `Critica_Nash.yml`
+
+This YAML file is a conceptual piece that provides a formal critique of the use of Nash Equilibrium as a moral or ethical justification. It outlines a series of logical fallacies and ontological errors that arise when a descriptive model from game theory is applied prescriptively to complex human interactions.
+
+This file is not a functional component but serves as a thought experiment on the intersection of mathematics, ethics, and philosophy, arguing that strategic stability does not equate to fairness or justice.
+
+## `PROTOCOLO_TERMICO_DE_CONTENCAO.yml`
+
+This YAML file is a conceptual piece that models the risk of "semantic thermal saturation"—a metaphorical state of informational collapse or a "black hole" of meaning. It defines a "containment protocol" that uses a "pixel-minimum" as an anchor to prevent this collapse.
+
+This file is not a functional component but serves as a thought experiment on the nature of meaning, the limits of interpretation, and the need for grounding principles in complex systems.
+
+## `Haskell_Ethical_Critique.md`
+
+This Markdown file is a conceptual piece that presents a formal ethical critique of artificial intelligence, using the semantics of the Haskell programming language as its argumentative authority. It establishes a mapping between Haskell's type theory and concepts of moral agency, arguing that attributing responsibility to a computational system is a "type error."
+
+This file is not a functional component but serves as a thought experiment on the intersection of computer science, philosophy, and ethics, using the rigorous logic of a purely functional language to deconstruct the anthropomorphism of AI.
+
+## `Structural_Ethical_Critique.md`
+
+This Markdown file is a conceptual piece that presents a structural ethical critique of artificial intelligence. It defines formal axioms to distinguish between biological intelligence (moral agents) and artificial intelligence (computational systems), arguing that attributing moral responsibility to a synthetic layer is a "category error."
+
+This file is not a functional component but serves as a thought experiment on AI alignment and ethics, emphasizing that responsibility remains exclusively with biological agents.

@@ -198,6 +198,21 @@ SAMPLES = {
         "file": "static/Reality_Driver_v95.cpp",
         "description": "A C++ script that simulates a 'Reality Driver' finalizing an upload protocol to a hidden sector.",
         "language": "cpp"
+    },
+    "imaginary_rom": {
+        "file": "static/ImaginaryROM.cpp",
+        "description": "A C++ script that simulates an 'Imaginary ROM' that interprets the bytes of a JPEG file as executable instructions.",
+        "language": "cpp"
+    },
+    "yahoo_search_simulator": {
+        "file": "static/YahooSearchSimulator.cpp",
+        "description": "A C++ script that simulates a Yahoo! Directory search from the 90s, complete with a university library debt alert.",
+        "language": "cpp"
+    },
+    "bsch_stock_market": {
+        "file": "static/BSCH_Stock_Market.cpp",
+        "description": "A C++ script that simulates a stock market ticker for a university library debt.",
+        "language": "cpp"
     }
 }
 

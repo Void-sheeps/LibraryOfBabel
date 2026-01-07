@@ -252,5 +252,8 @@ python conceptual_proxy.py <directive> --action route
 - **provisao_crq**: A C++ script that simulates a "liquidity scheduling algorithm" for a future financial obligation.
 - **myostatin_monitor**: A C++ script that simulates a log of Myostatin (GDF-8) production.
 - **reality_driver_v95**: A C++ script that simulates a 'Reality Driver' finalizing an upload protocol to a hidden sector.
+- **imaginary_rom**: A C++ script that simulates an 'Imaginary ROM' that interprets the bytes of a JPEG file as executable instructions.
+- **yahoo_search_simulator**: A C++ script that simulates a Yahoo! Directory search from the 90s, complete with a university library debt alert.
+- **bsch_stock_market**: A C++ script that simulates a stock market ticker for a university library debt.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

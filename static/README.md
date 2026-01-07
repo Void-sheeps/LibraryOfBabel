@@ -255,3 +255,21 @@ This serves as a thought experiment on the nature of biological regulation, feed
 This C++ script is a conceptual piece that simulates a "Reality Driver" finalizing an upload protocol to a hidden, secure sector. It defines a `DataPacket` and a `RealityDriver` class that performs a series of fictionalized security and data manipulation steps, such as "Berkeley Integrity" checks, "DNS Tunneling," and "Digital Denaturation."
 
 This serves as a thought experiment on the nature of data security, trust, and the metaphorical "rite of passage" a piece of data must undergo to be considered valid and integrated into a secure system. The script's final output, which warns that "Pica-Pau" (Woody Woodpecker) is in quarantine, adds a layer of surrealism, suggesting that the "reality" being loaded is a simulated or controlled environment.
+
+## `ImaginaryROM.cpp`
+
+This C++ script is a conceptual piece that simulates an "Imaginary ROM" that reads a binary file (like a JPEG) and interprets its raw bytes as a set of executable instructions for a fictional, dream-like virtual machine. The script does not actually understand the file's format; instead, it uses the byte data to derive "psicodelic" metrics like `clock_jitter`, `torque_bias`, and `existential_drift`.
+
+This serves as a thought experiment on the nature of interpretation, apophenia (finding patterns in random data), and the philosophical idea that meaning can be extracted from chaos, even if it was never intended to be there. The "delirious assembly" that the ROM "decodes" is a commentary on the human tendency to impose order and narrative onto the unknown.
+
+## `YahooSearchSimulator.cpp`
+
+This C++ script is a conceptual piece that simulates an interactive search in a Yahoo!-style directory from the 1990s. It prompts the user for an ID and checks it against a hardcoded map of "debtors," displaying a detailed and colorful warning if a match is found.
+
+This serves as a thought experiment on digital identity, data permanence, and institutional memory. The script is rich with nostalgic and humorous details, including references to the "Eternal September," `netiquette`, and early web search engines like `Altavista` and `Lycos`, creating a vivid micro-narrative about the long-term consequences of a simple unpaid library fine.
+
+## `BSCH_Stock_Market.cpp`
+
+This C++ script is a conceptual piece that simulates a Yahoo! Finance-style stock market ticker for a university library debt. It frames the debt as a financial asset (`$BSCH3`) and presents a "portfolio analysis" that culminates in a "Margin Call" for the user.
+
+This serves as a thought experiment on the financialization of personal obligations and the impersonal nature of market forces. By treating a library fine as a publicly traded asset whose "market confidence has collapsed," the script creates a satirical commentary on the language of finance and the way it can be used to describe and quantify human responsibilities.

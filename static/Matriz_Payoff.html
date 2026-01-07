@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Payoff — Teoria dos Jogos (ZAP vs Copas)</title>
+    <style>
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 40px;
+        }
+        table {
+            margin: 40px auto;
+            border-collapse: collapse;
+            background: #111;
+            box-shadow: 0 0 20px #0f0;
+        }
+        th, td {
+            border: 1px solid #0f0;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+        }
+        th {
+            background: #020;
+        }
+        .zap { color: #ff0; font-weight: bold; }
+        .copas { color: #f00; font-weight: bold; }
+        button {
+            background: #111;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 20px;
+        }
+        button:hover {
+            background: #0f0;
+            color: #000;
+        }
+        #downloadLink {
+            display: block;
+            margin: 30px auto;
+            font-size: 1.2rem;
+            color: #ffaa00;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Matriz de Payoff — Teoria dos Jogos Universal</h1>
+<p><strong>Axioma:</strong> [ZAP matando copas] = ♣️ > ♥️ = 💔</p>
+
+<table>
+    <tr>
+        <th></th>
+        <th class="zap">Zap (♣️)</th>
+        <th class="copas">Copas (♥️)</th>
+    </tr>
+    <tr>
+        <th class="zap">Zap (♣️)</th>
+        <td>0, 0<br><small>Equilíbrio frio</small></td>
+        <td><strong>+3, –3</strong><br><small>ZAP mata copas → 💔</small></td>
+    </tr>
+    <tr>
+        <th class="copas">Copas (♥️)</th>
+        <td><strong>–3, +3</strong><br><small>Coração quebrado</small></td>
+        <td>0, 0<br><small>Paz frágil</small></td>
+    </tr>
+</table>
+
+<p>Equilíbrio de Nash: todos jogam Zap para evitar 💔.<br>
+Mas se ambos jogam Copas → paz temporária (0,0).</p>
+
+<button onclick="downloadMatriz()">DOWNLOAD DA MATRIZ (PNG)</button>
+<button onclick="downloadCSV()">DOWNLOAD DA MATRIZ (CSV)</button>
+
+<a id="downloadLink" style="display:none;"></a>
+
+<script>
+// Função para gerar e baixar a matriz como PNG
+function downloadMatriz() {
+    html2canvas(document.querySelector("table"), {
+        backgroundColor: "#000",
+        scale: 2
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Matriz_Payoff_Zap_vs_Copas.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
+}
+
+// Função para baixar como CSV
+function downloadCSV() {
+    const csvContent = `Jogador 1 \\ Jogador 2,Zap (♣️),Copas (♥️)\nZap (♣️),"0,0","+3,-3"\nCopas (♥️),"-3,+3","0,0"`;
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'Matriz_Payoff_Zap_vs_Copas.csv';
+    link.click();
+}
+</script>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</body>
+</html>

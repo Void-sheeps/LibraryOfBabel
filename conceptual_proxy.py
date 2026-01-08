@@ -108,6 +108,11 @@ SAMPLES = {
         "file": "static/PainRemains.hs",
         "description": "A Haskell script that explores themes of existence and collapse.",
         "language": "haskell"
+    },
+    "sephiroth_logic": {
+        "file": "static/SephirothLogic.hs",
+        "description": "A Haskell script that models a system of logic based on the Sefirot.",
+        "language": "haskell"
     }
 }
 

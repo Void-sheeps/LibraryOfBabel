@@ -141,3 +141,9 @@ This script is not intended for functional use in the application but serves as 
 This Haskell script is a conceptual piece that explores themes of existence and collapse. It defines two states, `Sobrevivencia` (Survival) and `Colapso` (Collapse), and a processing function that determines the state based on a given intensity.
 
 This script is not intended for functional use in the application but serves as a thought experiment on the fragility of systems and the binary nature of survival in a high-stakes environment.
+
+## `SephirothLogic.hs`
+
+This Haskell script is a conceptual piece that models a system of logic based on the Sefirot of the Kabbalah. It defines a data type for the Sefirot and a function to resolve a state of "indistinction" based on a given input.
+
+This script is not intended for functional use in the application but serves as a thought experiment on the application of mystical or philosophical systems to computational logic.

@@ -103,6 +103,11 @@ SAMPLES = {
         "file": "static/haskell_purum.hs",
         "description": "A Haskell script that defines a simple data ontology and an audit function.",
         "language": "haskell"
+    },
+    "pain_remains": {
+        "file": "static/PainRemains.hs",
+        "description": "A Haskell script that explores themes of existence and collapse.",
+        "language": "haskell"
     }
 }
 

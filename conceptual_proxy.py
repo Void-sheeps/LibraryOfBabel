@@ -98,6 +98,11 @@ SAMPLES = {
         "file": "static/Structural_Ethical_Critique.md",
         "description": "A structural ethical critique of AI.",
         "language": "cat"
+    },
+    "haskell_purum": {
+        "file": "static/haskell_purum.hs",
+        "description": "A Haskell script that defines a simple data ontology and an audit function.",
+        "language": "haskell"
     }
 }
 

@@ -129,3 +129,9 @@ This file is not a functional component but serves as a thought experiment on th
 This Markdown file is a conceptual piece that presents a structural ethical critique of artificial intelligence. It defines formal axioms to distinguish between biological intelligence (moral agents) and artificial intelligence (computational systems), arguing that attributing moral responsibility to a synthetic layer is a "category error."
 
 This file is not a functional component but serves as a thought experiment on AI alignment and ethics, emphasizing that responsibility remains exclusively with biological agents.
+
+## `haskell_purum.hs`
+
+This Haskell script is a conceptual piece that defines a simple data ontology and an audit function. It models a system with two kingdoms, `Synthetica` and `Animalia`, and a logging mechanism to filter entries based on their validity.
+
+This script is not intended for functional use in the application but serves as a thought experiment on data integrity, categorization, and the philosophical distinction between authentic and simulated data.

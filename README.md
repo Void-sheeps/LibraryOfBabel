@@ -220,5 +220,6 @@ python conceptual_proxy.py <directive> --action route
 - **protocolo_termico**: A YAML file modeling the risk of semantic thermal saturation and a containment protocol.
 - **haskell_critique**: A formal ethical critique of AI using Haskell semantics as an argument of authority.
 - **structural_critique**: A structural ethical critique of AI.
+- **haskell_purum**: A Haskell script that defines a simple data ontology and an audit function.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

@@ -255,5 +255,13 @@ python conceptual_proxy.py <directive> --action route
 - **imaginary_rom**: A C++ script that simulates an 'Imaginary ROM' that interprets the bytes of a JPEG file as executable instructions.
 - **yahoo_search_simulator**: A C++ script that simulates a Yahoo! Directory search from the 90s, complete with a university library debt alert.
 - **bsch_stock_market**: A C++ script that simulates a stock market ticker for a university library debt.
+- **leidenfrost**: A Haskell script that models the "Leidenfrost Intersection" in a socio-technical system.
+- **leidenfrost-py**: A Python script that models the "Leidenfrost Intersection" in a socio-technical system.
+- **solidao**: A Haskell fragment defining a taxonomy of entities and a state of "solitude."
+- **acoplamento**: A Haskell script that models an "asynchronous coupling" system.
+- **suicidio_mental**: A Haskell script that provides a Boolean algebra model of "mental suicide."
+- **reconhecer_evidencia**: A Haskell script that provides a model for "evidence recognition in a zero-knowledge context."
+- **baralhos**: A Haskell script that provides a formal model of different card decks ("baralhos") as incompatible logical systems.
+- **agiota**: A Haskell script that provides a conceptual model for an "Agiota Bank" (Loan Shark Bank).
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

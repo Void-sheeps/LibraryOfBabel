@@ -213,6 +213,46 @@ SAMPLES = {
         "file": "static/BSCH_Stock_Market.cpp",
         "description": "A C++ script that simulates a stock market ticker for a university library debt.",
         "language": "cpp"
+    },
+    "leidenfrost": {
+        "file": "static/Leidenfrost_Intersection.hs",
+        "description": "A Haskell script that models the 'Leidenfrost Intersection' in a socio-technical system.",
+        "language": "haskell"
+    },
+    "leidenfrost-py": {
+        "file": "static/Leidenfrost_Intersection.py",
+        "description": "A Python script that models the 'Leidenfrost Intersection' in a socio-technical system.",
+        "language": "python"
+    },
+    "solidao": {
+        "file": "static/Solidao.hs",
+        "description": "A Haskell fragment defining a taxonomy of entities and a state of 'solitude.'",
+        "language": "cat"
+    },
+    "acoplamento": {
+        "file": "static/Acoplamento.hs",
+        "description": "A Haskell script that models an 'asynchronous coupling' system.",
+        "language": "cat"
+    },
+    "suicidio_mental": {
+        "file": "static/SuicidioMental.hs",
+        "description": "A Haskell script that provides a Boolean algebra model of 'mental suicide.'",
+        "language": "cat"
+    },
+    "reconhecer_evidencia": {
+        "file": "static/ReconhecerEvidencia.hs",
+        "description": "A Haskell script that provides a model for 'evidence recognition in a zero-knowledge context.'",
+        "language": "cat"
+    },
+    "baralhos": {
+        "file": "static/Baralhos.hs",
+        "description": "A Haskell script that provides a formal model of different card decks ('baralhos') as incompatible logical systems.",
+        "language": "haskell"
+    },
+    "agiota": {
+        "file": "static/Agiota.hs",
+        "description": "A Haskell script that provides a conceptual model for an 'Agiota Bank' (Loan Shark Bank).",
+        "language": "haskell"
     }
 }
 
@@ -248,6 +288,9 @@ def run_script(sample):
                     os.remove(filepath)
     elif language == "node":
         result = subprocess.run(["node", script_path], check=True, capture_output=True, text=True)
+        print(result.stdout)
+    elif language == "python":
+        result = subprocess.run(["python3", script_path], check=True, capture_output=True, text=True)
         print(result.stdout)
     elif language == "cpp":
         base_name = os.path.splitext(os.path.basename(script_path))[0]

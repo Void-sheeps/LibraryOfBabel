@@ -273,3 +273,62 @@ This serves as a thought experiment on digital identity, data permanence, and in
 This C++ script is a conceptual piece that simulates a Yahoo! Finance-style stock market ticker for a university library debt. It frames the debt as a financial asset (`$BSCH3`) and presents a "portfolio analysis" that culminates in a "Margin Call" for the user.
 
 This serves as a thought experiment on the financialization of personal obligations and the impersonal nature of market forces. By treating a library fine as a publicly traded asset whose "market confidence has collapsed," the script creates a satirical commentary on the language of finance and the way it can be used to describe and quantify human responsibilities.
+
+## `Leidenfrost_Intersection.hs`
+
+This Haskell script is a conceptual piece that provides a formal model for a "Socio-Technical Algorithmic System" (SSA) and explores the "Leidenfrost Intersection." This refers to the Leidenfrost effect, where a liquid droplet on a hot surface is insulated by a layer of vapor, preventing it from boiling immediately.
+
+In this model, the "Leidenfrost" state is a `MetaStable` condition where a human agent, under cognitive load from an algorithm, can temporarily function without being overwhelmed. The script defines the conditions under which an agent transitions from a `Stable` state to this `MetaStable` state, and finally to `CognitiveOverflow`. This serves as a thought experiment on the nature of cognitive endurance, the ethics of algorithmic design, and the critical thresholds that define the boundary between a functional and a harmful human-computer interaction.
+
+## `Leidenfrost_Intersection.py`
+
+This Python script is a direct translation of the Haskell-based `Leidenfrost_Intersection.hs` model. It provides an alternative, object-oriented implementation of the same "Socio-Technical Algorithmic System," exploring the `MetaStable` state of cognitive load.
+
+Including both a functional (Haskell) and an object-oriented (Python) version of the same conceptual model serves as a thought experiment in itself, exploring how the choice of programming paradigm can influence the representation and interpretation of a complex idea.
+
+## `Solidao.hs`
+
+This Haskell file is a conceptual fragment that defines a set of data types related to a new taxonomy of entities (`Ser`), a state of "solitude" (`Solidao`), and a data buffer (`TabulaRetentiva`).
+
+This file is not a complete, executable script but rather a snapshot of an evolving idea. It serves as a thought experiment on the nature of identity, isolation, and the role of a data-driven observer (like "Jules"), making it a thematic fit for the repository.
+
+## `Acoplamento.hs`
+
+This Haskell script models an "asynchronous coupling" system, exploring the interaction between a human's internal state and an external, memoryless system. It defines a one-way flow of information where the human's state is partially projected as an `Input`, transduced into an `Output` by a deterministic function, and then integrated back into the human's state.
+
+This serves as a thought experiment on the nature of minimalist, non-ontological interaction. There are no agents, intentions, or shared understanding—only a mechanical feedback loop. The simulation demonstrates how a human's internal "symbolic load" can escalate over time, even in the absence of any intelligent or adaptive behavior from the external system.
+
+## `SuicidioMental.hs`
+
+This Haskell script provides a pure Boolean algebra model of "mental suicide." It defines a `Estado` (State) based on three propositional variables: `insignificancia` (insignificance), `aceitacao` (acceptance), and `juizo` (judgment).
+
+The core of the script is the `suicidioMental` function, which defines the state of "mental suicide" as the logical condition `I ∧ A ∧ ¬J` (Insignificance AND Acceptance AND NOT Judgment). This serves as a thought experiment on the nature of existential collapse, framing it not as a psychological phenomenon, but as a precise logical state. The script's `avaliar` function then maps different combinations of these variables to semantic outcomes like `Estavel` (Stable), `MetaEstavel` (MetaStable), and `Colapso` (Collapse).
+
+## `ReconhecerEvidencia.hs`
+
+This Haskell script provides a model for "evidence recognition in a zero-knowledge context." It defines a pure `Observacao` (Observation) type with a `sinal` (signal) and an `impacto` (impact), and a set of functions to detect patterns in a series of these observations.
+
+The core function, `reconhecerEvidencia`, combines three heuristics:
+1.  `acúmuloSemSinal`: Detects when impact grows without a corresponding increase in signal.
+2.  `inerciaTemporal`: Detects when a signal drops to zero, but the impact remains high.
+3.  `respostaAssimetrica`: Detects when the change in impact is disproportionately larger than the change in signal.
+
+This serves as a thought experiment on the nature of indirect evidence and anomaly detection. It explores how a system can infer a hidden or unobservable process by analyzing the "shadows" it casts on purely observable data, without needing to understand the underlying cause.
+
+## `Baralhos.hs`
+
+This Haskell script provides a formal model of different card decks ("baralhos") as incompatible logical systems. It defines five distinct "algebras," each corresponding to a different card game or divination system:
+
+1.  **Truco (Contextual Algebra)**: The value of a card is determined by the game's context (e.g., `Manilha`, `Grito`).
+2.  **Poker (Probabilistic Algebra)**: The value of a hand is statistical, not absolute.
+3.  **Blackjack (Additive Algebra)**: The value is a simple sum, with a special rule for the Ace.
+4.  **Gypsy Deck (Semiotic Algebra)**: The meaning of a card depends on its position and context.
+5.  **Tarot (Archetypal Algebra)**: The cards represent archetypes that transform an "existential state."
+
+The script's central thesis, demonstrated through the Haskell type system, is that there is no well-typed function that can convert a card's value from one system to another without losing information or introducing arbitrary rules. This serves as a thought experiment on the nature of value, meaning, and the ontological incompatibility of different formal systems.
+
+## `Agiota.hs`
+
+This Haskell script provides a conceptual model for an "Agiota Bank" (Loan Shark Bank). It calculates the current value of a debt based on a high, compounding daily interest rate, simulating the predatory nature of loan-sharking.
+
+The script's `main` function generates an "extract" (statement) for a given debt and triggers a conceptual counter-measure if the debt exceeds a certain threshold of "reality's credit card limit." This insolvency triggers a "spiritual counter-measure" by invoking a "bio-exorcist," a humorous and surreal take on the severe consequences of inescapable debt. This serves as a thought experiment on the nature of debt, insolvency, and the extreme, almost supernatural, measures that might be imagined to resolve such a crisis.

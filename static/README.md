@@ -147,3 +147,9 @@ This script is not intended for functional use in the application but serves as 
 This Haskell script is a conceptual piece that models a system of logic based on the Sefirot of the Kabbalah. It defines a data type for the Sefirot and a function to resolve a state of "indistinction" based on a given input.
 
 This script is not intended for functional use in the application but serves as a thought experiment on the application of mystical or philosophical systems to computational logic.
+
+## `vasilissa_zeta_protocol.ps1`
+
+This PowerShell script is a conceptual piece that outlines a fictional protocol, "Vasilissa-Zeta." It uses a series of Write-Host commands with different colors to create a narrative of a semantic transformation process, including concepts like "Ecdise Semântica" (Semantic Ecdysis) and a "Salto Heurístico" (Heuristic Jump).
+
+This script is not intended for functional use in the application but serves as a thought experiment on the use of scripting languages to create narrative and conceptual art.

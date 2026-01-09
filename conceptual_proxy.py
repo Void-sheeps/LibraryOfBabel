@@ -113,6 +113,11 @@ SAMPLES = {
         "file": "static/SephirothLogic.hs",
         "description": "A Haskell script that models a system of logic based on the Sefirot.",
         "language": "haskell"
+    },
+    "vasilissa_zeta_protocol": {
+        "file": "static/vasilissa_zeta_protocol.ps1",
+        "description": "A PowerShell script that executes a conceptual protocol.",
+        "language": "powershell"
     }
 }
 
@@ -148,6 +153,9 @@ def run_script(sample):
                     os.remove(filepath)
     elif language == "node":
         result = subprocess.run(["node", script_path], check=True, capture_output=True, text=True)
+        print(result.stdout)
+    elif language == "powershell":
+        result = subprocess.run(["pwsh", script_path], check=True, capture_output=True, text=True)
         print(result.stdout)
     elif language == "browser":
         import webbrowser

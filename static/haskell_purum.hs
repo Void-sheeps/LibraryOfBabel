@@ -1,3 +1,5 @@
+module Main where
+
 -- Definição da Ontologia do Sistema
 data Kingdom = Synthetica | Animalia deriving (Show, Eq)
 

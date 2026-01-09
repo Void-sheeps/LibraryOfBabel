@@ -223,5 +223,6 @@ python conceptual_proxy.py <directive> --action route
 - **haskell_purum**: A Haskell script that defines a simple data ontology and an audit function.
 - **pain_remains**: A Haskell script that explores themes of existence and collapse.
 - **sephiroth_logic**: A Haskell script that models a system of logic based on the Sefirot.
+- **vasilissa_zeta_protocol**: A PowerShell script that executes a conceptual protocol.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

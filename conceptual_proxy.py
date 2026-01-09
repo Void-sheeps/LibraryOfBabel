@@ -103,6 +103,11 @@ SAMPLES = {
         "file": "static/haskell_purum.hs",
         "description": "A Haskell script that defines a simple data ontology and an audit function.",
         "language": "haskell"
+    },
+    "auto_eutanasia": {
+        "file": "static/AutoEutanasia-Watchdog.ps1",
+        "description": "A PowerShell script that models a watchdog applying epistemological self-euthanasia.",
+        "language": "powershell"
     }
 }
 
@@ -139,6 +144,13 @@ def run_script(sample):
     elif language == "node":
         result = subprocess.run(["node", script_path], check=True, capture_output=True, text=True)
         print(result.stdout)
+    elif language == "powershell":
+        # Note: The script is interactive. We pipe 'S' to start the ritual.
+        result = subprocess.run(["pwsh", "-File", script_path], input="S\n", check=True, capture_output=True, text=True)
+        print(result.stdout)
+        if result.stderr:
+            print("--- STDERR ---")
+            print(result.stderr)
     elif language == "browser":
         import webbrowser
         webbrowser.open(f"file://{os.path.realpath(script_path)}")

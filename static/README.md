@@ -135,3 +135,9 @@ This file is not a functional component but serves as a thought experiment on AI
 This Haskell script is a conceptual piece that defines a simple data ontology and an audit function. It models a system with two kingdoms, `Synthetica` and `Animalia`, and a logging mechanism to filter entries based on their validity.
 
 This script is not intended for functional use in the application but serves as a thought experiment on data integrity, categorization, and the philosophical distinction between authentic and simulated data.
+
+## `senja.hs`
+
+This Haskell script is a conceptual piece that renders an infinite, slow-decaying animation in the terminal. The animation, titled "A ESTRADA DE SENJA — ciclo eterno" (THE ROAD OF SENJA — eternal cycle), visually represents a process of gradual decay through three phases: Crepusculo (Twilight), Gelo (Ice), and Vazio (Void). Each phase is represented by a different color and symbol, and the animation slows down as it progresses, culminating in a silent pause.
+
+This script is not intended for functional use in the application but serves as a meditation on themes of decay, entropy, and the passage of time. It uses the terminal as a canvas for a contemplative experience, making it a fitting addition to the repository's collection of computational curiosities.

@@ -103,6 +103,11 @@ SAMPLES = {
         "file": "static/haskell_purum.hs",
         "description": "A Haskell script that defines a simple data ontology and an audit function.",
         "language": "haskell"
+    },
+    "quantum_mnemosyne": {
+        "file": "static/QuantumMnemosyne.hs",
+        "description": "A Haskell script that simulates a quantum combat scenario between two entities.",
+        "language": "haskell"
     }
 }
 

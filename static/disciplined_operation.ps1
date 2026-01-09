@@ -19,7 +19,7 @@ function Executar-Manobra {
     $Cronometro = [System.Diagnostics.Stopwatch]::StartNew()
 
     $ResultadoBruto = & "static/motor_marcha.exe" $Data
-    $Ordenado = $ResultadoBruto.Trim("[]") -split ","
+    $Ordenado = $ResultadoBruto.Trim("[]").Replace(",", "") -split " "
 
     $Cronometro.Stop()
 

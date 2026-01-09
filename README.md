@@ -227,5 +227,11 @@ python conceptual_proxy.py <directive> --action route
 - **petrification_protocol**: A PowerShell script that simulates a petrification protocol.
 - **invoke_cthulhu**: A PowerShell script that simulates a Cthulhu invocation ritual.
 - **disciplined_operation**: A PowerShell script that orchestrates a Haskell script to perform a sorting operation.
+- **static_disciplined_operation**: A PowerShell script that executes another PowerShell script.
+- **mobile_palantir_operation**: A PowerShell script that simulates a mobile Palantír operation.
+- **bellum_iustum**: A Haskell script that models the conditions for a just war.
+- **tanya_signaling**: A Haskell script that uses phantom types to enforce a state machine.
+- **log_stabilizer**: A PowerShell script that simulates a log stabilization protocol.
+- **gu_corruption**: A Haskell script that simulates the emergence of corruption in a system.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

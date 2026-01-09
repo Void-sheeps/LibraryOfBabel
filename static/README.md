@@ -171,3 +171,33 @@ This script is not intended for functional use in the application but serves as 
 This pair of scripts demonstrates a conceptual "disciplined operation" where a PowerShell script orchestrates a Haskell script to perform a sorting task. The PowerShell script, `disciplined_operation.ps1`, simulates a military-style operation, compiling and executing the Haskell script, `sort_engine.hs`, to sort a list of numbers.
 
 These scripts are not intended for functional use in the application but serve as a thought experiment on the themes of order, discipline, and the use of different programming languages to achieve a common goal.
+
+## `mobile_palantir_operation.ps1`
+
+This PowerShell script is a conceptual piece that simulates a "mobile Palantír operation." It uses a series of Write-Host commands with different colors to create a narrative of a remote execution, referencing a "Palantír" and "Narya," the Ring of Fire from Tolkien's legendarium.
+
+This script is not intended for functional use in the application but serves as a thought experiment on the themes of remote communication, power, and the use of mythology in a technological context.
+
+## `BellumIustum.hs`
+
+This Haskell script is a conceptual piece that models the conditions for a "just war" (Bellum Iustum) based on Thomistic philosophy. It defines data types for Authority, Cause, and Intention, and a function to determine if a conflict is a "Just War" or an "Act of Violence."
+
+This script is not intended for functional use in the application but serves as a thought experiment on the application of philosophical and ethical frameworks to computational logic.
+
+## `TanyaSignaling.hs`
+
+This Haskell script is a conceptual piece that uses phantom types to enforce a state machine. It defines a `Palantir` type that can be in either a `Disperso` (dispersed) or `Ancorado` (anchored) state, and the `dispararAtaque` function can only be called on an `Ancorado` Palantir, preventing logical errors at compile time.
+
+This script is not intended for functional use in the application but serves as a thought experiment on the use of advanced type system features to enforce protocol and ensure security.
+
+## `log_stabilizer.ps1`
+
+This PowerShell script is a conceptual piece that simulates a "log stabilizer protocol." It checks for the presence of "trident" and "anchor" signals in a log entry and reports a consolidated status if both are found.
+
+This script is not intended for functional use in the application but serves as a thought experiment on the themes of signal processing, stability, and the use of symbolic markers in data streams.
+
+## `GuCorruption.hs`
+
+This Haskell script is a conceptual piece that simulates the emergence of "Gu" (corruption) in a system due to stagnation or chaos. It uses a concurrent model with a shared state to represent a system that is monitored for imbalances between "Ancora" (stability) and "Tridente" (action).
+
+This script is not intended for functional use in the application but serves as a thought experiment on the themes of system stability, corruption, and the inevitability of decay in complex systems.

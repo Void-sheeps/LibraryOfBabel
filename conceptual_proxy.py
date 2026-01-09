@@ -133,6 +133,36 @@ SAMPLES = {
         "file": "static/disciplined_operation.ps1",
         "description": "A PowerShell script that orchestrates a Haskell script to perform a sorting operation.",
         "language": "powershell"
+    },
+    "static_disciplined_operation": {
+        "file": "static/static_disciplined_operation.ps1",
+        "description": "A PowerShell script that executes another PowerShell script.",
+        "language": "powershell"
+    },
+    "mobile_palantir_operation": {
+        "file": "static/mobile_palantir_operation.ps1",
+        "description": "A PowerShell script that simulates a mobile Palantír operation.",
+        "language": "powershell"
+    },
+    "bellum_iustum": {
+        "file": "static/BellumIustum.hs",
+        "description": "A Haskell script that models the conditions for a just war.",
+        "language": "haskell"
+    },
+    "tanya_signaling": {
+        "file": "static/TanyaSignaling.hs",
+        "description": "A Haskell script that uses phantom types to enforce a state machine.",
+        "language": "haskell"
+    },
+    "log_stabilizer": {
+        "file": "static/log_stabilizer.ps1",
+        "description": "A PowerShell script that simulates a log stabilization protocol.",
+        "language": "powershell"
+    },
+    "gu_corruption": {
+        "file": "static/GuCorruption.hs",
+        "description": "A Haskell script that simulates the emergence of corruption in a system.",
+        "language": "haskell"
     }
 }
 

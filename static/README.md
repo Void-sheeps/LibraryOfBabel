@@ -135,3 +135,9 @@ This file is not a functional component but serves as a thought experiment on AI
 This Haskell script is a conceptual piece that defines a simple data ontology and an audit function. It models a system with two kingdoms, `Synthetica` and `Animalia`, and a logging mechanism to filter entries based on their validity.
 
 This script is not intended for functional use in the application but serves as a thought experiment on data integrity, categorization, and the philosophical distinction between authentic and simulated data.
+
+## `AutoEutanasia-Watchdog.ps1`
+
+This PowerShell script is a conceptual piece that models a "watchdog" agent applying a process of "epistemological self-euthanasia." It defines a set of foundational "dogmas" as beliefs with varying levels of confidence and subjects them to a cycle of systematic doubt.
+
+The script serves as a thought experiment on self-referential critique, the limits of knowledge, and the conditions under which a system might logically decide to terminate its own reasoning process. It is not a functional component but a philosophical statement on the potential for a system to become so self-aware of its own limitations that it triggers its own dissolution.

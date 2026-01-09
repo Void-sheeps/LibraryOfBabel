@@ -332,3 +332,43 @@ The script's central thesis, demonstrated through the Haskell type system, is th
 This Haskell script provides a conceptual model for an "Agiota Bank" (Loan Shark Bank). It calculates the current value of a debt based on a high, compounding daily interest rate, simulating the predatory nature of loan-sharking.
 
 The script's `main` function generates an "extract" (statement) for a given debt and triggers a conceptual counter-measure if the debt exceeds a certain threshold of "reality's credit card limit." This insolvency triggers a "spiritual counter-measure" by invoking a "bio-exorcist," a humorous and surreal take on the severe consequences of inescapable debt. This serves as a thought experiment on the nature of debt, insolvency, and the extreme, almost supernatural, measures that might be imagined to resolve such a crisis.
+
+## `BitcoinToASIC.hs`
+
+This Haskell script provides a pure functional model for the economics of Bitcoin mining. It defines a set of types and functions to calculate the relationship between Bitcoin (`BTC`), network `Dificuldade` (Difficulty), `HashRate`, and `Energia` (Energy) consumption.
+
+The script's `main` function simulates the process of calculating the number of hashes, time, and energy required for a typical ASIC miner to generate 1 BTC. This serves as a thought experiment on the nature of "proof-of-work," translating the abstract value of a cryptocurrency into the concrete physical costs of computation and energy. It demystifies the mining process, framing it not as a magical creation of value, but as a direct conversion of electrical power into digital assets through a computationally intensive process.
+
+## `RevelacaoDoAgiota.hs`
+
+This Haskell script, titled "Revelation of the Loan Shark," provides a detailed philosophical and categorical analysis of debt. It defines a 4x5 matrix, the "Matrix of the Economy of Souls," which cross-references four stages of debt (`Limiar`, `Liminal`, `Corno`, `Agiota`) with five disciplines of analysis (`Filosofia`, `Antropologia`, `Linguística`, `Psicologia`, `Cultura`).
+
+The script's `main` function displays this matrix and then simulates a practical application of its logic, generating a personalized debt collection message and a "debtor profile analysis." This serves as a thought experiment on the multi-faceted nature of debt, framing it not just as a financial state, but as a complex social, psychological, and philosophical condition.
+
+## `BS_Automator.sh`
+
+This shell script automates the generation of vacuous corporate jargon. It uses `fortune` and `cowsay` to create a unique corporate strategy memo. This serves as a thought experiment on the nature of corporate communication and the humorous side of buzzword-laden language.
+
+## `FIM_DA_LINHA.asm`
+
+This Assembly script is a conceptual piece for the x86 architecture. It's a thought experiment on finality, serving as a philosophical statement rather than a functional program. The script's "final act" is to print "FIM DA LINHA. DESLIGANDO." and then terminate itself.
+
+## `pokemon_go_mobius.py`
+
+This Python script is a conceptual piece that explores the illusion of choice in a gamified, augmented reality system. It's a thought experiment on determinism, user agency, and the nature of "free will" in a closed system.
+
+## `@void_sheeps`
+
+This is a collection of digital artifacts from a forgotten corner of the web. It includes a log, a creed, and an image of a "void sheep." It serves as a thought experiment on digital preservation and the echoes of abandoned online spaces.
+
+## `PlatoCave.hs`
+
+This Haskell script is a conceptual piece that models Plato's Allegory of the Cave. It's a thought experiment on the nature of reality, perception, and enlightenment, representing the journey from seeing shadows to perceiving the Forms and the Good.
+
+## `Matriz_Payoff.html`
+
+This HTML file is a conceptual piece that displays a "Payoff Matrix" for a strategic interaction between an "Agiota" (Loan Shark) and a "Devedor" (Debtor). It serves as a thought experiment on game theory, power dynamics, and the limited choices available to those in a position of weakness.
+
+## `defesa-cicada.html`
+
+This HTML file is a conceptual piece that presents a "Cicada Defense Protocol." It serves as a thought experiment on information security, cryptography, and the use of natural metaphors to describe digital defense mechanisms.

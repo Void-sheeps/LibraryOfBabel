@@ -263,5 +263,9 @@ python conceptual_proxy.py <directive> --action route
 - **reconhecer_evidencia**: A Haskell script that provides a model for "evidence recognition in a zero-knowledge context."
 - **baralhos**: A Haskell script that provides a formal model of different card decks ("baralhos") as incompatible logical systems.
 - **agiota**: A Haskell script that provides a conceptual model for an "Agiota Bank" (Loan Shark Bank).
+- **bitcoin_to_asic**: A Haskell script that provides a pure functional model for the economics of Bitcoin mining.
+- **arcana**: A C++ script that models a "Lovecraftian Bibliographic System."
+- **revelacao_do_agiota**: A Haskell script that provides a detailed philosophical and categorical analysis of debt.
+- **google_jules**: A Python script that provides a conceptual model of an "I'm Feeling Lucky" search, but with a layer of surrealism and "gibberish."
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

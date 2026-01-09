@@ -7,16 +7,10 @@
 
 class Teoria {
 public:
-    std::string nome;
+    std::string enunciado;
     bool colapsada;
 
-    Teoria(std::string n) : nome(n), colapsada(false) {}
-
-    void testar(int input) {
-        if (input == -1) {
-            colapsada = true;
-        }
-    }
+    Teoria(std::string e) : enunciado(e), colapsada(false) {}
 };
 
 class CasteloConceitual {
@@ -30,26 +24,17 @@ public:
     void testarTodas(const std::vector<int>& inputs) {
         for (int input : inputs) {
             for (auto& teoria : teorias) {
-                if (!teoria.colapsada) {
-                    teoria.testar(input);
+                if (input == -1) {
+                    teoria.colapsada = true;
                 }
             }
         }
     }
 
     void statusFinal() {
-        bool algumaColapsada = false;
+        std::cout << "--- STATUS FINAL DO CASTELO ---\n";
         for (const auto& teoria : teorias) {
-            if (teoria.colapsada) {
-                algumaColapsada = true;
-                break;
-            }
-        }
-
-        if (algumaColapsada) {
-            std::cout << "[STATUS FINAL]: O Castelo ruiu. Uma ou mais teorias foram falsificadas.\n";
-        } else {
-            std::cout << "[STATUS FINAL]: O Castelo permanece de pé. Nenhuma teoria foi falsificada... ainda.\n";
+            std::cout << "Teoria: " << teoria.enunciado << " | Estado: " << (teoria.colapsada ? "Colapsada" : "Estável") << std::endl;
         }
     }
 };

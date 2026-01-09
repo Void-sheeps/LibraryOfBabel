@@ -253,6 +253,56 @@ SAMPLES = {
         "file": "static/Agiota.hs",
         "description": "A Haskell script that provides a conceptual model for an 'Agiota Bank' (Loan Shark Bank).",
         "language": "haskell"
+    },
+    "bitcoin_to_asic": {
+        "file": "static/BitcoinToASIC.hs",
+        "description": "A Haskell script that provides a pure functional model for the economics of Bitcoin mining.",
+        "language": "haskell"
+    },
+    "arcana": {
+        "file": "static/arcana.cpp",
+        "description": "A C++ script that models a 'Lovecraftian Bibliographic System.'",
+        "language": "cpp"
+    },
+    "revelacao_do_agiota": {
+        "file": "static/RevelacaoDoAgiota.hs",
+        "description": "A Haskell script that provides a detailed philosophical and categorical analysis of debt.",
+        "language": "haskell"
+    },
+    "bs_automator": {
+        "file": "static/BS_Automator.sh",
+        "description": "A shell script that automates the generation of vacuous corporate jargon.",
+        "language": "cat"
+    },
+    "fim_da_linha": {
+        "file": "static/FIM_DA_LINHA.asm",
+        "description": "An Assembly script that serves as a thought experiment on finality.",
+        "language": "cat"
+    },
+    "pokemon_go_mobius": {
+        "file": "static/pokemon_go_mobius.py",
+        "description": "A Python script that explores the illusion of choice in a gamified system.",
+        "language": "python"
+    },
+    "void_sheeps": {
+        "file": "static/void_sheeps/index.html",
+        "description": "A collection of digital artifacts from a forgotten corner of the web.",
+        "language": "browser"
+    },
+    "plato_cave": {
+        "file": "static/PlatoCave.hs",
+        "description": "A Haskell script that models Plato's Allegory of the Cave.",
+        "language": "haskell"
+    },
+    "matriz_payoff": {
+        "file": "static/Matriz_Payoff.html",
+        "description": "An HTML file that displays a payoff matrix.",
+        "language": "browser"
+    },
+    "defesa_cicada": {
+        "file": "static/defesa-cicada.html",
+        "description": "An HTML file that displays a defense cicada.",
+        "language": "browser"
     }
 }
 
@@ -297,7 +347,7 @@ def run_script(sample):
         executable_path = os.path.join("static", base_name)
         try:
             # Compile the C++ script into the static directory
-            compile_result = subprocess.run(["g++", "-o", executable_path, "-I./static", script_path], capture_output=True, text=True)
+            compile_result = subprocess.run(["g++", "-std=c++20", "-o", executable_path, "-I./static", script_path], capture_output=True, text=True)
             if compile_result.returncode != 0:
                 print(f"ERROR: C++ compilation failed for {script_path}")
                 print(compile_result.stderr)

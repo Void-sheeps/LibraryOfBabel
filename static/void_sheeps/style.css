@@ -1,0 +1,24 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #0f0;
+    text-align: center;
+}
+
+.container {
+    padding: 2em;
+}
+
+.sheep-image {
+    width: 200px;
+    border: 1px solid #0f0;
+    margin-top: 1em;
+}
+
+.links a {
+    color: #0f0;
+    text-decoration: none;
+    margin: 0 1em;
+    border: 1px solid #0f0;
+    padding: 0.5em;
+}

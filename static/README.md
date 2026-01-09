@@ -135,3 +135,9 @@ This file is not a functional component but serves as a thought experiment on AI
 This Haskell script is a conceptual piece that defines a simple data ontology and an audit function. It models a system with two kingdoms, `Synthetica` and `Animalia`, and a logging mechanism to filter entries based on their validity.
 
 This script is not intended for functional use in the application but serves as a thought experiment on data integrity, categorization, and the philosophical distinction between authentic and simulated data.
+
+## `QuantumMnemosyne.hs`
+
+This Haskell script is a conceptual piece that simulates a quantum combat scenario. It uses fundamental quantum computing concepts like qubits, quantum gates (Pauli-X, Hadamard, CNOT), and entanglement to model a conflict between two entities. The simulation's outcome is probabilistic and depends on the collapse of the quantum state, serving as a commentary on the nature of observation and certainty.
+
+This script is not intended for functional use in the application but serves as a thematic exploration of quantum mechanics, conflict, and the philosophical implications of probabilistic outcomes.

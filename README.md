@@ -224,5 +224,7 @@ python conceptual_proxy.py <directive> --action route
 - **pain_remains**: A Haskell script that explores themes of existence and collapse.
 - **sephiroth_logic**: A Haskell script that models a system of logic based on the Sefirot.
 - **vasilissa_zeta_protocol**: A PowerShell script that executes a conceptual protocol.
+- **petrification_protocol**: A PowerShell script that simulates a petrification protocol.
+- **invoke_cthulhu**: A PowerShell script that simulates a Cthulhu invocation ritual.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

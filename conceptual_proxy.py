@@ -118,6 +118,16 @@ SAMPLES = {
         "file": "static/vasilissa_zeta_protocol.ps1",
         "description": "A PowerShell script that executes a conceptual protocol.",
         "language": "powershell"
+    },
+    "petrification_protocol": {
+        "file": "static/petrification_protocol.ps1",
+        "description": "A PowerShell script that simulates a petrification protocol.",
+        "language": "powershell"
+    },
+    "invoke_cthulhu": {
+        "file": "static/invoke_cthulhu.ps1",
+        "description": "A PowerShell script that simulates a Cthulhu invocation ritual.",
+        "language": "powershell"
     }
 }
 

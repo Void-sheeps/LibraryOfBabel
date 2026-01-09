@@ -153,3 +153,15 @@ This script is not intended for functional use in the application but serves as 
 This PowerShell script is a conceptual piece that outlines a fictional protocol, "Vasilissa-Zeta." It uses a series of Write-Host commands with different colors to create a narrative of a semantic transformation process, including concepts like "Ecdise Semântica" (Semantic Ecdysis) and a "Salto Heurístico" (Heuristic Jump).
 
 This script is not intended for functional use in the application but serves as a thought experiment on the use of scripting languages to create narrative and conceptual art.
+
+## `petrification_protocol.ps1`
+
+This PowerShell script is a conceptual piece that simulates a "petrification protocol." It uses a series of Write-Host commands with different colors to create a narrative of a process that converts carbon to silicon, referencing the "WOW! Signal" and Comet ATLAS.
+
+This script is not intended for functional use in the application but serves as a thought experiment on the themes of transformation, cosmic signals, and the philosophical concept of a "world of stone."
+
+## `invoke_cthulhu.ps1`
+
+This PowerShell script is a conceptual piece that simulates a Cthulhu invocation ritual. It uses a series of Write-Host commands with different colors and ASCII art to create a narrative of a cosmic horror event, with options for different levels of "insanity."
+
+This script is not intended for functional use in the application but serves as a thought experiment on the use of scripting languages to create interactive fiction and conceptual art.

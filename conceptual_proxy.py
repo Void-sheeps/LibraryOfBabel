@@ -128,6 +128,11 @@ SAMPLES = {
         "file": "static/invoke_cthulhu.ps1",
         "description": "A PowerShell script that simulates a Cthulhu invocation ritual.",
         "language": "powershell"
+    },
+    "disciplined_operation": {
+        "file": "static/disciplined_operation.ps1",
+        "description": "A PowerShell script that orchestrates a Haskell script to perform a sorting operation.",
+        "language": "powershell"
     }
 }
 

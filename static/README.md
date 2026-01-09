@@ -165,3 +165,9 @@ This script is not intended for functional use in the application but serves as 
 This PowerShell script is a conceptual piece that simulates a Cthulhu invocation ritual. It uses a series of Write-Host commands with different colors and ASCII art to create a narrative of a cosmic horror event, with options for different levels of "insanity."
 
 This script is not intended for functional use in the application but serves as a thought experiment on the use of scripting languages to create interactive fiction and conceptual art.
+
+## `disciplined_operation.ps1` and `sort_engine.hs`
+
+This pair of scripts demonstrates a conceptual "disciplined operation" where a PowerShell script orchestrates a Haskell script to perform a sorting task. The PowerShell script, `disciplined_operation.ps1`, simulates a military-style operation, compiling and executing the Haskell script, `sort_engine.hs`, to sort a list of numbers.
+
+These scripts are not intended for functional use in the application but serve as a thought experiment on the themes of order, discipline, and the use of different programming languages to achieve a common goal.

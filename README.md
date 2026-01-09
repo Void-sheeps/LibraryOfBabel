@@ -226,5 +226,6 @@ python conceptual_proxy.py <directive> --action route
 - **vasilissa_zeta_protocol**: A PowerShell script that executes a conceptual protocol.
 - **petrification_protocol**: A PowerShell script that simulates a petrification protocol.
 - **invoke_cthulhu**: A PowerShell script that simulates a Cthulhu invocation ritual.
+- **disciplined_operation**: A PowerShell script that orchestrates a Haskell script to perform a sorting operation.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

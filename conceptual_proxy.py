@@ -103,6 +103,11 @@ SAMPLES = {
         "file": "static/haskell_purum.hs",
         "description": "A Haskell script that defines a simple data ontology and an audit function.",
         "language": "haskell"
+    },
+    "auto_eutanasia_watchdog": {
+        "file": "static/AutoEutanasia-Watchdog.ps1",
+        "description": "A PowerShell script that simulates epistemological self-euthanasia.",
+        "language": "powershell"
     }
 }
 
@@ -138,6 +143,9 @@ def run_script(sample):
                     os.remove(filepath)
     elif language == "node":
         result = subprocess.run(["node", script_path], check=True, capture_output=True, text=True)
+        print(result.stdout)
+    elif language == "powershell":
+        result = subprocess.run(["pwsh", script_path], check=True, capture_output=True, text=True)
         print(result.stdout)
     elif language == "browser":
         import webbrowser

@@ -103,6 +103,11 @@ SAMPLES = {
         "file": "static/haskell_purum.hs",
         "description": "A Haskell script that defines a simple data ontology and an audit function.",
         "language": "haskell"
+    },
+    "senja": {
+        "file": "static/senja.hs",
+        "description": "A Haskell script that renders an infinite, slow-decaying animation.",
+        "language": "haskell"
     }
 }
 

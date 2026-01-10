@@ -221,5 +221,6 @@ python conceptual_proxy.py <directive> --action route
 - **haskell_critique**: A formal ethical critique of AI using Haskell semantics as an argument of authority.
 - **structural_critique**: A structural ethical critique of AI.
 - **haskell_purum**: A Haskell script that defines a simple data ontology and an audit function.
+- **dickie-simulator**: A Haskell-based vocal translator that converts text into the style of Dickie Allen.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

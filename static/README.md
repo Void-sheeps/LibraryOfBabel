@@ -135,3 +135,9 @@ This file is not a functional component but serves as a thought experiment on AI
 This Haskell script is a conceptual piece that defines a simple data ontology and an audit function. It models a system with two kingdoms, `Synthetica` and `Animalia`, and a logging mechanism to filter entries based on their validity.
 
 This script is not intended for functional use in the application but serves as a thought experiment on data integrity, categorization, and the philosophical distinction between authentic and simulated data.
+
+## `DickieSimulator.hs`
+
+This Haskell script is a conceptual piece that acts as a "vocal translator," converting standard text into the signature vocal style of Dickie Allen, the frontman for deathcore bands like Thy Art Is Murder. It maps characters to various extreme vocal techniques, such as gutturals, pig squeals, and screams, simulating the rhythmic and brutal nature of the genre.
+
+This script is not a functional component of the main application but serves as a thought experiment on linguistics, algorithmic translation, and the codification of an artistic style into a reproducible format.

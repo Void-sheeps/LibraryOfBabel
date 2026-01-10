@@ -303,6 +303,26 @@ SAMPLES = {
         "file": "static/defesa-cicada.html",
         "description": "An HTML file that displays a defense cicada.",
         "language": "browser"
+    },
+    "moebius_topology": {
+        "file": "static/MoebiusTopology.hs",
+        "description": "A Haskell script that models a system's state transitions on a Möbius strip.",
+        "language": "cat"
+    },
+    "blue_cyanide": {
+        "file": "static/BlueCyanide.hs",
+        "description": "A Haskell script that models a complex system with states of 'Blue' and 'Cyan.'",
+        "language": "haskell"
+    },
+    "bitcoin_identity": {
+        "file": "static/BitcoinIdentity.txt",
+        "description": "A diagram that illustrates the process of generating a Bitcoin identity.",
+        "language": "cat"
+    },
+    "n30n_gen3s1s_protocol": {
+        "file": "static/n30n_gen3s1s_protocol/index.html",
+        "description": "A collection of images related to the N30N GEN3S1S PROTOCOL.",
+        "language": "browser"
     }
 }
 

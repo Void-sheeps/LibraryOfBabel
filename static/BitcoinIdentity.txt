@@ -1,0 +1,24 @@
+        ┌─────────────────────┐
+        │   PrivKey ∈ [1..2²⁵⁶] │   ← espaço enorme, "todos os n"
+        └─────────┬─────────────┘
+                  │  decomposição "local"
+                  ▼
+        ┌─────────────────────────────┐
+        │  Hash160(pubkey) ou script   │   ← dígitos → "unidades locais"
+        └─────────┬─────────────────────┘
+                  │  operador fixo f
+                  │  (SHA256 + RIPEMD160 + checksum)
+                  ▼
+        ┌─────────────────────────────┐
+        │  Address = Base58/Bech32     │   ← [f(d₁)…f(dₖ)]
+        └─────────┬─────────────────────┘
+                  │  consenso da rede
+                  ▼
+        ┌─────────────────────────────┐
+        │   UTXO balance > 0 ?         │   ← Σ "valor" = identidade válida?
+        └─────────┬─────────────────────┘
+                  │
+        ┌─────────┴─────────┐
+        ▼                   ▼
+     ✓ IDENTIDADE        ✗ REJEIÇÃO
+   (raro: tem BTC)     (quase tudo: vazio ou inválido)

@@ -372,3 +372,19 @@ This HTML file is a conceptual piece that displays a "Payoff Matrix" for a strat
 ## `defesa-cicada.html`
 
 This HTML file is a conceptual piece that presents a "Cicada Defense Protocol." It serves as a thought experiment on information security, cryptography, and the use of natural metaphors to describe digital defense mechanisms.
+
+## `MoebiusTopology.hs`
+
+This Haskell script models a system's state transitions on a Möbius strip. It serves as a thought experiment on cyclical processes, continuous transformation, and the interconnectedness of seemingly opposite states.
+
+## `BlueCyanide.hs`
+
+This Haskell script is a conceptual piece that models a complex system with states of "Blue" and "Cyan." It serves as a thought experiment on modal logic, system dynamics, and the inevitability of collapse in certain complex systems.
+
+## `BitcoinIdentity.txt`
+
+This text file contains a diagram that illustrates the process of generating a Bitcoin identity, from a private key to a final address. It serves as a thought experiment on the nature of identity in a decentralized system.
+
+## `N30N GEN3S1S PROTOCOL`
+
+This is a collection of images related to the "N30N GEN3S1S PROTOCOL," a conceptual piece that explores themes of digital identity, data ownership, and the aesthetics of information. The images are presented in an HTML viewer.

@@ -267,5 +267,15 @@ python conceptual_proxy.py <directive> --action route
 - **arcana**: A C++ script that models a "Lovecraftian Bibliographic System."
 - **revelacao_do_agiota**: A Haskell script that provides a detailed philosophical and categorical analysis of debt.
 - **google_jules**: A Python script that provides a conceptual model of an "I'm Feeling Lucky" search, but with a layer of surrealism and "gibberish."
+- **bs_automator**: A shell script that automates the generation of vacuous corporate jargon.
+- **fim_da_linha**: An Assembly script that serves as a thought experiment on finality.
+- **pokemon_go_mobius**: A Python script that explores the illusion of choice in a gamified system.
+- **void_sheeps**: A collection of digital artifacts from a forgotten corner of the web.
+- **plato_cave**: A Haskell script that models Plato's Allegory of the Cave.
+- **moebius_topology**: A Haskell script that models a system's state transitions on a Möbius strip.
+- **blue_cyanide**: A Haskell script that models a complex system with states of 'Blue' and 'Cyan.'
+- **bitcoin_identity**: A diagram that illustrates the process of generating a Bitcoin identity.
+- **matriz_payoff**: An HTML file that displays a payoff matrix.
+- **defesa_cicada**: An HTML file that displays a defense cicada.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

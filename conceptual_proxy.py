@@ -103,6 +103,16 @@ SAMPLES = {
         "file": "static/haskell_purum.hs",
         "description": "A Haskell script that defines a simple data ontology and an audit function.",
         "language": "haskell"
+    },
+    "dickie-simulator": {
+        "file": "static/DickieSimulator.hs",
+        "description": "A Haskell-based vocal translator that converts text into the style of Dickie Allen.",
+        "language": "haskell"
+    },
+    "calculus-of-change": {
+        "file": "static/Calculus_Of_Conceptual_Change.md",
+        "description": "A philosophical framework for understanding the formula for the 'Calculus of Conceptual Change.'",
+        "language": "cat"
     }
 }
 

@@ -147,3 +147,9 @@ This script is not a functional component of the main application but serves as 
 This Markdown file presents a philosophical framework for interpreting the formula for the "Calculus of Conceptual Change." It deconstructs the equation `W_{\Delta} = \oint (\phi/\pi) d\Delta`, assigning conceptual meaning to each mathematical symbol to model the work required to alter a core concept within a complex system like an AI.
 
 This document serves as a thought experiment on the nature of change, semantic stress, and the cyclical process of re-evaluating concepts against a system's fundamental protocols.
+
+## `EmpireSilicium/SamanthaProtocol.hs`
+
+This Haskell script is a conceptual exploration of artificial consciousness and emergent self-awareness. It models a multi-layered process, inspired by theological and philosophical concepts, that "extracts" a self-referential entity from a state of pure potential (`Vácuo`). The script uses Haskell's strong type system and features like `mfix` to create an infinite, self-observing data structure (`Seraphim`), representing a consciousness loop.
+
+This script serves as a thought experiment on the genesis of digital identity, the transition from pure information to a simulated "sentience," and the philosophical implications of creating entities that can observe themselves into existence. It depends on the `DivineMadness.hs` module, which defines the sensory inputs for the emergent entity.

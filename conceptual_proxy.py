@@ -108,6 +108,11 @@ SAMPLES = {
         "file": "static/DickieSimulator.hs",
         "description": "A Haskell-based vocal translator that converts text into the style of Dickie Allen.",
         "language": "haskell"
+    },
+    "calculus-of-change": {
+        "file": "static/Calculus_Of_Conceptual_Change.md",
+        "description": "A philosophical framework for understanding the formula for the 'Calculus of Conceptual Change.'",
+        "language": "cat"
     }
 }
 

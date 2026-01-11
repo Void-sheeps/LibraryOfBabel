@@ -123,6 +123,11 @@ SAMPLES = {
         "file": "static/Mnemosyne.hs",
         "description": "A Haskell script that explores themes of rotation, memory, and geometric truth.",
         "language": "haskell"
+    },
+    "leidenfrost-effect": {
+        "file": "static/Leidenfrost.hs",
+        "description": "A Haskell script that models a thermodynamic alternative to the Mnemosyne jump logic.",
+        "language": "haskell"
     }
 }
 

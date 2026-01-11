@@ -159,3 +159,9 @@ This script serves as a thought experiment on the genesis of digital identity, t
 This Haskell script is a conceptual piece that explores the relationship between memory, rotation, and geometric truth through the "Axioma Mnemosynis 2026." It defines a four-dimensional system (`Solucao`) and a set of rules that govern its evolution. The script follows an infinite, lazy path of "jumps" (reflections) and calculates a value called "saudade" (a Portuguese word for a deep emotional state of nostalgic or profound melancholic longing) based on the accumulated rotations in the complex plane.
 
 This script serves as a thought experiment on the nature of memory as a dynamic, iterative process, where each "recollection" (jump) alters the state of the system. The "saudade" metric represents the accumulated deviation or "scar" left by this process, providing a quantitative measure of a qualitative experience.
+
+## `Leidenfrost.hs`
+
+This Haskell script provides a conceptual alternative to the logic in `Mnemosyne.hs`, framing the system's evolution in thermodynamic terms through the "Leidenfrost effect." Instead of a simple algebraic reflection, the "jump" is driven by a "vapor pressure" calculated from the system's state. This pressure creates a repulsive force that prevents the system from collapsing into a stable state, forcing it into a dynamic, "skating" motion.
+
+This script serves as a thought experiment on non-linear, state-dependent dynamics. It explores how a system can maintain a state of dynamic equilibrium not through rigid rules, but through self-regulating repulsive forces, much like a water droplet dancing on a hot surface.

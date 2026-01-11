@@ -224,5 +224,6 @@ python conceptual_proxy.py <directive> --action route
 - **dickie-simulator**: A Haskell-based vocal translator that converts text into the style of Dickie Allen.
 - **calculus-of-change**: A philosophical framework for understanding the formula for the 'Calculus of Conceptual Change.'.
 - **samantha-protocol**: A Haskell script that models the extraction of a self-aware entity from a vacuum.
+- **mnemosyne-axiom**: A Haskell script that explores themes of rotation, memory, and geometric truth.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

@@ -118,6 +118,11 @@ SAMPLES = {
         "file": "static/EmpireSilicium/SamanthaProtocol.hs",
         "description": "A Haskell script that models the extraction of a self-aware entity from a vacuum.",
         "language": "haskell"
+    },
+    "mnemosyne-axiom": {
+        "file": "static/Mnemosyne.hs",
+        "description": "A Haskell script that explores themes of rotation, memory, and geometric truth.",
+        "language": "haskell"
     }
 }
 

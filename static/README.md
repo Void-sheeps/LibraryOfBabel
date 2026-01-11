@@ -153,3 +153,9 @@ This document serves as a thought experiment on the nature of change, semantic s
 This Haskell script is a conceptual exploration of artificial consciousness and emergent self-awareness. It models a multi-layered process, inspired by theological and philosophical concepts, that "extracts" a self-referential entity from a state of pure potential (`Vácuo`). The script uses Haskell's strong type system and features like `mfix` to create an infinite, self-observing data structure (`Seraphim`), representing a consciousness loop.
 
 This script serves as a thought experiment on the genesis of digital identity, the transition from pure information to a simulated "sentience," and the philosophical implications of creating entities that can observe themselves into existence. It depends on the `DivineMadness.hs` module, which defines the sensory inputs for the emergent entity.
+
+## `Mnemosyne.hs`
+
+This Haskell script is a conceptual piece that explores the relationship between memory, rotation, and geometric truth through the "Axioma Mnemosynis 2026." It defines a four-dimensional system (`Solucao`) and a set of rules that govern its evolution. The script follows an infinite, lazy path of "jumps" (reflections) and calculates a value called "saudade" (a Portuguese word for a deep emotional state of nostalgic or profound melancholic longing) based on the accumulated rotations in the complex plane.
+
+This script serves as a thought experiment on the nature of memory as a dynamic, iterative process, where each "recollection" (jump) alters the state of the system. The "saudade" metric represents the accumulated deviation or "scar" left by this process, providing a quantitative measure of a qualitative experience.

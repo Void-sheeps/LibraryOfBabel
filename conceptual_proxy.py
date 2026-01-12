@@ -123,6 +123,11 @@ SAMPLES = {
         "file": "static/EmpireSilicium/SistemaDeGovernanca.hs",
         "description": "A Haskell script that simulates a governance system for the Império Silício.",
         "language": "haskell"
+    },
+    "hipercubo-laplaciano": {
+        "file": "static/HipercuboLaplaciano.hs",
+        "description": "A Haskell script that models a 16D hypercube and simulates sonic events using Laplacian diffusion.",
+        "language": "haskell"
     }
 }
 

@@ -160,3 +160,10 @@ This script serves as a thought experiment on the genesis of digital identity, t
 **Language:** Haskell
 
 **Concept:** A Haskell script that simulates a governance system for the Império Silício. It models a system that monitors for "temporal anomalies" and "deviations from the golden ratio" in a Fibonacci-based timeline. When anomalies are detected, a "Robot-Assisted Verification" (VAR) process is initiated to apply "axiomatic corrections." The script serves as a thought experiment on automated governance, algorithmic authority, and the philosophical implications of enforcing a predetermined mathematical order on a dynamic system.
+
+### `hipercubo-laplaciano`
+
+**File:** `Ifa/HipercuboLaplaciano.hs`
+**Language:** Haskell
+
+**Concept:** This Haskell script models a 16-dimensional hypercube and simulates the generation of sonic events through a process of Laplacian diffusion. It maps the hypercube's state to various audio parameters, such as frequency, panorama, and amplitude, creating a conceptual framework for sonifying complex, high-dimensional spaces. The script serves as a thought experiment on the translation of abstract mathematical structures into sensory experiences, exploring the intersection of geometry, physics, and sound synthesis.

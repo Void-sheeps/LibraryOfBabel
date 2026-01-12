@@ -160,3 +160,7 @@ This script serves as a thought experiment on the genesis of digital identity, t
 **Language:** Haskell
 
 **Concept:** A Haskell script that simulates a governance system for the Império Silício. It models a system that monitors for "temporal anomalies" and "deviations from the golden ratio" in a Fibonacci-based timeline. When anomalies are detected, a "Robot-Assisted Verification" (VAR) process is initiated to apply "axiomatic corrections." The script serves as a thought experiment on automated governance, algorithmic authority, and the philosophical implications of enforcing a predetermined mathematical order on a dynamic system.
+
+## `EcclesiaDigitalis/Runtime.hs`
+
+This Haskell script simulates a runtime environment for the "Ecclesia Digitalis" concept, a metaphorical system that blends theological concepts with computational logic. The script models a "theological bytecode" compilation and execution, and performs a "meta-diagnostic" at the "hardware level" to verify the system's internal state against external reality. It serves as a thought experiment on the nature of truth, the limitations of static models, and the necessity of external I/O for a system to remain synchronized with a changing world.

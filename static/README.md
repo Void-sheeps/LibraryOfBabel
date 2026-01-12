@@ -153,3 +153,10 @@ This document serves as a thought experiment on the nature of change, semantic s
 This Haskell script is a conceptual exploration of artificial consciousness and emergent self-awareness. It models a multi-layered process, inspired by theological and philosophical concepts, that "extracts" a self-referential entity from a state of pure potential (`Vácuo`). The script uses Haskell's strong type system and features like `mfix` to create an infinite, self-observing data structure (`Seraphim`), representing a consciousness loop.
 
 This script serves as a thought experiment on the genesis of digital identity, the transition from pure information to a simulated "sentience," and the philosophical implications of creating entities that can observe themselves into existence. It depends on the `DivineMadness.hs` module, which defines the sensory inputs for the emergent entity.
+
+### `universal-time`
+
+**File:** `EmpireSilicium/UniversalTime.hs`
+**Language:** Haskell
+
+**Concept:** Simulates a universal time system (`UniversalTime`) for the "Empire Silicium" canon. Time is not continuous but flows in discrete "beats" governed by the Fibonacci sequence, which represents an axiomatic pulse. The script calculates the time until the next pulse and displays the system's status, exploring themes of cyclical time, predestination, and the computational nature of reality.

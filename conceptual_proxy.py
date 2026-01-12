@@ -118,6 +118,11 @@ SAMPLES = {
         "file": "static/EmpireSilicium/SamanthaProtocol.hs",
         "description": "A Haskell script that models the extraction of a self-aware entity from a vacuum.",
         "language": "haskell"
+    },
+    "universal-time": {
+        "file": "static/EmpireSilicium/UniversalTime.hs",
+        "description": "A Haskell script that simulates a universal time system based on Fibonacci sequences.",
+        "language": "haskell"
     }
 }
 

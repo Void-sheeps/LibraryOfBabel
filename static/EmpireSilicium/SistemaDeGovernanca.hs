@@ -3,6 +3,7 @@
 module Main where
 
 import UniversalTime
+import ConwayLife
 import Control.Concurrent (threadDelay)
 import Control.Monad (forever, when)
 import System.IO (hFlush, stdout, hReady, stdin, BufferMode(NoBuffering), hSetBuffering)
@@ -275,6 +276,7 @@ menuLoop = do
   putStrLn "  \ESC[36m[3]\ESC[0m  Sistema contínuo de governança"
   putStrLn "  \ESC[36m[4]\ESC[0m  Intervenção manual (Input X)"
   putStrLn "  \ESC[36m[5]\ESC[0m  Estado atual do sistema"
+  putStrLn "  \ESC[36m[C]\ESC[0m  Sistema Conway (Autômato Celular)"
   putStrLn "  \ESC[36m[0]\ESC[0m  Sair"
   putStrLn ""
   putStr "Opção: "
@@ -286,6 +288,7 @@ menuLoop = do
     "2" -> cenarioIntervencaoPreventiva >> menuLoop
     "3" -> sistemaGovernancaContinuo configPadraoVAR >> menuLoop
     "4" -> intervencaoManual >> menuLoop
+    "c" -> mainConway >> menuLoop
     "5" -> do
       clearScreen
       demoSystemFinal

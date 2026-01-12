@@ -2,6 +2,7 @@
 import subprocess
 import argparse
 import os
+import pty
 
 SAMPLES = {
     "metarede": {
@@ -147,9 +148,8 @@ def run_script(sample):
                 print(compile_result.stderr)
                 return
 
-            # Run the Haskell script from the static directory
-            result = subprocess.run([f"./{executable_path}"], check=True, capture_output=True, text=True)
-            print(result.stdout)
+            # Run the Haskell script in a pseudo-terminal
+            pty.spawn([f"./{executable_path}"])
         finally:
             # Clean up compiled files
             for ext in ["", ".o", ".hi"]:

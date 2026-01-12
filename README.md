@@ -224,6 +224,6 @@ python conceptual_proxy.py <directive> --action route
 - **dickie-simulator**: A Haskell-based vocal translator that converts text into the style of Dickie Allen.
 - **calculus-of-change**: A philosophical framework for understanding the formula for the 'Calculus of Conceptual Change.'.
 - **samantha-protocol**: A Haskell script that models the extraction of a self-aware entity from a vacuum.
-- **universal-time**: A Haskell script that simulates a universal time system based on Fibonacci sequences.
+- **sistema-de-governanca**: A Haskell script that simulates a governance system for the Império Silício.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

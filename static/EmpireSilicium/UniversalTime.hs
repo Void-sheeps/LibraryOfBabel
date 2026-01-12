@@ -1,7 +1,11 @@
 -- UNIVERSALTIME.HS - EMPIRE SILICIUM TIME SYSTEM
 -- Código completo com todas as correções e funções melhoradas
 
-module Main where
+module UniversalTime (
+    runUniversal,
+    beatsValue,
+    nextFibBeat
+) where
 
 import Data.Time
 import Data.Time.Clock.POSIX (utcTimeToPOSIXSeconds)
@@ -169,6 +173,3 @@ demoSystemEnhanced = do
     let reconvertedBeat = localToBeat hPrecise mPrecise (floor sPrecise)
     putStrLn $ "Reconvertido (floor s): " ++ printf "%.6f" reconvertedBeat
     putStrLn $ "Diferença: " ++ printf "%.6f" (abs (currentBeat - reconvertedBeat))
-
-main :: IO ()
-main = demoSystemEnhanced

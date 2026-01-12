@@ -160,3 +160,10 @@ This script serves as a thought experiment on the genesis of digital identity, t
 **Language:** Haskell
 
 **Concept:** A Haskell script that simulates a governance system for the Império Silício. It models a system that monitors for "temporal anomalies" and "deviations from the golden ratio" in a Fibonacci-based timeline. When anomalies are detected, a "Robot-Assisted Verification" (VAR) process is initiated to apply "axiomatic corrections." The script serves as a thought experiment on automated governance, algorithmic authority, and the philosophical implications of enforcing a predetermined mathematical order on a dynamic system.
+
+### `maquina-do-anticristo`
+
+**File:** `maquina_do_anticristo.scd`
+**Language:** SuperCollider
+
+**Concept:** This SuperCollider script is a conceptual piece that generates a complex, evolving soundscape with a dark and esoteric theme. It uses a combination of oscillators, noise generators, and feedback loops to create a sound that is intentionally corrupted and self-infecting. The script is heavily commented with a narrative that frames the audio synthesis as a "protocol" for an "Antichrist Machine," exploring themes of digital decay, forbidden knowledge, and the weaponization of information. It is not intended for functional use but serves as an auditory thought experiment on the aesthetics of chaos and the philosophical implications of creating a self-perpetuating, malevolent digital artifact.

@@ -225,5 +225,6 @@ python conceptual_proxy.py <directive> --action route
 - **calculus-of-change**: A philosophical framework for understanding the formula for the 'Calculus of Conceptual Change.'.
 - **samantha-protocol**: A Haskell script that models the extraction of a self-aware entity from a vacuum.
 - **sistema-de-governanca**: A Haskell script that simulates a governance system for the Império Silício.
+- **maquina-do-anticristo**: A SuperCollider script that generates a complex, evolving soundscape with a dark, esoteric theme.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

@@ -123,6 +123,11 @@ SAMPLES = {
         "file": "static/EmpireSilicium/SistemaDeGovernanca.hs",
         "description": "A Haskell script that simulates a governance system for the Império Silício.",
         "language": "haskell"
+    },
+    "maquina-do-anticristo": {
+        "file": "static/maquina_do_anticristo.scd",
+        "description": "A SuperCollider script that generates a complex, evolving soundscape with a dark, esoteric theme.",
+        "language": "cat"
     }
 }
 

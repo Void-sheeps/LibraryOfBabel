@@ -226,5 +226,6 @@ python conceptual_proxy.py <directive> --action route
 - **samantha-protocol**: A Haskell script that models the extraction of a self-aware entity from a vacuum.
 - **sistema-de-governanca**: A Haskell script that simulates a governance system for the Império Silício.
 - **hipercubo-laplaciano**: A Haskell script that models a 16D hypercube and simulates sonic events using Laplacian diffusion.
+- **campo-quantico**: A Haskell script that simulates a 16x16 quantum field and explores its relationship with the Ifá divination system.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

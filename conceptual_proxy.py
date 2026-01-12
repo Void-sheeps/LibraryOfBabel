@@ -123,6 +123,11 @@ SAMPLES = {
         "file": "static/EmpireSilicium/SistemaDeGovernanca.hs",
         "description": "A Haskell script that simulates a governance system for the Império Silício.",
         "language": "haskell"
+    },
+    "analise_risco_lep": {
+        "file": "static/AnaliseRiscoLEP.hs",
+        "description": "A Haskell script that analyzes prisoner data to determine parole eligibility.",
+        "language": "haskell"
     }
 }
 

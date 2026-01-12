@@ -2,19 +2,8 @@
 
 module Main where
 
+import Data.List (unfoldr)
 import Text.Printf (printf)
-
--- CONSTANTS
-beatsPerDay :: Double
-beatsPerDay = 1000.0
-
-secondsPerDay :: Double
-secondsPerDay = 24 * 60 * 60
-
--- The time difference in hours for the local timezone from BMT,
--- derived from the GHCi session data (07:15 BMT vs 03:15 Local).
-localOffsetHours :: Integer
-localOffsetHours = -4
 
 -- DATA TYPES
 newtype UniversalTime = Moment { beatsValue :: Double } deriving (Show)
@@ -24,94 +13,134 @@ fibStream :: [Integer]
 fibStream = 0 : 1 : zipWith (+) fibStream (tail fibStream)
 
 -- | Gets the current universal moment.
---   The value is derived from bmtToBeat 7 15 0 for maximum precision.
+--   Hardcoded to match the GHCi session logs (equivalent to 07:15:00 BMT).
 runUniversal :: IO UniversalTime
 runUniversal = return $ Moment 302.0833333333333
 
 nextFibBeat :: Double -> Integer
 nextFibBeat beat = head $ filter (> round beat) fibStream
 
--- TIME CONVERSION
-beatsToSeconds :: Double -> Double
-beatsToSeconds beats = (beats / beatsPerDay) * secondsPerDay
+-- TIME CONVERSION & SCHEDULING
 
-secondsToHMS :: Double -> (Integer, Integer, Integer)
-secondsToHMS totalSeconds = (h, m, s)
-  where
-    -- Use `floor` to handle seconds accurately and `mod'` for floating point modulus
-    totalSeconds' = floor totalSeconds `mod` round secondsPerDay
-    h = totalSeconds' `div` 3600
-    m = (totalSeconds' `mod` 3600) `div` 60
-    s = totalSeconds' `mod` 60
-
-formatHMS :: (Integer, Integer, Integer) -> String
-formatHMS (h, m, s) = printf "%02d:%02d:%02d" h m s
-
--- | Converts a beat value to "Brazil Mean Time" (BMT).
+-- | Converts a beat value to "Brazil Mean Time" (BMT/UTC+1).
+--   Based on the user's provided logic where 1 beat = 86.4 seconds.
 beatToBMT :: Double -> String
-beatToBMT = formatHMS . secondsToHMS . beatsToSeconds
+beatToBMT beat =
+    let totalSecs = beat * 86.4
+        -- Normalize for display
+        totalSecs' = if totalSecs < 0 then totalSecs + 86400 else totalSecs
+        h = floor (totalSecs' / 3600) :: Int
+        m = floor ((totalSecs' - fromIntegral (h*3600)) / 60) :: Int
+        s = floor (totalSecs' - fromIntegral (h*3600 + m*60)) :: Int
+    in printf "%02d:%02d:%02d" h m s
 
--- | Converts a beat value to the local time (BMT + offset).
+-- | Versão corrigida da conversão para horário local (UTC-3)
 beatToLocal :: Double -> String
-beatToLocal beat = formatHMS . secondsToHMS $ localSeconds
-  where
-    bmtSeconds = beatsToSeconds beat
-    offsetSeconds = fromIntegral localOffsetHours * 3600
-    -- Add a full day of seconds before taking the modulus to handle negative results
-    localSeconds = bmtSeconds + offsetSeconds + secondsPerDay
+beatToLocal beat =
+    let totalSecs = beat * 86.4
+        -- BMT (UTC+1) para Local (UTC-3) = -4 horas = -14400 segundos
+        secsLocal = totalSecs - 14400.0
+        -- Normalizar para 0-86400
+        secsLocal' = if secsLocal < 0 then secsLocal + 86400 else secsLocal
+        h = floor (secsLocal' / 3600) :: Int
+        m = floor ((secsLocal' - fromIntegral (h*3600)) / 60) :: Int
+        s = floor (secsLocal' - fromIntegral (h*3600 + m*60)) :: Int
+    in printf "%02d:%02d:%02d" h m s
 
--- | Converts a BMT time to a beat value.
-bmtToBeat :: Integer -> Integer -> Integer -> Double
-bmtToBeat h m s = (totalSeconds / secondsPerDay) * beatsPerDay
-  where
-    totalSeconds = fromIntegral $ h * 3600 + m * 60 + s
+-- | Converte horário local (UTC-3) para beat
+localToBeat :: Int -> Int -> Int -> Double
+localToBeat h m s =
+    let totalSecs = fromIntegral (h*3600 + m*60 + s)
+        -- Local (UTC-3) para BMT (UTC+1) = +4 horas = +14400 segundos
+        totalBmtSecs = totalSecs + 14400
+        -- Normalizar se passar de 86400
+        totalBmtSecs' = if totalBmtSecs >= 86400 then totalBmtSecs - 86400 else totalBmtSecs
+    in totalBmtSecs' / 86.4
 
--- DISPLAY & SCHEDULING
 -- | Formats the beat value as a string, e.g., "@302.08".
 beatsTime :: UniversalTime -> String
 beatsTime = printf "@%.2f" . beatsValue
-
--- | Prints the next Fibonacci pulse beat and its corresponding local time.
-nextPulseLocalTime :: IO ()
-nextPulseLocalTime = do
-    moment <- runUniversal
-    let nextPulse = fromIntegral $ nextFibBeat (beatsValue moment)
-    printf " [◈] Próximo Pulso Fibonacci: @%d\n" (round nextPulse :: Integer)
-    -- The "UTC-3" is kept as flavor text from the original prompt,
-    -- though calculations use a 4-hour offset based on the GHCi examples.
-    printf " [◈] Horário Local (UTC-3): %s\n" (beatToLocal nextPulse)
-
--- | Prints the time remaining until the next Fibonacci pulse in HH:MM:SS format.
-timeToNextPulse :: IO ()
-timeToNextPulse = do
-    moment <- runUniversal
-    let now = beatsValue moment
-    let next = fromIntegral $ nextFibBeat now
-    let deltaBeats = next - now
-    let deltaSeconds = beatsToSeconds deltaBeats
-    let (h, m, s) = secondsToHMS deltaSeconds
-    printf " [◈] Tempo até o próximo pulso: %s\n" (formatHMS (h,m,s))
 
 -- | Returns a list of the next n Fibonacci beats from the current moment.
 fibSchedule :: Double -> Int -> [Integer]
 fibSchedule currentBeat n = take n $ dropWhile (<= round currentBeat) fibStream
 
--- DEMO
--- | Runs a full demonstration of the Fibonacci Clock system.
-demoSystem :: IO ()
-demoSystem = do
-  moment <- runUniversal
-  let currentBeat = beatsValue moment
-  putStrLn "┌─────────────────────────────────────────┐"
-  putStrLn "│  EMPIRE SILICIUM - FIBONACCI CLOCK      │"
-  putStrLn "└─────────────────────────────────────────┘"
-  putStrLn $ "Beat Atual: " ++ beatsTime moment
-  putStrLn $ "BMT: " ++ beatToBMT currentBeat
-  putStrLn $ "Local: " ++ beatToLocal currentBeat
-  nextPulseLocalTime
-  timeToNextPulse
-  putStrLn $ "Próximos 5 ciclos: " ++ show (fibSchedule currentBeat 5)
+-- VERIFICATION & DEMO
+
+-- | Parser simples para horário HH:MM:SS
+parseTime :: String -> (Int, Int, Int)
+parseTime timeStr =
+    let parts = split ':' timeStr
+    in case map read parts of
+        [h, m, s] -> (h, m, s)
+        _ -> error "Formato de horário inválido"
+  where
+    split delim = takeWhile (not . null) . unfoldr (Just . second (drop 1) . break (== delim))
+    second f (x, y) = (x, f y)
+
+-- | Verificação da conversão bidirecional
+testConversion :: IO ()
+testConversion = do
+    moment <- runUniversal
+    let currentBeat = beatsValue moment
+    let localStr = beatToLocal currentBeat
+
+    putStrLn $ "Beat atual: " ++ show currentBeat
+    putStrLn $ "Horário local: " ++ localStr
+
+    -- Extrair componentes do horário local para reconversão
+    let (h, m, s) = parseTime localStr
+    let reconvertedBeat = localToBeat h m s
+    let diff = abs (currentBeat - reconvertedBeat)
+
+    putStrLn $ "Reconvertido para beat: " ++ show reconvertedBeat
+    putStrLn $ "Diferença: " ++ show diff ++ " beats"
+    putStrLn $ "Diferença em segundos: " ++ show (diff * 86.4)
+
+    if diff < 0.01
+        then putStrLn "✓ Conversão bidirecional consistente"
+        else putStrLn "✗ Erro na conversão bidirecional"
+
+-- | Versão expandida do demo com verificação
+demoSystemEnhanced :: IO ()
+demoSystemEnhanced = do
+    moment <- runUniversal
+    let currentBeat = beatsValue moment
+
+    putStrLn "┌─────────────────────────────────────────┐"
+    putStrLn "│  EMPIRE SILICIUM - FIBONACCI CLOCK      │"
+    putStrLn "└─────────────────────────────────────────┘"
+    putStrLn ""
+
+    putStrLn "─── TEMPORALIDADES ───"
+    putStrLn $ "Beat Atual:        " ++ beatsTime moment
+    putStrLn $ "Valor Beat:        " ++ printf "%.3f" currentBeat
+    putStrLn $ "BMT (UTC+1):       " ++ beatToBMT currentBeat
+    putStrLn $ "Local (UTC-3):     " ++ beatToLocal currentBeat
+
+    putStrLn ""
+    putStrLn "─── FIBONACCI PULSE ───"
+    let next = nextFibBeat currentBeat
+    let deltaBeats = fromIntegral next - currentBeat
+    putStrLn $ "Próximo Pulso:     @" ++ show next
+    putStrLn $ "Beat Fibonacci:    " ++ beatToLocal (fromIntegral next)
+    putStrLn $ "Delta (beats):     " ++ printf "%.2f" deltaBeats
+
+    let deltaSecs = deltaBeats * 86.4
+    let h = floor (deltaSecs / 3600) :: Int
+        m = floor ((deltaSecs - fromIntegral (h*3600)) / 60) :: Int
+        s = floor (deltaSecs - fromIntegral (h*3600 + m*60)) :: Int
+    putStrLn $ "Tempo Restante:    " ++ printf "%02d:%02d:%02d" h m s
+
+    putStrLn ""
+    putStrLn "─── CICLOS FUTUROS ───"
+    let schedule = fibSchedule currentBeat 5
+    mapM_ (\fib -> putStrLn $ "  @" ++ show fib ++ " → " ++ beatToLocal (fromIntegral fib)) schedule
+
+    putStrLn ""
+    putStrLn "─── VERIFICAÇÃO ───"
+    testConversion
 
 -- MAIN
 main :: IO ()
-main = demoSystem
+main = demoSystemEnhanced

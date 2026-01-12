@@ -160,3 +160,7 @@ This script serves as a thought experiment on the genesis of digital identity, t
 **Language:** Haskell
 
 **Concept:** A Haskell script that simulates a governance system for the Império Silício. It models a system that monitors for "temporal anomalies" and "deviations from the golden ratio" in a Fibonacci-based timeline. When anomalies are detected, a "Robot-Assisted Verification" (VAR) process is initiated to apply "axiomatic corrections." The script serves as a thought experiment on automated governance, algorithmic authority, and the philosophical implications of enforcing a predetermined mathematical order on a dynamic system.
+
+## `AnaliseRiscoLEP.hs`
+
+This Haskell script is a conceptual piece that explores the themes of algorithmic justice and automated decision-making. It parses a JSON dataset of prisoner information and applies a risk analysis to determine their eligibility for parole. The script serves as a thought experiment on the ethical implications of using algorithms to make life-altering decisions, the potential for bias in automated systems, and the philosophical challenges of codifying justice.

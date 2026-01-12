@@ -226,5 +226,6 @@ python conceptual_proxy.py <directive> --action route
 - **samantha-protocol**: A Haskell script that models the extraction of a self-aware entity from a vacuum.
 - **mnemosyne-axiom**: A Haskell script that explores themes of rotation, memory, and geometric truth.
 - **leidenfrost-effect**: A Haskell script that models a thermodynamic alternative to the Mnemosyne jump logic.
+- **onda-estacionaria**: A Haskell script that simulates and visualizes a 1D standing wave.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

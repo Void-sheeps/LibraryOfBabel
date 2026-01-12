@@ -165,3 +165,9 @@ This script serves as a thought experiment on the nature of memory as a dynamic,
 This Haskell script provides a conceptual alternative to the logic in `Mnemosyne.hs`, framing the system's evolution in thermodynamic terms through the "Leidenfrost effect." Instead of a simple algebraic reflection, the "jump" is driven by a "vapor pressure" calculated from the system's state. This pressure creates a repulsive force that prevents the system from collapsing into a stable state, forcing it into a dynamic, "skating" motion.
 
 This script serves as a thought experiment on non-linear, state-dependent dynamics. It explores how a system can maintain a state of dynamic equilibrium not through rigid rules, but through self-regulating repulsive forces, much like a water droplet dancing on a hot surface.
+
+## `OndaEstacionaria.hs`
+
+This Haskell script is a conceptual piece that simulates a one-dimensional standing wave, such as one found on a vibrating string or in a sound tube. It defines the physical parameters of a wave and calculates the superposition of two waves traveling in opposite directions to create the standing wave pattern. The script then generates a simple but effective ASCII animation of the wave's motion over time.
+
+This script serves as a thought experiment on the nature of interference and resonance. It provides a clear, visual representation of how complex patterns can emerge from the interaction of simpler underlying components, making it a fitting addition to the repository's exploration of emergent phenomena.

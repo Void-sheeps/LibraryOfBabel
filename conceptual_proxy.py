@@ -128,6 +128,11 @@ SAMPLES = {
         "file": "static/Leidenfrost.hs",
         "description": "A Haskell script that models a thermodynamic alternative to the Mnemosyne jump logic.",
         "language": "haskell"
+    },
+    "onda-estacionaria": {
+        "file": "static/OndaEstacionaria.hs",
+        "description": "A Haskell script that simulates and visualizes a 1D standing wave.",
+        "language": "haskell"
     }
 }
 

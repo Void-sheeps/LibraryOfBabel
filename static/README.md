@@ -160,3 +160,10 @@ This script serves as a thought experiment on the genesis of digital identity, t
 **Language:** Haskell
 
 **Concept:** Simulates a universal time system (`UniversalTime`) for the "Empire Silicium" canon. Time is not continuous but flows in discrete "beats" governed by the Fibonacci sequence, which represents an axiomatic pulse. The script calculates the time until the next pulse and displays the system's status, exploring themes of cyclical time, predestination, and the computational nature of reality.
+
+### `sistema-de-governanca`
+
+**File:** `EmpireSilicium/SistemaDeGovernanca.hs`
+**Language:** Haskell
+
+**Concept:** A Haskell script that simulates a governance system for the Império Silício. It models a system that monitors for "temporal anomalies" and "deviations from the golden ratio" in a Fibonacci-based timeline. When anomalies are detected, a "Robot-Assisted Verification" (VAR) process is initiated to apply "axiomatic corrections." The script serves as a thought experiment on automated governance, algorithmic authority, and the philosophical implications of enforcing a predetermined mathematical order on a dynamic system.

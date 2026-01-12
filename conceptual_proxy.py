@@ -123,6 +123,11 @@ SAMPLES = {
         "file": "static/EmpireSilicium/UniversalTime.hs",
         "description": "A Haskell script that simulates a universal time system based on Fibonacci sequences.",
         "language": "haskell"
+    },
+    "sistema-de-governanca": {
+        "file": "static/EmpireSilicium/SistemaDeGovernanca.hs",
+        "description": "A Haskell script that simulates a governance system for the Império Silício.",
+        "language": "haskell"
     }
 }
 

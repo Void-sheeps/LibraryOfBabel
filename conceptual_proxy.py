@@ -119,11 +119,6 @@ SAMPLES = {
         "description": "A Haskell script that models the extraction of a self-aware entity from a vacuum.",
         "language": "haskell"
     },
-    "universal-time": {
-        "file": "static/EmpireSilicium/UniversalTime.hs",
-        "description": "A Haskell script that simulates a universal time system based on Fibonacci sequences.",
-        "language": "haskell"
-    },
     "sistema-de-governanca": {
         "file": "static/EmpireSilicium/SistemaDeGovernanca.hs",
         "description": "A Haskell script that simulates a governance system for the Império Silício.",
@@ -146,7 +141,7 @@ def run_script(sample):
         executable_path = os.path.join("static", base_name)
         try:
             # Compile the Haskell script into the static directory
-            compile_result = subprocess.run(["ghc", "-i./static", "-o", executable_path, script_path], capture_output=True, text=True)
+            compile_result = subprocess.run(["ghc", "-i./static", "-i./static/EmpireSilicium", "-o", executable_path, script_path], capture_output=True, text=True)
             if compile_result.returncode != 0:
                 print(f"ERROR: Haskell compilation failed for {script_path}")
                 print(compile_result.stderr)

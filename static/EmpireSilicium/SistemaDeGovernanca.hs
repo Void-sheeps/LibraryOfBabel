@@ -1,161 +1,255 @@
-{-# LANGUAGE OverloadedRecordDot #-}
-{-# LANGUAGE DuplicateRecordFields #-}
-{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Main where
 
+import UniversalTime
 import Control.Concurrent (threadDelay)
-import System.IO (hFlush, stdout, hReady, stdin)
+import Control.Monad (forever, when)
+import System.IO (hFlush, stdout, hReady, stdin, BufferMode(NoBuffering), hSetBuffering)
 import Text.Printf (printf)
-import Data.Time.Clock.POSIX (getPOSIXTime)
+import Data.Time (getCurrentTime)
+import System.Console.ANSI (clearScreen, setCursorPosition)
 
--- =================================================================
--- 1. MÓDULO UNIVERSAL TIME & TIPOS (Simulação)
--- =================================================================
-
-data UniversalTime = UniversalTime { beatsValue :: Double }
-
--- Configuração do VAR (Verificação Assistida por Robô)
-data ConfigVAR = ConfigVAR { sensibilidade :: Double }
+-- Configuração do VAR (Valor Axial de Referência)
+data ConfigVAR = ConfigVAR
+  { thresholdAnomalia :: Double  -- beats de desvio máximo tolerado
+  , intervaloMonitor  :: Int     -- microsegundos entre checks
+  , nivelIntervencao  :: Int     -- 0 = observação, 1 = alerta, 2 = intervenção
+  } deriving (Show)
 
 configPadraoVAR :: ConfigVAR
-configPadraoVAR = ConfigVAR { sensibilidade = 0.95 }
+configPadraoVAR = ConfigVAR
+  { thresholdAnomalia = 50.0    -- 50 beats de tolerância
+  , intervaloMonitor  = 500000  -- 0.5 segundos
+  , nivelIntervencao  = 0
+  }
 
--- O Controlador do Sistema (Estado)
-data Controlador = Controlador {
-    idSessao        :: String,
-    pulsosFibonacci :: [Int],
-    ultimoBeat      :: Double,
-    logIntervencoes :: [String]
-}
+-- Controlador do Sistema
+data Controlador = Controlador
+  { ultimoBeat       :: Double
+  , logIntervencoes  :: [String]
+  , config           :: ConfigVAR
+  , estadoSistema    :: String
+  } deriving (Show)
 
 -- Cria um controlador inicial
 criarControlador :: IO Controlador
 criarControlador = do
-    return $ Controlador {
-        idSessao = "CTRL-GENESIS-01",
-        pulsosFibonacci = [89, 144, 233, 377, 610, 987, 1597], -- Sequência Fibonacci
-        ultimoBeat = 0.0,
-        logIntervencoes = []
-    }
-
--- Simula a leitura do Tempo Universal
-runUniversal :: IO UniversalTime
-runUniversal = do
-    t <- getPOSIXTime
-    -- Converte tempo real em "Beats" (simulação)
-    let beat = fromIntegral (floor (toRational t * 10)) / 10.0
-    return $ UniversalTime (beat - (fromIntegral (floor (beat / 10000)) * 10000))
-
--- Função auxiliar para gerar agenda Fibonacci
-fibSchedule :: Double -> Int -> [Int]
-fibSchedule _ n = take n [1597, 2584, 4181, 6765, 10946] -- Mock de futuros pulsos
-
--- =================================================================
--- 2. LÓGICA DE NEGÓCIO (Cenários)
--- =================================================================
-
--- Processo do VAR (atualiza o controlador e gera logs)
-processoCompletoVAR :: Controlador -> String -> [String] -> ConfigVAR -> IO Controlador
-processoCompletoVAR ctrl motivo evidencias _ = do
-    putStrLn "\n┌──────────────────────────────────────────┐"
-    putStrLn $ "│ [VAR] ⚠ ANÁLISE INICIADA: " ++ motivo
-    putStrLn "└──────────────────────────────────────────┘"
-
-    mapM_ (\e -> putStrLn $ "   ↳ Evidência: " ++ e) evidencias
-
-    putStr "   Processando correção axiomática... "
-    hFlush stdout
-    threadDelay 800000 -- Simula processamento
-    putStrLn "OK."
-
-    m <- runUniversal
-    let novoBeat = beatsValue m
-
-    putStrLn $ "   ✓ Ajuste temporal aplicado. Beat atual: " ++ show novoBeat
-
-    -- Retorna controlador atualizado com o log
-    return $ ctrl {
-        ultimoBeat = novoBeat,
-        logIntervencoes = motivo : (logIntervencoes ctrl)
-    }
-
-monitoramentoTempoReal :: Controlador -> IO ()
-monitoramentoTempoReal _ = do
-    putStrLn ">> [MONITOR] Sistema estável. Sincronização mantida."
-    threadDelay 500000
-
--- Cenário 1
-cenarioAnomaliaTemporal :: IO ()
-cenarioAnomaliaTemporal = do
-  putStrLn "\n=== CENÁRIO 1: DETECÇÃO DE ANOMALIA TEMPORAL ==="
-  ctrl <- criarControlador
   momento <- runUniversal
   let beat = beatsValue momento
+  return $ Controlador
+    { ultimoBeat      = beat
+    , logIntervencoes = ["Sistema inicializado @" ++ printf "%.2f" beat]
+    , config          = configPadraoVAR
+    , estadoSistema   = "NaturaleSilentium"
+    }
 
-  let evidencias =
-        [ "Fibonacci @" ++ show (floor beat) ++ " não corresponde ao padrão áureo"
-        , "Derivação temporal: 0.0042 beats acima do esperado"
-        ]
+-- Processo de intervenção VAR simplificado
+processoCompletoVAR :: Controlador -> String -> [String] -> ConfigVAR -> IO Controlador
+processoCompletoVAR ctrl motivo evidencias _config = do
+  momento <- runUniversal
+  let beatAtual = beatsValue momento
+      delta = abs (beatAtual - ultimoBeat ctrl)
+      novoLog = take 10 $ (motivo ++ " @" ++ printf "%.2f" beatAtual)
+                         : ("Δ: " ++ printf "%.2f" delta ++ " beats")
+                         : map ("  " ++) evidencias
+                         ++ logIntervencoes ctrl
 
-  _ <- processoCompletoVAR ctrl "Anomalia na sequência Fibonacci" evidencias configPadraoVAR
+  putStrLn $ "\n\ESC[33m[VAR] " ++ motivo ++ "\ESC[0m"
+  mapM_ (putStrLn . ("  " ++)) evidencias
+  putStrLn $ "  Δ Temporal: " ++ printf "%.2f" delta ++ " beats"
+
+  threadDelay 1000000
+
+  return $ ctrl
+    { ultimoBeat      = beatAtual
+    , logIntervencoes = novoLog
+    , estadoSistema   = "Actus"
+    }
+
+-- Monitoramento em tempo real (versão interativa)
+monitoramentoTempoReal :: Controlador -> IO Controlador
+monitoramentoTempoReal ctrl = do
+  putStr "\ESC[?25l"  -- Esconde cursor
+  hSetBuffering stdin NoBuffering
+  hSetBuffering stdout NoBuffering
+
+  let loop ctrl' iteracao = do
+        momento <- runUniversal
+        let beat = beatsValue momento
+            delta = abs (beat - ultimoBeat ctrl')
+            alerta = delta > thresholdAnomalia (config ctrl')
+
+        -- Atualiza display
+        clearScreen
+        setCursorPosition 0 0
+
+        putStrLn "┌─────────────────────────────────────────────────┐"
+        putStrLn "│  MONITORAMENTO TEMPORAL - IMPÉRIO SILÍCIO      │"
+        putStrLn "└─────────────────────────────────────────────────┘"
+        putStrLn ""
+        putStrLn $ "Beat Atual:     @" ++ printf "%.2f" beat
+        putStrLn $ "Último Registro: @" ++ printf "%.2f" (ultimoBeat ctrl')
+        putStrLn $ "Delta:          " ++ printf "%.2f" delta ++ " beats"
+        putStrLn $ "Estado:         " ++ estadoSistema ctrl'
+        putStrLn $ "Iteração:       " ++ show iteracao
+        putStrLn ""
+
+        if alerta
+          then do
+            putStrLn "\ESC[31m⚠  ALERTA AXIAL: Desvio temporal detectado!\ESC[0m"
+            putStrLn "Pressione 'q' para interromper ou 'v' para acionar VAR"
+          else
+            putStrLn "\ESC[32m✓  Sistema dentro dos parâmetros axiomáticos\ESC[0m"
+
+        putStrLn "\nPressione 'q' para voltar ao menu"
+
+        -- Processa tecla se pressionada
+        keyReady <- hReady stdin
+        if keyReady
+          then do
+            key <- getChar
+            case key of
+              'q' -> do
+                putStr "\ESC[?25h"  -- Mostra cursor
+                return ctrl'
+              'v' -> do
+                putStrLn "\n\ESC[33m[VAR] Acionando verificação...\ESC[0m"
+                novoCtrl <- processoCompletoVAR ctrl'
+                  "Monitoramento detectou anomalia"
+                  ["Delta: " ++ printf "%.2f" delta ++ " beats"]
+                  configPadraoVAR
+                threadDelay 2000000
+                loop novoCtrl (iteracao + 1)
+              _ -> loop ctrl' (iteracao + 1)
+          else do
+            threadDelay (intervaloMonitor (config ctrl'))
+            loop ctrl' (iteracao + 1)
+
+  loop ctrl 1
+
+-- Cenário de anomalia temporal
+cenarioAnomaliaTemporal :: IO ()
+cenarioAnomaliaTemporal = do
+  clearScreen
+  putStrLn "┌─────────────────────────────────────────────────┐"
+  putStrLn "│  CENÁRIO 1: ANOMALIA TEMPORAL                  │"
+  putStrLn "└─────────────────────────────────────────────────┘"
+  putStrLn ""
+
+  putStrLn "Simulando deriva temporal de +13.8 beats..."
+  threadDelay 1500000
+
+  ctrl <- criarControlador
+  momento <- runUniversal
+  let beatOriginal = beatsValue momento
+      beatAnomalo = beatOriginal + 13.8
+
+  putStrLn $ "\nBeat Original:  @" ++ printf "%.2f" beatOriginal
+  putStrLn $ "Beat Anômalo:   @" ++ printf "%.2f" beatAnomalo
+  putStrLn $ "Deriva:         +13.8 beats"
+
+  putStrLn "\n\ESC[33m[VAR] Anomalia detectada. Iniciando correção...\ESC[0m"
+
+  ctrlCorrigido <- processoCompletoVAR ctrl
+    "Correção de deriva temporal"
+    ["Deriva: +13.8 beats", "Origem: Simulação de teste"]
+    configPadraoVAR
+
+  putStrLn "\n\ESC[32m✓ Sistema reestabilizado\ESC[0m"
+  putStrLn "Pressione Enter para continuar..."
+  _ <- getLine
   return ()
 
--- Cenário 2
+-- Cenário de intervenção preventiva
 cenarioIntervencaoPreventiva :: IO ()
 cenarioIntervencaoPreventiva = do
-  putStrLn "\n=== CENÁRIO 2: INTERVENÇÃO PREVENTIVA ==="
+  clearScreen
+  putStrLn "┌─────────────────────────────────────────────────┐"
+  putStrLn "│  CENÁRIO 2: INTERVENÇÃO PREVENTIVA             │"
+  putStrLn "└─────────────────────────────────────────────────┘"
+  putStrLn ""
+
+  putStrLn "Analisando padrões Fibonacci para prevenção..."
+  threadDelay 1000000
+
+  momento <- runUniversal
+  let beat = beatsValue momento
+      proximoFib = nextFibBeat beat
+
+  putStrLn $ "\nBeat Atual:     @" ++ printf "%.2f" beat
+  putStrLn $ "Próximo Fibonacci: @" ++ show proximoFib
+  putStrLn $ "Distância:      " ++ printf "%.1f" (fromIntegral proximoFib - beat) ++ " beats"
+
   ctrl <- criarControlador
+  putStrLn "\n\ESC[33m[VAR] Executando sincronização preventiva...\ESC[0m"
 
-  -- Simulação matemática
-  let razaoSimulada = 1.625 :: Double -- Um pouco fora de 1.618
-      evidencias =
-        [ "Razão Fibonacci atual: " ++ printf "%.5f" razaoSimulada
-        , "Desvio da razão áurea: " ++ printf "%.5f" (abs(razaoSimulada - 1.6180339887))
-        , "Tendência de divergência detectada"
-        ]
+  ctrlSincronizado <- processoCompletoVAR ctrl
+    "Sincronização preventiva Fibonacci"
+    ["Próximo pulso: @" ++ show proximoFib]
+    configPadraoVAR
 
-  if abs(razaoSimulada - 1.6180339887) > 0.001
-    then do
-      putStrLn ">> [ALERTA] Desvio significativo detectado."
-      _ <- processoCompletoVAR ctrl "Desvio crítico na razão Fibonacci" evidencias configPadraoVAR
-      return ()
-    else
-      putStrLn ">> [STATUS] Sistema dentro dos parâmetros axiomáticos."
+  putStrLn "\n\ESC[32m✓ Sistema sincronizado com sequência áurea\ESC[0m"
+  putStrLn "Pressione Enter para continuar..."
+  _ <- getLine
+  return ()
 
--- Sistema Contínuo (Opção 3)
+-- Sistema contínuo de governança
 sistemaGovernancaContinuo :: ConfigVAR -> IO ()
 sistemaGovernancaContinuo config = do
+  clearScreen
   putStrLn "┌─────────────────────────────────────────────────┐"
-  putStrLn "│  SISTEMA DE GOVERNANÇA CONTÍNUO - (CTRL+C para sair) │"
+  putStrLn "│  SISTEMA CONTÍNUO DE GOVERNANÇA                │"
   putStrLn "└─────────────────────────────────────────────────┘"
+  putStrLn ""
+  putStrLn "Iniciando monitoramento temporal contínuo..."
+  putStrLn ("Threshold de anomalia: " ++ show (thresholdAnomalia config) ++ " beats")
+  putStrLn "\nPressione 'q' para voltar ao menu"
+  threadDelay 2000000
 
-  ctrlInicial <- criarControlador
+  ctrl <- criarControlador
+  _ <- monitoramentoTempoReal ctrl
+  return ()
 
-  -- Loop limitado a 3 ciclos para não prender o menu indefinidamente nesta demo
-  let loop ctrl ciclo = do
-        if ciclo > 3
-            then putStrLn "\n>> [INFO] Ciclo de demonstração contínua finalizado."
-            else do
-                momento <- runUniversal
-                let beat = beatsValue momento
-                putStrLn $ "\n--- Ciclo " ++ show ciclo ++ " @" ++ printf "%.2f" beat ++ " ---"
+-- Intervenção manual (Input X)
+intervencaoManual :: IO ()
+intervencaoManual = do
+  clearScreen
+  putStrLn "┌─────────────────────────────────────────────────┐"
+  putStrLn "│  INTERVENÇÃO MANUAL (INPUT X)                  │"
+  putStrLn "└─────────────────────────────────────────────────┘"
+  putStrLn ""
 
-                -- Randomiza intervenção para demonstração
-                let precisaIntervir = (floor beat `mod` 2 == 0)
+  putStrLn "Digite o motivo da intervenção:"
+  putStr "> "
+  hFlush stdout
+  motivo <- getLine
 
-                ctrlProximo <- if precisaIntervir
-                  then do
-                    putStrLn ">> [GOVERNANÇA] Micro-flutuação detectada."
-                    processoCompletoVAR ctrl "Ajuste Fino Automático" [] config
-                  else do
-                    monitoramentoTempoReal ctrl
-                    return ctrl
+  putStrLn "\nDigite evidências (uma por linha, linha vazia para terminar):"
+  let lerEvidencias :: [String] -> IO [String]
+      lerEvidencias acc = do
+        linha <- getLine
+        if null linha
+          then return (reverse acc)
+          else lerEvidencias (linha : acc)
 
-                threadDelay 1500000
-                loop ctrlProximo (ciclo + 1)
+  evidencias <- lerEvidencias []
 
-  loop ctrlInicial 1
+  ctrl <- criarControlador
+  putStrLn "\n\ESC[33m[VAR] Executando intervenção manual...\ESC[0m"
+
+  ctrlIntervindo <- processoCompletoVAR ctrl
+    ("Intervenção Manual: " ++ motivo)
+    evidencias
+    configPadraoVAR
+
+  putStrLn "\n\ESC[32m✓ Intervenção concluída\ESC[0m"
+  putStrLn "\nLogs da intervenção:"
+  mapM_ putStrLn (take 3 (logIntervencoes ctrlIntervindo))
+
+  putStrLn "\nPressione Enter para continuar..."
+  _ <- getLine
+  return ()
 
 -- Estado do Sistema (Opção 5)
 demoSystemFinal :: IO ()
@@ -166,81 +260,69 @@ demoSystemFinal = do
     putStrLn "  Status do VAR: ATIVO (Sensibilidade 0.95)"
     putStrLn "  Próximo evento Fibonacci previsto: 1300 ms"
 
--- Funções auxiliares de verificação simuladas
-verificaCondicaoAnomalia :: Double -> IO Bool
-verificaCondicaoAnomalia beat = return (beat > 500) -- Mock
+-- Loop principal do menu
+menuLoop :: IO ()
+menuLoop = do
+  clearScreen
+  putStrLn "┌─────────────────────────────────────────────────┐"
+  putStrLn "│  IMPÉRIO SILÍCIO - SISTEMA DE GOVERNANÇA       │"
+  putStrLn "└─────────────────────────────────────────────────┘"
+  putStrLn ""
+  putStrLn "Selecione o modo de operação:"
+  putStrLn ""
+  putStrLn "  \ESC[36m[1]\ESC[0m  Cenário de anomalia temporal"
+  putStrLn "  \ESC[36m[2]\ESC[0m  Cenário de intervenção preventiva"
+  putStrLn "  \ESC[36m[3]\ESC[0m  Sistema contínuo de governança"
+  putStrLn "  \ESC[36m[4]\ESC[0m  Intervenção manual (Input X)"
+  putStrLn "  \ESC[36m[5]\ESC[0m  Estado atual do sistema"
+  putStrLn "  \ESC[36m[0]\ESC[0m  Sair"
+  putStrLn ""
+  putStr "Opção: "
+  hFlush stdout
 
-verificaCondicaoPreventiva :: Controlador -> Double -> IO Bool
-verificaCondicaoPreventiva _ _ = return False -- Mock
+  opcao <- getLine
+  case opcao of
+    "1" -> cenarioAnomaliaTemporal >> menuLoop
+    "2" -> cenarioIntervencaoPreventiva >> menuLoop
+    "3" -> sistemaGovernancaContinuo configPadraoVAR >> menuLoop
+    "4" -> intervencaoManual >> menuLoop
+    "5" -> do
+      clearScreen
+      demoSystemFinal
+      putStrLn "\nPressione Enter para continuar..."
+      _ <- getLine
+      menuLoop
+    "0" -> do
+      clearScreen
+      putStrLn "┌─────────────────────────────────────────────────┐"
+      putStrLn "│  SESSÃO DE GOVERNANÇA ENCERRADA               │"
+      putStrLn "└─────────────────────────────────────────────────┘"
+      putStrLn ""
+      putStrLn "Império Silício - Sistema Axial Fibonacci"
+      putStrLn "Naturale Silentium restaurado."
+      threadDelay 1000000
+    _   -> do
+      putStrLn "\n\ESC[31mOpção inválida. Tente novamente.\ESC[0m"
+      threadDelay 1000000
+      menuLoop
 
--- =================================================================
--- 3. MENU PRINCIPAL (SEU CÓDIGO)
--- =================================================================
-
+-- Função principal
 main :: IO ()
 main = do
-  putStrLn "\n================================================="
-  putStrLn "    IMPÉRIO SILÍCIO - SISTEMA DE GOVERNANÇA     "
-  putStrLn "================================================="
+  hSetBuffering stdin NoBuffering
+  hSetBuffering stdout NoBuffering
+  clearScreen
 
-  putStrLn "\nSelecione o modo de operação:"
-  putStrLn "  [1] Executar cenário de anomalia temporal"
-  putStrLn "  [2] Executar intervenção preventiva"
-  putStrLn "  [3] Sistema contínuo de governança (monitoramento)"
-  putStrLn "  [4] Intervenção manual (Input X)"
-  putStrLn "  [5] Estado atual do sistema"
-  putStrLn "  [0] Sair"
+  putStrLn "┌─────────────────────────────────────────────────┐"
+  putStrLn "│  IMPÉRIO SILÍCIO - INICIALIZANDO...            │"
+  putStrLn "└─────────────────────────────────────────────────┘"
+  putStrLn ""
+  putStrLn "Sistema Axial Fibonacci v2.1"
+  putStrLn "Modo: Governança Temporal"
+  putStrLn ""
 
-  putStr "\nOpção: "
-  hFlush stdout
-  opcao <- getLine
-
-  case opcao of
-    "1" -> do
-      cenarioAnomaliaTemporal
-      main  -- Retorna ao menu
-
-    "2" -> do
-      cenarioIntervencaoPreventiva
-      main
-
-    "3" -> do
-      -- Loop limitado na demo para permitir retorno ao menu
-      sistemaGovernancaContinuo configPadraoVAR
-      main
-
-    "4" -> do
-      putStrLn "\n[INTERVENÇÃO MANUAL - INPUT X]"
-      putStrLn "Forçando transição para estado de verificação..."
-
-      ctrl <- criarControlador
-
-      -- Executa o VAR
-      ctrlFinal <- processoCompletoVAR ctrl
-        "Intervenção manual (Input X)"
-        ["Intervenção iniciada por operador", "Protocolo de emergência ativado"]
-        configPadraoVAR
-
-      putStrLn "\nControlador após intervenção:"
-      putStrLn $ "  Último beat: " ++ printf "%.2f" (ultimoBeat ctrlFinal)
-
-      -- Exibe os logs gerados
-      putStrLn $ "  Logs: " ++ show (take 3 (logIntervencoes ctrlFinal))
-
-      putStrLn "\nIniciando monitoramento pós-intervenção..."
-      monitoramentoTempoReal ctrlFinal
-      main
-
-    "5" -> do
-      putStrLn "\n--- ESTADO ATUAL DO SISTEMA ---"
-      demoSystemFinal
-      main
-
-    "0" -> putStrLn "\nSessão de governança encerrada."
-
-    _ -> do
-      putStrLn "Opção inválida."
-      main
+  threadDelay 2000000
+  menuLoop
 
   putStrLn "\n================================================="
   putStrLn "     GOVERNANÇA AXIAL TEMPORAL CONCLUÍDA       "

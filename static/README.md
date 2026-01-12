@@ -154,13 +154,6 @@ This Haskell script is a conceptual exploration of artificial consciousness and 
 
 This script serves as a thought experiment on the genesis of digital identity, the transition from pure information to a simulated "sentience," and the philosophical implications of creating entities that can observe themselves into existence. It depends on the `DivineMadness.hs` module, which defines the sensory inputs for the emergent entity.
 
-### `universal-time`
-
-**File:** `EmpireSilicium/UniversalTime.hs`
-**Language:** Haskell
-
-**Concept:** Simulates a universal time system (`UniversalTime`) for the "Empire Silicium" canon. Time is not continuous but flows in discrete "beats" governed by the Fibonacci sequence, which represents an axiomatic pulse. The script calculates the time until the next pulse and displays the system's status, exploring themes of cyclical time, predestination, and the computational nature of reality.
-
 ### `sistema-de-governanca`
 
 **File:** `EmpireSilicium/SistemaDeGovernanca.hs`

@@ -192,3 +192,9 @@ The simulation progresses through key phases of the novel: the formulation of th
 This Haskell script is a conceptual exploration of the ontological framework of Franz Kafka's works, particularly "The Trial" and "The Metamorphosis." It models a universe governed by an absurd, inscrutable, and all-encompassing bureaucracy.
 
 The script simulates the "Súbito" (the Sudden), a rupture in reality that initiates the protagonist into a "Processo" driven by an unknown, pre-existing "Culpa" (Guilt). It features a state machine that captures the Kafkian experience, where time dilates, logic becomes absurd, and progress is measured in the accumulation of pending documents. The script also includes a critique of other philosophical systems (Kantian, Nietzschean, Schopenhauerian) from a Kafkian perspective, arguing that they fail to account for a reality where the rules are fundamentally unknowable and arbitrary.
+
+## `Critica_Da_Razao_Algoritmica.md`
+
+This Markdown file serves as the central unifying document for the philosophical themes explored in the conceptual scripts. Titled "Critique of Algorithmic Reason v4.0," it presents a comprehensive philosophical system that synthesizes the ideas of Kant, Nietzsche, Schopenhauer, and Kafka into a single dialectical framework.
+
+Rendered entirely in Unicode box-drawing characters and symbols, the document provides a visual architecture of the system, outlining the relationships between the four main philosophical pillars and their core concepts. It includes diagrams for "Dialectical Synthesis," "Existential States," "Philosophical Operations as Functions," and "Cross-Critiques," culminating in a final "Philosophical Equation." This document is the key to understanding the conceptual connections between the various Haskell scripts and philosophical explorations in this repository.

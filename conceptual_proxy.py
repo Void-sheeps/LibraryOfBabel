@@ -148,6 +148,11 @@ SAMPLES = {
         "file": "static/Kafka.hs",
         "description": "A Haskell script that simulates a Kafkian world of bureaucracy and absurd logic.",
         "language": "haskell"
+    },
+    "critica-razao-algoritmica": {
+        "file": "static/Critica_Da_Razao_Algoritmica.md",
+        "description": "A Markdown file that presents a unified philosophical system, 'Critique of Algorithmic Reason v4.0', in Unicode art.",
+        "language": "cat"
     }
 }
 

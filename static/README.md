@@ -204,3 +204,9 @@ Rendered entirely in Unicode box-drawing characters and symbols, the document pr
 This Haskell script is a conceptual piece that simulates a pipe organ, utilizing mathematical concepts like tensors and gradients to generate sound. It models the various components of an organ, such as pipes, registers, and materials, and uses them to create a complex, multi-layered soundscape.
 
 The script is not intended for functional use in the application but serves as a thought experiment on the intersection of music, mathematics, and physics. It explores how abstract mathematical structures can be used to create rich, expressive, and aesthetically pleasing sensory experiences.
+
+## `BinarioTopologico.hs`
+
+This Haskell script is a conceptual piece that explores the topological and ontological aspects of binary information. It models binary data not just as a sequence of ones and zeros, but as a topological space with concepts like "Actus" (presence) and "Silentium" (absence).
+
+The script is not intended for functional use in the application but serves as a thought experiment on the nature of information, exploring how different levels of interpretation (syntactic, semantic, pragmatic) can reveal deeper meaning in binary structures.

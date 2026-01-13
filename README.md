@@ -232,5 +232,6 @@ python conceptual_proxy.py <directive> --action route
 - **kafka**: A Haskell script that simulates a Kafkian world of bureaucracy and absurd logic.
 - **critica-razao-algoritmica**: A Markdown file that presents a unified philosophical system, 'Critique of Algorithmic Reason v4.0', in Unicode art.
 - **organum-multivariabilis**: A Haskell script that simulates a pipe organ, utilizing mathematical concepts like tensors and gradients to generate sound.
+- **binario-topologico**: A Haskell script that explores the topological and ontological aspects of binary information.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

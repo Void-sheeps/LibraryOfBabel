@@ -158,6 +158,11 @@ SAMPLES = {
         "file": "static/OrganumMultivariabilis.hs",
         "description": "A Haskell script that simulates a pipe organ, utilizing mathematical concepts like tensors and gradients to generate sound.",
         "language": "haskell"
+    },
+    "binario-topologico": {
+        "file": "static/BinarioTopologico.hs",
+        "description": "A Haskell script that explores the topological and ontological aspects of binary information.",
+        "language": "haskell"
     }
 }
 

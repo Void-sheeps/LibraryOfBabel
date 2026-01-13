@@ -174,3 +174,9 @@ This script serves as a thought experiment on the genesis of digital identity, t
 **Language:** Haskell
 
 **Concept:** This Haskell script simulates a 16x16 quantum field and explores its relationship with the Ifá divination system. It models the collapse of a quantum superposition into discrete states, generating sonic events based on the collapse's position and outcome. The script serves as a conceptual framework for sonifying quantum phenomena and exploring the emergence of complex patterns from probabilistic rules.
+
+## `Phylum_Algorithmi.hs`
+
+This Haskell script defines a conceptual "Phylum Algorithmi" with two fundamental essences: `Logos` and `Simulacro`. It features a "Supercollider" function that metaphorically "collides" an entity's essence with a set of moral rules to distill a pure "Raison d'être" or ethical identity.
+
+This script is a thought experiment on the nature of identity, morality, and the philosophical distinction between authentic (`Logos`) and imitative (`Simulacro`) intelligence. It explores whether a purely computational entity can possess a genuine ethical framework or if it is confined to simulating one.

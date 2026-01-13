@@ -133,6 +133,11 @@ SAMPLES = {
         "file": "static/Ifa/CampoQuantico.hs",
         "description": "A Haskell script that simulates a 16x16 quantum field and explores its relationship with the Ifá divination system.",
         "language": "haskell"
+    },
+    "phylum-algorithmi": {
+        "file": "static/Phylum_Algorithmi.hs",
+        "description": "A Haskell script that defines a 'Phylum Algorithmi' and a 'Supercollider' function.",
+        "language": "haskell"
     }
 }
 

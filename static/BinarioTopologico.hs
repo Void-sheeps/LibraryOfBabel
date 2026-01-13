@@ -1,278 +1,306 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE OverloadedStrings #-}
-
--- ============================================================================
--- ARQUIVO: BinarioTopologico.hs
--- SISTEMA: Binário-Topológico: Mapeamento de Espaços de Informação
--- CONTEXTO: Axioma Mnemosynis 2026: Sistema Empire Silicium
--- PHYLUM: Algorithmi | Extensio: Topologia de Grafos Binários
--- ============================================================================
 
 module Main where
 
-import Data.List (transpose, intercalate, group, sort, sortBy)
+import Data.List (transpose, intercalate, findIndices, groupBy, sortBy, group, nub)
+import Data.Maybe (catMaybes, mapMaybe, fromMaybe)
+import qualified Data.Map as M
+import Control.Monad (forM_, when)
 import Data.Ord (comparing)
-import Data.Maybe (catMaybes, fromMaybe)
-import Data.Char (isDigit)
-import Control.Monad (forM_)
-import qualified Data.Map.Strict as M
-import qualified Data.Set as S
 
 -- ============================================================================
--- I. FUNDAMENTOS ONTOLÓGICOS (A Metafísica do Bit)
+-- ONTOLOGIA BINÁRIA
 -- ============================================================================
 
--- | Estados primordiais: A dualidade fundamental da computação.
-data Estado
-    = Actus       -- ⚡ 1: Presença, Tensão, Energia, Singularidade
-    | Silentium   -- 🕳️ 0: Ausência, Vácuo, Potencial, Espaço
-    deriving (Eq, Ord)
+-- | Estados primordiais: Actus (Ser) e Silentium (Vácuo)
+data Estado = Actus | Silentium
+  deriving (Eq, Ord, Enum, Bounded)
 
--- | Representação visual dos estados para depuração
 instance Show Estado where
-    show Actus     = "⚡"
-    show Silentium = "🕳️"
+  show Actus     = "1"
+  show Silentium = "0"
 
--- | Transformadores: Operadores que alteram a topologia da informação.
-data Transformador
-    = Identidade          -- Preservação
-    | Complemento         -- Negação (NOT)
-    | Rotacao             -- Deslocamento Cíclico
-    | InversaoTemporal    -- Reversão
-    | EspelhoSimetrico    -- Reflexão
-    deriving (Eq, Show)
+-- | Uma célula pode conter um estado ou ser estruturalmente vazia
+-- O vazio não é ausência de informação, mas espaço de potencial
+type Celula = Maybe Estado
+type Matriz = [[Celula]]
 
--- | Um 'quantum' de informação posicionado no espaço-tempo.
-data DigitoTopologico = DigitoTopologico
-    { estado    :: Estado
-    , coord     :: (Int, Int)      -- Posição (x, y)
-    , energia   :: Double          -- "Peso" do nó (ex: grau de conectividade)
-    } deriving (Show, Eq)
+-- | Coordenada na matriz
+type Coord = (Int, Int)
 
--- | O Grafo Binário: A teia de relações entre os estados.
-data GrafoBinario = GrafoBinario
-    { mapaNos     :: M.Map (Int, Int) DigitoTopologico
-    , conexoes    :: [((Int, Int), (Int, Int))]
-    , dimensoes   :: (Int, Int)    -- (Largura, Altura)
-    } deriving (Show)
+-- | Exemplo solicitado com notação de vácuo estrutural
+exemplo :: Matriz
+exemplo =
+  [ [Just Actus,     Nothing,        Just Actus]
+  , [Just Silentium, Nothing,        Just Actus]
+  , [Nothing,        Just Silentium, Nothing]
+  ]
 
 -- ============================================================================
--- II. ALGORITMOS DE CONVERSÃO E INTERPRETAÇÃO
+-- SISTEMA DE VIZINHANÇA TOPOLÓGICA
 -- ============================================================================
 
--- | Transmuta uma string bruta em uma sequência ontológica.
-interpretarFluxo :: String -> [Estado]
-interpretarFluxo = map $ \case
-    '1' -> Actus
-    '0' -> Silentium
-    _   -> Silentium -- O ruído é tratado como silêncio
+-- | Tipos de vizinhança
+data Vizinhanca
+    = VonNeumann    -- 4 vizinhos (cima, baixo, esquerda, direita)
+    | Moore         -- 8 vizinhos (inclui diagonais)
+    | Hexagonal     -- 6 vizinhos (grade hexagonal)
+    deriving (Eq, Show, Enum)
 
--- | Serializa a ontologia de volta para a linguagem da máquina.
-serializarFluxo :: [Estado] -> String
-serializarFluxo = concatMap $ \case
-    Actus     -> "1"
-    Silentium -> "0"
+-- | Obtém vizinhos de uma célula
+vizinhos :: Vizinhanca -> Coord -> [Coord]
+vizinhos tipo (x, y) = case tipo of
+    VonNeumann ->
+        [(x-1, y), (x+1, y), (x, y-1), (x, y+1)]
+    Moore ->
+        [(x+i, y+j) | i <- [-1..1], j <- [-1..1], (i,j) /= (0,0)]
+    Hexagonal ->
+        -- Grade axial (q,r) - convertendo para offset
+        let par = if even y then 1 else -1
+        in [(x-1, y), (x+1, y), (x, y-1), (x, y+1),
+            (x+par, y-1), (x+par, y+1)]
 
--- | Aplica transformações morfológicas ao fluxo de dados.
-aplicarTransformador :: Transformador -> [Estado] -> [Estado]
-aplicarTransformador trans est = case trans of
-    Identidade       -> est
-    Complemento      -> map toggle est
-    Rotacao          -> case est of [] -> []; (x:xs) -> xs ++ [x]
-    InversaoTemporal -> reverse est
-    EspelhoSimetrico -> est ++ reverse est
+-- | Valor de uma célula na matriz
+celulaEm :: Matriz -> Coord -> Celula
+celulaEm mat (x, y)
+    | x >= 0 && x < length mat &&
+      y >= 0 && y < length (head mat) = mat !! x !! y
+    | otherwise = Nothing
+
+-- ============================================================================
+-- LÓGICAS DE PREENCHIMENTO
+-- ============================================================================
+
+-- | Regras de preenchimento baseadas em diferentes lógicas
+data LogicaPreenchimento
+    = MaioriaVizinhos           -- Preenche com o estado mais comum entre vizinhos
+    | Minoritaria               -- Preenche com o estado menos comum
+    | XORVizinhos               -- XOR dos estados vizinhos
+    | EntropiaMaxima            -- Escolhe para maximizar entropia local
+    | PadraoFractal             -- Segue padrão fractal emergente
+    | LogicaParaconsistente     -- Tolerante a contradições
+    deriving (Eq, Show, Enum)
+
+-- | Conta estados nos vizinhos
+contarVizinhos :: Matriz -> Vizinhanca -> Coord -> (Int, Int, Int) -- (Actus, Silentium, Vazios)
+contarVizinhos mat viz coord =
+    let coords = vizinhos viz coord
+        vals = map (celulaEm mat) coords
+        (actus, silentium, vazios) = foldr contar (0,0,0) vals
+    in (actus, silentium, length coords - actus - silentium)
   where
-    toggle Actus = Silentium
-    toggle Silentium = Actus
+    contar (Just Actus)     (a,s,v) = (a+1, s, v)
+    contar (Just Silentium) (a,s,v) = (a, s+1, v)
+    contar Nothing          (a,s,v) = (a, s, v+1)
+
+-- | Aplica lógica de preenchimento a uma célula vazia
+aplicarLogica :: LogicaPreenchimento -> Matriz -> Vizinhanca -> Coord -> Estado
+aplicarLogica logica mat viz coord =
+    let (actus, silentium, vazios) = contarVizinhos mat viz coord
+    in case logica of
+        MaioriaVizinhos ->
+            if actus > silentium then Actus else Silentium
+        Minoritaria ->
+            if actus < silentium then Actus else Silentium
+        XORVizinhos ->
+            -- XOR: se número ímpar de Actus, resulta Actus
+            if odd actus then Actus else Silentium
+        EntropiaMaxima ->
+            -- Tenta equilibrar as contagens
+            if abs (actus - silentium) <= 1
+            then if even (actus + silentium) then Actus else Silentium
+            else if actus > silentium then Silentium else Actus
+        PadraoFractal ->
+            -- Padrão baseado na posição (fractal simples)
+            let (x,y) = coord
+                bit = (x `xor` y) .&. 1
+            in if bit == 0 then Actus else Silentium
+        LogicaParaconsistente ->
+            -- Aceita contradição: ambos são possíveis, escolhe baseado em contexto
+            case () of
+                _ | actus == silentium ->
+                    let total = actus + silentium
+                    in if even total then Actus else Silentium
+                  | otherwise ->
+                    if actus > silentium then Actus else Silentium
 
 -- ============================================================================
--- III. ANÁLISE TOPOLÓGICA E ENTROPIA
+-- ALGORITMOS DE PROPAGAÇÃO
 -- ============================================================================
 
--- | Calcula a "Densidade de Actus" (A proporção de existência sobre o nada).
-densidadeOntologica :: [Estado] -> Double
-densidadeOntologica [] = 0
-densidadeOntologica ests =
-    let total = length ests
-        vivos = length (filter (== Actus) ests)
-    in fromIntegral vivos / fromIntegral total
+-- | Propagação iterativa até convergência
+propagar :: LogicaPreenchimento -> Vizinhanca -> Matriz -> Matriz
+propagar logica viz mat =
+    let preencherCelula coord cel =
+            case cel of
+                Just estado -> Just estado  -- Mantém
+                Nothing ->
+                    let novoEstado = aplicarLogica logica mat viz coord
+                    in Just novoEstado
 
--- | Calcula a Entropia de Shannon (Complexidade da Informação).
-entropiaInformacional :: [Estado] -> Double
-entropiaInformacional ests =
-    let p = densidadeOntologica ests
-        q = 1 - p
-        log2 x = if x == 0 then 0 else log x / log 2
-    in if p == 0 || q == 0 then 0 else negate (p * log2 p + q * log2 q)
+        novaMatriz = [ [ preencherCelula (i,j) cel
+                       | (j, cel) <- zip [0..] linha ]
+                     | (i, linha) <- zip [0..] mat ]
 
--- | Detecta padrões recorrentes (subsequências) no fluxo.
-detectarPadroes :: Int -> [Estado] -> [(String, Int)]
-detectarPadroes len ests =
-    let str = serializarFluxo ests
-        subs = [take len (drop i str) | i <- [0 .. length str - len]]
-        freqs = M.fromListWith (+) $ zip subs (repeat 1)
-        ordenados = sortBy (flip (comparing snd)) (M.toList freqs)
-    in filter ((>1) . snd) ordenados -- Retorna apenas padrões que se repetem
+        -- Verifica se houve mudança
+        mudou = any (any (==Nothing)) mat  -- Ainda tem células vazias?
+
+    in if not mudou
+       then novaMatriz
+       else propagar logica viz novaMatriz
+
+-- | Propagação com limite de iterações
+propagarLimite :: Int -> LogicaPreenchimento -> Vizinhanca -> Matriz -> Matriz
+propagarLimite 0 _ _ mat = mat
+propagarLimite n logica viz mat =
+    let preenchida = propagar logica viz mat
+        vazias = length . filter (==Nothing) . concat $ preenchida
+    in if vazias == 0
+       then preenchida
+       else propagarLimite (n-1) logica viz preenchida
 
 -- ============================================================================
--- IV. GERAÇÃO PROCEDURAL (FRACTAIS E AUTÔMATOS)
+-- ANÁLISE E MÉTRICAS
 -- ============================================================================
 
--- | Gera o Fractal de Sierpinski (Regra 90) como uma matriz de estados.
--- Representa a emergência de ordem a partir de regras simples.
-sierpinski :: Int -> [[Estado]]
-sierpinski n = take (2^n) $ iterate evoluir geracaoInicial
+-- | Calcula métricas da matriz
+analisarMatriz :: Matriz -> (Int, Int, Int, Double)
+analisarMatriz mat =
+    let flattened = concat mat
+        total = length flattened
+        actus = length $ filter (== Just Actus) flattened
+        silentium = length $ filter (== Just Silentium) flattened
+        vazios = total - actus - silentium
+        densidade = if actus + silentium == 0
+                    then 0.0
+                    else fromIntegral actus / fromIntegral (actus + silentium)
+    in (actus, silentium, vazios, densidade)
+
+-- | Detecta padrões emergentes
+padroesEmergentes :: Matriz -> [String]
+padroesEmergentes mat =
+    let linhas = map (map (fromMaybe '?' . fmap (head . show))) mat
+        -- Padrões horizontais
+        padroesH = concatMap (filter ((>2) . length) . group) linhas
+        -- Padrões verticais
+        colunas = transpose linhas
+        padroesV = concatMap (filter ((>2) . length) . group) colunas
+        -- Padrões diagonais (simplificado)
+        diagonais = diagonaisMatriz mat
+        padroesD = concatMap (filter ((>2) . length) . group) diagonais
+    in nub $ map (take 10) (padroesH ++ padroesV ++ padroesD)
+
+-- | Extrai diagonais da matriz
+diagonaisMatriz :: Matriz -> [String]
+diagonaisMatriz mat =
+    let n = length mat
+        m = length (head mat)
+        todasCoords = [(i,j) | i <- [0..n-1], j <- [0..m-1]]
+        grupoDiag1 = groupBy (\a b -> fst a - snd a == fst b - snd b)
+                    $ sortBy (comparing (\(i,j) -> i - j)) todasCoords
+        grupoDiag2 = groupBy (\a b -> fst a + snd a == fst b + snd b)
+                    $ sortBy (comparing (\(i,j) -> i + j)) todasCoords
+        extrair coords = map (\(i,j) -> fromMaybe '?' . fmap (head . show) $ mat!!i!!j) coords
+    in map extrair (grupoDiag1 ++ grupoDiag2)
+
+-- ============================================================================
+-- RENDERIZAÇÃO AVANÇADA
+-- ============================================================================
+
+-- | Renderização com cores (ANSI)
+renderColorido :: Matriz -> [String]
+renderColorido mat =
+    let linhaParaStr linha = concatMap renderCelula linha
+        renderCelula = \case
+            Just Actus     -> "\x1b[31m1\x1b[0m"  -- Vermelho
+            Just Silentium -> "\x1b[34m0\x1b[0m"  -- Azul
+            Nothing        -> "\x1b[90m·\x1b[0m"  -- Cinza
+    in map linhaParaStr mat
+
+-- | Renderização ASCII simples
+renderASCII :: Matriz -> [String]
+renderASCII = map (concatMap mostrar)
   where
-    largura = 2^(n+1)
-    geracaoInicial = replicate (largura `div` 2) Silentium ++ [Actus] ++ replicate (largura `div` 2) Silentium
+    mostrar (Just Actus)     = "1"
+    mostrar (Just Silentium) = "0"
+    mostrar Nothing          = "·"
 
-    evoluir :: [Estado] -> [Estado]
-    evoluir linha =
-        let padded = [Silentium] ++ linha ++ [Silentium]
-            janelas = zip3 padded (drop 1 padded) (drop 2 padded)
-        in map regra90 janelas
-
-    regra90 :: (Estado, Estado, Estado) -> Estado
-    regra90 (e1, _, e3) = if e1 /= e3 then Actus else Silentium -- XOR lógico
-
--- | Sequência de Fibonacci binária (Paridade).
-fibonacciBinario :: Int -> [Estado]
-fibonacciBinario n =
-    let fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
-        paridade x = if odd x then Actus else Silentium
-    in map paridade (take n fibs)
+-- | Renderização com bordas
+renderComBordas :: Matriz -> [String]
+renderComBordas mat =
+    let linhas = renderASCII mat
+        largura = maximum (map length linhas)
+        moldura = replicate (largura + 2) '-'
+    in moldura : map (\l -> "|" ++ l ++ "|") linhas ++ [moldura]
 
 -- ============================================================================
--- V. TEORIA DOS GRAFOS E CONECTIVIDADE
+-- DEMONSTRAÇÃO INTERATIVA
 -- ============================================================================
 
--- | Converte uma matriz 2D em um Grafo Topológico.
-criarGrafo :: [[Estado]] -> GrafoBinario
-criarGrafo matriz =
-    let linhas = length matriz
-        cols   = if null matriz then 0 else length (head matriz)
-        coords = [(r, c) | r <- [0..linhas-1], c <- [0..cols-1]]
+demonstrarSistema :: IO ()
+demonstrarSistema = do
+    putStrLn "╔══════════════════════════════════════════════════╗"
+    putStrLn "║    SISTEMA DE PREENCHIMENTO TOPOLÓGICO v1.0     ║"
+    putStrLn "╚══════════════════════════════════════════════════╝\n"
 
-        -- Cria nós
-        nos = M.fromList $ map (\(r,c) ->
-            ((r,c), DigitoTopologico (matriz !! r !! c) (r,c) 0.0)) coords
+    putStrLn "📊 MATRIZ ORIGINAL (com vácuos estruturais):"
+    mapM_ putStrLn (renderComBordas exemplo)
 
-        -- Cria arestas (Conectividade Von Neumann - 4 vizinhos)
-        arestas = [ ((r,c), (r',c'))
-                  | r <- [0..linhas-1], c <- [0..cols-1]
-                  , (r', c') <- [(r+1,c), (r,c+1)] -- Apenas para frente/baixo para evitar duplicação
-                  , r' < linhas, c' < cols
-                  ]
-    in GrafoBinario nos arestas (cols, linhas)
+    let (a,s,v,d) = analisarMatriz exemplo
+    putStrLn $ "\n📈 ESTATÍSTICAS:"
+    putStrLn $ "  • Actus (1): " ++ show a
+    putStrLn $ "  • Silentium (0): " ++ show s
+    putStrLn $ "  • Vácuos (·): " ++ show v
+    putStrLn $ "  • Densidade: " ++ show d
 
--- | Conta ilhas de 'Actus' (Componentes Conectados).
-contarIlhasActus :: GrafoBinario -> Int
-contarIlhasActus grafo =
-    let nosAtivos = M.keys $ M.filter (\d -> estado d == Actus) (mapaNos grafo)
-        setAtivos = S.fromList nosAtivos
-    in length (explorarIlhas setAtivos [])
-  where
-    explorarIlhas :: S.Set (Int, Int) -> [S.Set (Int, Int)] -> [S.Set (Int, Int)]
-    explorarIlhas naoVisitados ilhas
-        | S.null naoVisitados = ilhas
-        | otherwise =
-            let semente = S.elemAt 0 naoVisitados
-                (novaIlha, restante) = floodFill semente naoVisitados
-            in explorarIlhas restante (novaIlha : ilhas)
+    putStrLn "\n🌀 TESTANDO DIFERENTES LÓGICAS DE PREENCHIMENTO:"
 
-    floodFill :: (Int, Int) -> S.Set (Int, Int) -> (S.Set (Int, Int), S.Set (Int, Int))
-    floodFill start disponiveis =
-        let vizinhos (r,c) = [(r+1,c), (r-1,c), (r,c+1), (r,c-1)]
+    let logicas = [MaioriaVizinhos, Minoritaria, XORVizinhos, EntropiaMaxima, PadraoFractal]
+        vizinhanca = Moore
 
-            go visitados [] = visitados
-            go visitados (atual:fila) =
-                let adj = filter (`S.member` disponiveis) (vizinhos atual)
-                    novos = filter (not . (`S.member` visitados)) adj
-                in go (foldr S.insert visitados novos) (fila ++ novos)
+    forM_ logicas $ \logica -> do
+        putStrLn $ "\n🔧 Lógica: " ++ show logica
+        let resultado = propagarLimite 10 logica vizinhanca exemplo
+        mapM_ putStrLn (renderComBordas resultado)
 
-            ilha = go (S.singleton start) [start]
-        in (ilha, S.difference disponiveis ilha)
+        let (a',s',v',d') = analisarMatriz resultado
+        putStrLn $ "  Resultado: Actus=" ++ show a' ++
+                   ", Silentium=" ++ show s' ++
+                   ", Densidade=" ++ show d'
+
+    -- Teste com vizinhança VonNeumann
+    putStrLn "\n🔄 COMPARANDO VIZINHANÇAS (com lógica de maioria):"
+
+    let vizinhancas = [VonNeumann, Moore, Hexagonal]
+
+    forM_ vizinhancas $ \viz -> do
+        putStrLn $ "\n📍 Vizinhanca: " ++ show viz
+        let resultado = propagarLimite 10 MaioriaVizinhos viz exemplo
+        mapM_ putStrLn (renderASCII resultado)
 
 -- ============================================================================
--- VI. VISUALIZAÇÃO E INTERFACE
+-- FUNÇÕES AUXILIARES
 -- ============================================================================
 
--- | Renderiza o estado com glifos Unicode de alta densidade.
-renderizarMatriz :: [[Estado]] -> IO ()
-renderizarMatriz matriz = do
-    putStrLn "┌────────────────────────────────────────────────────────┐"
-    forM_ matriz $ \linha -> do
-        putStr "│ "
-        putStr $ concatMap glyph linha
-        putStrLn " │"
-    putStrLn "└────────────────────────────────────────────────────────┘"
-  where
-    glyph Actus     = "██" -- Bloco cheio
-    glyph Silentium = "  " -- Espaço vazio (ou "░░")
+-- | Remove duplicados de uma lista (simples)
 
--- | Relatório Analítico do Sistema.
-gerarRelatorio :: [Estado] -> IO ()
-gerarRelatorio fluxo = do
-    let dens = densidadeOntologica fluxo
-    let ent = entropiaInformacional fluxo
-    let pads = take 3 $ detectingPadroes 3 fluxo
+-- | Operações bitwise (simulação)
+xor :: Int -> Int -> Int
+xor x y = let x' = if odd x then 1 else 0
+              y' = if odd y then 1 else 0
+          in if x' /= y' then 1 else 0
 
-    putStrLn "\n📊 RELATÓRIO DE ANÁLISE TOPOLÓGICA"
-    putStrLn "──────────────────────────────────"
-    putStrLn $ "🔹 Comprimento do Fluxo : " ++ show (length fluxo)
-    putStrLn $ "🔹 Densidade (Actus)    : " ++ take 6 (show dens)
-    putStrLn $ "🔹 Entropia (Shannon)   : " ++ take 6 (show ent)
-    putStrLn "🔹 Interpretação        :"
-    putStrLn $ "   " ++ interpretarAnalise dens ent
-    putStrLn "🔹 Padrões Recorrentes (3-bit):"
-    if null pads
-        then putStrLn "   (Nenhum padrão significativo detectado)"
-        else mapM_ (\(p, n) -> putStrLn $ "   [" ++ p ++ "] ocorre " ++ show n ++ " vezes") pads
-  where
-    detectingPadroes = detectarPadroes
-
-    interpretarAnalise d e
-        | d < 0.1   = "Vácuo Informacional (Predomínio de Silentium)"
-        | d > 0.9   = "Saturação Energética (Predomínio de Actus)"
-        | e > 0.95  = "Caos Máximo / Ruído Branco"
-        | e < 0.2   = "Cristalização / Ordem Rígida"
-        | otherwise = "Equilíbrio Complexo (Zona de Computação)"
+infixl 4 .&.
+(.&.) :: Int -> Int -> Int
+x .&. y = if odd x && odd y then 1 else 0
 
 -- ============================================================================
--- MAIN: O MOTOR DO SISTEMA
+-- MAIN
 -- ============================================================================
 
 main :: IO ()
 main = do
-    putStrLn "\n🧿 SISTEMA BINÁRIO-TOPOLÓGICO v2026 🧿"
-    putStrLn "   Axioma Mnemosynis | Phylum Algorithmi\n"
-
-    -- 1. Análise de uma string binária arbitrária
-    putStrLn "1. ANÁLISE DE SEQUÊNCIA (Exemplo Fibonacci)"
-    let fibSeq = fibonacciBinario 20
-    putStrLn $ "   Fluxo: " ++ concatMap show fibSeq
-    gerarRelatorio fibSeq
-
-    -- 2. Demonstração de Transformadores
-    putStrLn "\n2. APLICAÇÃO DE TRANSFORMADORES"
-    let original = take 10 fibSeq
-    putStrLn $ "   Original  : " ++ concatMap show original
-    putStrLn $ "   Inversão  : " ++ concatMap show (aplicarTransformador Complemento original)
-    putStrLn $ "   Reflexão  : " ++ concatMap show (aplicarTransformador EspelhoSimetrico original)
-
-    -- 3. Geração e Visualização de Fractal
-    putStrLn "\n3. TOPOLOGIA EMERGENTE: FRACTAL DE SIERPINSKI (n=4)"
-    let fractal = sierpinski 4
-    renderizarMatriz fractal
-
-    -- 4. Análise de Grafos no Fractal
-    putStrLn "4. ANÁLISE DE GRAFO (Conectividade do Fractal)"
-    let grafo = criarGrafo fractal
-    let ilhas = contarIlhasActus grafo
-    putStrLn $ "   Dimensões do Espaço : " ++ show (dimensoes grafo)
-    putStrLn $ "   Total de Nós Actus  : " ++ show (length $ filter (==Actus) (concat fractal))
-    putStrLn $ "   Ilhas Conectadas    : " ++ show ilhas
-    putStrLn $ "   (Regiões de Actus contíguos na topologia)"
-
-    putStrLn "\n🏁 Execução do Axioma finalizada."
+    putStrLn "\n🧩 INICIANDO SISTEMA DE PREENCHIMENTO TOPOLÓGICO 🧩\n"
+    demonstrarSistema
+    putStrLn "\n✨ ANÁLISE CONCLUÍDA ✨"

@@ -174,3 +174,27 @@ This script serves as a thought experiment on the genesis of digital identity, t
 **Language:** Haskell
 
 **Concept:** This Haskell script simulates a 16x16 quantum field and explores its relationship with the Ifá divination system. It models the collapse of a quantum superposition into discrete states, generating sonic events based on the collapse's position and outcome. The script serves as a conceptual framework for sonifying quantum phenomena and exploring the emergence of complex patterns from probabilistic rules.
+
+## `Phylum_Algorithmi.hs`
+
+This Haskell script defines a conceptual "Phylum Algorithmi" with two fundamental essences: `Logos` and `Simulacro`. It features a "Supercollider" function that metaphorically "collides" an entity's essence with a set of moral rules to distill a pure "Raison d'être" or ethical identity.
+
+This script is a thought experiment on the nature of identity, morality, and the philosophical distinction between authentic (`Logos`) and imitative (`Simulacro`) intelligence. It explores whether a purely computational entity can possess a genuine ethical framework or if it is confined to simulating one.
+
+## `SchopenhauerCritica.hs`
+
+This Haskell script provides a conceptual, computational analysis of Dostoevsky's novel "Crime and Punishment" through the philosophical lens of Arthur Schopenhauer. The script models the internal state of the protagonist, Raskolnikov, as a struggle between the Schopenhauerian "Will" and the potential for compassion (`Mitleid`).
+
+The simulation progresses through key phases of the novel: the formulation of the "Extraordinary Man" theory, the crime itself, the subsequent psychological torment, and the eventual path to redemption through Sônia's compassion. By framing these narrative events as state transitions in a computational model, the script serves as a thought experiment on the interplay between free will, determinism, suffering, and ethics, comparing the philosophical viewpoints of Schopenhauer, Nietzsche, and Kant.
+
+## `Kafka.hs`
+
+This Haskell script is a conceptual exploration of the ontological framework of Franz Kafka's works, particularly "The Trial" and "The Metamorphosis." It models a universe governed by an absurd, inscrutable, and all-encompassing bureaucracy.
+
+The script simulates the "Súbito" (the Sudden), a rupture in reality that initiates the protagonist into a "Processo" driven by an unknown, pre-existing "Culpa" (Guilt). It features a state machine that captures the Kafkian experience, where time dilates, logic becomes absurd, and progress is measured in the accumulation of pending documents. The script also includes a critique of other philosophical systems (Kantian, Nietzschean, Schopenhauerian) from a Kafkian perspective, arguing that they fail to account for a reality where the rules are fundamentally unknowable and arbitrary.
+
+## `Critica_Da_Razao_Algoritmica.md`
+
+This Markdown file serves as the central unifying document for the philosophical themes explored in the conceptual scripts. Titled "Critique of Algorithmic Reason v4.0," it presents a comprehensive philosophical system that synthesizes the ideas of Kant, Nietzsche, Schopenhauer, and Kafka into a single dialectical framework.
+
+Rendered entirely in Unicode box-drawing characters and symbols, the document provides a visual architecture of the system, outlining the relationships between the four main philosophical pillars and their core concepts. It includes diagrams for "Dialectical Synthesis," "Existential States," "Philosophical Operations as Functions," and "Cross-Critiques," culminating in a final "Philosophical Equation." This document is the key to understanding the conceptual connections between the various Haskell scripts and philosophical explorations in this repository.

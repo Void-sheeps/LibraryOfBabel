@@ -133,6 +133,26 @@ SAMPLES = {
         "file": "static/Ifa/CampoQuantico.hs",
         "description": "A Haskell script that simulates a 16x16 quantum field and explores its relationship with the Ifá divination system.",
         "language": "haskell"
+    },
+    "phylum-algorithmi": {
+        "file": "static/Phylum_Algorithmi.hs",
+        "description": "A Haskell script that defines a 'Phylum Algorithmi' and a 'Supercollider' function.",
+        "language": "haskell"
+    },
+    "schopenhauer-critica": {
+        "file": "static/SchopenhauerCritica.hs",
+        "description": "A Haskell script that simulates a Schopenhauerian critique of Dostoevsky's 'Crime and Punishment'.",
+        "language": "haskell"
+    },
+    "kafka": {
+        "file": "static/Kafka.hs",
+        "description": "A Haskell script that simulates a Kafkian world of bureaucracy and absurd logic.",
+        "language": "haskell"
+    },
+    "critica-razao-algoritmica": {
+        "file": "static/Critica_Da_Razao_Algoritmica.md",
+        "description": "A Markdown file that presents a unified philosophical system, 'Critique of Algorithmic Reason v4.0', in Unicode art.",
+        "language": "cat"
     }
 }
 

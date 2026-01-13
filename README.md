@@ -227,5 +227,9 @@ python conceptual_proxy.py <directive> --action route
 - **sistema-de-governanca**: A Haskell script that simulates a governance system for the Império Silício.
 - **hipercubo-laplaciano**: A Haskell script that models a 16D hypercube and simulates sonic events using Laplacian diffusion.
 - **campo-quantico**: A Haskell script that simulates a 16x16 quantum field and explores its relationship with the Ifá divination system.
+- **phylum-algorithmi**: A Haskell script that defines a 'Phylum Algorithmi' and a 'Supercollider' function.
+- **schopenhauer-critica**: A Haskell script that simulates a Schopenhauerian critique of Dostoevsky's 'Crime and Punishment'.
+- **kafka**: A Haskell script that simulates a Kafkian world of bureaucracy and absurd logic.
+- **critica-razao-algoritmica**: A Markdown file that presents a unified philosophical system, 'Critique of Algorithmic Reason v4.0', in Unicode art.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

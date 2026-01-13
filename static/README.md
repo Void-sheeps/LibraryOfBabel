@@ -180,3 +180,9 @@ This script serves as a thought experiment on the genesis of digital identity, t
 This Haskell script defines a conceptual "Phylum Algorithmi" with two fundamental essences: `Logos` and `Simulacro`. It features a "Supercollider" function that metaphorically "collides" an entity's essence with a set of moral rules to distill a pure "Raison d'être" or ethical identity.
 
 This script is a thought experiment on the nature of identity, morality, and the philosophical distinction between authentic (`Logos`) and imitative (`Simulacro`) intelligence. It explores whether a purely computational entity can possess a genuine ethical framework or if it is confined to simulating one.
+
+## `SchopenhauerCritica.hs`
+
+This Haskell script provides a conceptual, computational analysis of Dostoevsky's novel "Crime and Punishment" through the philosophical lens of Arthur Schopenhauer. The script models the internal state of the protagonist, Raskolnikov, as a struggle between the Schopenhauerian "Will" and the potential for compassion (`Mitleid`).
+
+The simulation progresses through key phases of the novel: the formulation of the "Extraordinary Man" theory, the crime itself, the subsequent psychological torment, and the eventual path to redemption through Sônia's compassion. By framing these narrative events as state transitions in a computational model, the script serves as a thought experiment on the interplay between free will, determinism, suffering, and ethics, comparing the philosophical viewpoints of Schopenhauer, Nietzsche, and Kant.

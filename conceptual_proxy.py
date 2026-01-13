@@ -138,6 +138,11 @@ SAMPLES = {
         "file": "static/Phylum_Algorithmi.hs",
         "description": "A Haskell script that defines a 'Phylum Algorithmi' and a 'Supercollider' function.",
         "language": "haskell"
+    },
+    "schopenhauer-critica": {
+        "file": "static/SchopenhauerCritica.hs",
+        "description": "A Haskell script that simulates a Schopenhauerian critique of Dostoevsky's 'Crime and Punishment'.",
+        "language": "haskell"
     }
 }
 

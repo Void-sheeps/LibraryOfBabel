@@ -153,6 +153,11 @@ SAMPLES = {
         "file": "static/Critica_Da_Razao_Algoritmica.md",
         "description": "A Markdown file that presents a unified philosophical system, 'Critique of Algorithmic Reason v4.0', in Unicode art.",
         "language": "cat"
+    },
+    "tau": {
+        "file": "static/Tau.hs",
+        "description": "A Haskell script that defines 'Tau' as a fundamental atom of thought and philosophy.",
+        "language": "haskell"
     }
 }
 

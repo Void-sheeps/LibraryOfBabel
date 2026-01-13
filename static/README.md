@@ -198,3 +198,9 @@ The script simulates the "Súbito" (the Sudden), a rupture in reality that initi
 This Markdown file serves as the central unifying document for the philosophical themes explored in the conceptual scripts. Titled "Critique of Algorithmic Reason v4.0," it presents a comprehensive philosophical system that synthesizes the ideas of Kant, Nietzsche, Schopenhauer, and Kafka into a single dialectical framework.
 
 Rendered entirely in Unicode box-drawing characters and symbols, the document provides a visual architecture of the system, outlining the relationships between the four main philosophical pillars and their core concepts. It includes diagrams for "Dialectical Synthesis," "Existential States," "Philosophical Operations as Functions," and "Cross-Critiques," culminating in a final "Philosophical Equation." This document is the key to understanding the conceptual connections between the various Haskell scripts and philosophical explorations in this repository.
+
+## `OrganumMultivariabilis.hs`
+
+This Haskell script is a conceptual piece that simulates a pipe organ, utilizing mathematical concepts like tensors and gradients to generate sound. It models the various components of an organ, such as pipes, registers, and materials, and uses them to create a complex, multi-layered soundscape.
+
+The script is not intended for functional use in the application but serves as a thought experiment on the intersection of music, mathematics, and physics. It explores how abstract mathematical structures can be used to create rich, expressive, and aesthetically pleasing sensory experiences.

@@ -153,6 +153,11 @@ SAMPLES = {
         "file": "static/Critica_Da_Razao_Algoritmica.md",
         "description": "A Markdown file that presents a unified philosophical system, 'Critique of Algorithmic Reason v4.0', in Unicode art.",
         "language": "cat"
+    },
+    "organum-multivariabilis": {
+        "file": "static/OrganumMultivariabilis.hs",
+        "description": "A Haskell script that simulates a pipe organ, utilizing mathematical concepts like tensors and gradients to generate sound.",
+        "language": "haskell"
     }
 }
 

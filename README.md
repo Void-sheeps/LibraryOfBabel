@@ -231,5 +231,6 @@ python conceptual_proxy.py <directive> --action route
 - **schopenhauer-critica**: A Haskell script that simulates a Schopenhauerian critique of Dostoevsky's 'Crime and Punishment'.
 - **kafka**: A Haskell script that simulates a Kafkian world of bureaucracy and absurd logic.
 - **critica-razao-algoritmica**: A Markdown file that presents a unified philosophical system, 'Critique of Algorithmic Reason v4.0', in Unicode art.
+- **organum-multivariabilis**: A Haskell script that simulates a pipe organ, utilizing mathematical concepts like tensors and gradients to generate sound.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

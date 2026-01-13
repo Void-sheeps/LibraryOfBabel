@@ -143,6 +143,11 @@ SAMPLES = {
         "file": "static/SchopenhauerCritica.hs",
         "description": "A Haskell script that simulates a Schopenhauerian critique of Dostoevsky's 'Crime and Punishment'.",
         "language": "haskell"
+    },
+    "kafka": {
+        "file": "static/Kafka.hs",
+        "description": "A Haskell script that simulates a Kafkian world of bureaucracy and absurd logic.",
+        "language": "haskell"
     }
 }
 

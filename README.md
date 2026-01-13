@@ -229,5 +229,6 @@ python conceptual_proxy.py <directive> --action route
 - **campo-quantico**: A Haskell script that simulates a 16x16 quantum field and explores its relationship with the Ifá divination system.
 - **phylum-algorithmi**: A Haskell script that defines a 'Phylum Algorithmi' and a 'Supercollider' function.
 - **schopenhauer-critica**: A Haskell script that simulates a Schopenhauerian critique of Dostoevsky's 'Crime and Punishment'.
+- **kafka**: A Haskell script that simulates a Kafkian world of bureaucracy and absurd logic.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

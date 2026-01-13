@@ -186,3 +186,9 @@ This script is a thought experiment on the nature of identity, morality, and the
 This Haskell script provides a conceptual, computational analysis of Dostoevsky's novel "Crime and Punishment" through the philosophical lens of Arthur Schopenhauer. The script models the internal state of the protagonist, Raskolnikov, as a struggle between the Schopenhauerian "Will" and the potential for compassion (`Mitleid`).
 
 The simulation progresses through key phases of the novel: the formulation of the "Extraordinary Man" theory, the crime itself, the subsequent psychological torment, and the eventual path to redemption through Sônia's compassion. By framing these narrative events as state transitions in a computational model, the script serves as a thought experiment on the interplay between free will, determinism, suffering, and ethics, comparing the philosophical viewpoints of Schopenhauer, Nietzsche, and Kant.
+
+## `Kafka.hs`
+
+This Haskell script is a conceptual exploration of the ontological framework of Franz Kafka's works, particularly "The Trial" and "The Metamorphosis." It models a universe governed by an absurd, inscrutable, and all-encompassing bureaucracy.
+
+The script simulates the "Súbito" (the Sudden), a rupture in reality that initiates the protagonist into a "Processo" driven by an unknown, pre-existing "Culpa" (Guilt). It features a state machine that captures the Kafkian experience, where time dilates, logic becomes absurd, and progress is measured in the accumulation of pending documents. The script also includes a critique of other philosophical systems (Kantian, Nietzschean, Schopenhauerian) from a Kafkian perspective, arguing that they fail to account for a reality where the rules are fundamentally unknowable and arbitrary.

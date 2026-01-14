@@ -153,6 +153,26 @@ SAMPLES = {
         "file": "static/Critica_Da_Razao_Algoritmica.md",
         "description": "A Markdown file that presents a unified philosophical system, 'Critique of Algorithmic Reason v4.0', in Unicode art.",
         "language": "cat"
+    },
+    "organum-multivariabilis": {
+        "file": "static/OrganumMultivariabilis.hs",
+        "description": "A Haskell script that simulates a pipe organ, utilizing mathematical concepts like tensors and gradients to generate sound.",
+        "language": "haskell"
+    },
+    "binario-topologico": {
+        "file": "static/BinarioTopologico.hs",
+        "description": "A Haskell script that explores the topological and ontological aspects of binary information.",
+        "language": "haskell"
+    },
+    "gauss-polar-integrado": {
+        "file": "static/GaussPolarIntegrado.hs",
+        "description": "A Haskell script that integrates Gaussian functions with polar coordinates for musical synthesis.",
+        "language": "haskell"
+    },
+    "silicium-field-hp-unicode": {
+        "file": "static/SiliciumFieldHPUnicode.hs",
+        "description": "A Haskell script that simulates a computational field using Unicode characters for visualization and HP calculator concepts.",
+        "language": "haskell"
     }
 }
 

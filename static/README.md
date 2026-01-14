@@ -198,3 +198,27 @@ The script simulates the "Súbito" (the Sudden), a rupture in reality that initi
 This Markdown file serves as the central unifying document for the philosophical themes explored in the conceptual scripts. Titled "Critique of Algorithmic Reason v4.0," it presents a comprehensive philosophical system that synthesizes the ideas of Kant, Nietzsche, Schopenhauer, and Kafka into a single dialectical framework.
 
 Rendered entirely in Unicode box-drawing characters and symbols, the document provides a visual architecture of the system, outlining the relationships between the four main philosophical pillars and their core concepts. It includes diagrams for "Dialectical Synthesis," "Existential States," "Philosophical Operations as Functions," and "Cross-Critiques," culminating in a final "Philosophical Equation." This document is the key to understanding the conceptual connections between the various Haskell scripts and philosophical explorations in this repository.
+
+## `OrganumMultivariabilis.hs`
+
+This Haskell script is a conceptual piece that simulates a pipe organ, utilizing mathematical concepts like tensors and gradients to generate sound. It models the various components of an organ, such as pipes, registers, and materials, and uses them to create a complex, multi-layered soundscape.
+
+The script is not intended for functional use in the application but serves as a thought experiment on the intersection of music, mathematics, and physics. It explores how abstract mathematical structures can be used to create rich, expressive, and aesthetically pleasing sensory experiences.
+
+## `SiliciumFieldHPUnicode.hs`
+
+This Haskell script is a conceptual piece that simulates a computational field using Unicode characters for visualization and HP calculator concepts. It models a grid of cells, each with a specific "HP category" (e.g., basic math, statistics, engineering) and a value. The script then applies operators to these cells, updating their values and visualizing the results using a rich set of Unicode symbols.
+
+This script is not intended for functional use in the application but serves as a thought experiment on the nature of computation, exploring how abstract concepts can be represented and manipulated in a visual and intuitive way. It also serves as a tribute to the legacy of HP calculators and their impact on the history of computing.
+
+## `BinarioTopologico.hs`
+
+This Haskell script is a conceptual piece that explores the topological and ontological aspects of binary information. It models binary data not just as a sequence of ones and zeros, but as a topological space with concepts like "Actus" (presence) and "Silentium" (absence).
+
+The script is not intended for functional use in the application but serves as a thought experiment on the nature of information, exploring how different levels of interpretation (syntactic, semantic, pragmatic) can reveal deeper meaning in binary structures.
+
+## `GaussPolarIntegrado.hs`
+
+This Haskell script is a conceptual piece that integrates Gaussian functions with polar coordinates for musical synthesis. It models musical events as Gaussian distributions in the time-frequency domain and maps them to a complex polar coordinate system.
+
+The script is not intended for functional use in the application but serves as a thought experiment on the intersection of music, mathematics, and physics. It explores how abstract mathematical structures can be used to create rich, expressive, and aesthetically pleasing sensory experiences.

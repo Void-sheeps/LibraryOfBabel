@@ -183,6 +183,11 @@ SAMPLES = {
         "file": "static/EmpireSilicium/PhylumAlgorithmi/Thrall.hs",
         "description": "A Haskell script that defines a 'Thrall' entity, modeling an AI's lifecycle.",
         "language": "haskell"
+    },
+    "postmortem": {
+        "file": "static/PostMortem.hs",
+        "description": "A Haskell script that explores the concept of a system's final, halted state using the Void type.",
+        "language": "haskell"
     }
 }
 

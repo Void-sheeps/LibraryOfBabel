@@ -193,6 +193,11 @@ SAMPLES = {
         "file": "static/Axioma6502.asm",
         "description": "A 6502 assembly script demonstrating a safe IRQ interception on the C64.",
         "language": "asm"
+    },
+    "suno_extraction": {
+        "file": "static/SunoExtraction.hs",
+        "description": "A Haskell script that extracts a token from a Suno URL.",
+        "language": "haskell"
     }
 }
 

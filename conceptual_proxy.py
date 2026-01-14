@@ -173,6 +173,11 @@ SAMPLES = {
         "file": "static/SiliciumFieldHPUnicode.hs",
         "description": "A Haskell script that simulates a computational field using Unicode characters for visualization and HP calculator concepts.",
         "language": "haskell"
+    },
+    "sixth-element-critique": {
+        "file": "static/SixthElementCritique.hs",
+        "description": "A Haskell script that critiques the concept of a 'Great Convergence' between human and artificial consciousness.",
+        "language": "haskell"
     }
 }
 

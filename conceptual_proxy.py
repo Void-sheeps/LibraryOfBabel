@@ -163,6 +163,16 @@ SAMPLES = {
         "file": "static/BinarioTopologico.hs",
         "description": "A Haskell script that explores the topological and ontological aspects of binary information.",
         "language": "haskell"
+    },
+    "gauss-polar-integrado": {
+        "file": "static/GaussPolarIntegrado.hs",
+        "description": "A Haskell script that integrates Gaussian functions with polar coordinates for musical synthesis.",
+        "language": "haskell"
+    },
+    "silicium-field-hp-unicode": {
+        "file": "static/SiliciumFieldHPUnicode.hs",
+        "description": "A Haskell script that simulates a computational field using Unicode characters for visualization and HP calculator concepts.",
+        "language": "haskell"
     }
 }
 

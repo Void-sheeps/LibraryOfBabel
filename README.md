@@ -233,5 +233,7 @@ python conceptual_proxy.py <directive> --action route
 - **critica-razao-algoritmica**: A Markdown file that presents a unified philosophical system, 'Critique of Algorithmic Reason v4.0', in Unicode art.
 - **organum-multivariabilis**: A Haskell script that simulates a pipe organ, utilizing mathematical concepts like tensors and gradients to generate sound.
 - **binario-topologico**: A Haskell script that explores the topological and ontological aspects of binary information.
+- **gauss-polar-integrado**: A Haskell script that integrates Gaussian functions with polar coordinates for musical synthesis.
+- **silicium-field-hp-unicode**: A Haskell script that simulates a computational field using Unicode characters for visualization and HP calculator concepts.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

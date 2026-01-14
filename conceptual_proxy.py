@@ -188,6 +188,11 @@ SAMPLES = {
         "file": "static/SwatchTemporal.hs",
         "description": "A Haskell script for converting between Brasilia time and Swatch Internet Time (@beats), with explicit context handling.",
         "language": "haskell"
+    },
+    "mnemosyne": {
+        "file": "static/EmpireSilicium/Mnemosyne.hs",
+        "description": "A Haskell script that generates a cryptographic flow of SHA-1 hashes.",
+        "language": "haskell"
     }
 }
 

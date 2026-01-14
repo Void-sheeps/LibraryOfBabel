@@ -183,6 +183,11 @@ SAMPLES = {
         "file": "static/EmpireSilicium/EmpireSilicium.hs",
         "description": "A Haskell script that models the Axioma Mnemosynis 2026.",
         "language": "haskell"
+    },
+    "jules-conductor": {
+        "file": "static/JulesConductor.hs",
+        "description": "A Haskell script that models a workflow orchestration system.",
+        "language": "haskell"
     }
 }
 

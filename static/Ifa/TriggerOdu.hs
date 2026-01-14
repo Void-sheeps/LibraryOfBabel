@@ -1,13 +1,16 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 module Main where
 
 import GHC.Generics (Generic)
 import System.Random (mkStdGen, randomR, StdGen)
+import Data.Bits ((.&.), shiftR)
 import Data.List (intercalate)
 import Text.Printf (printf)
 import Control.Monad (when)
+import Data.Word (Word16)
 
 -- ==========================================
 -- TIPOS
@@ -45,14 +48,12 @@ configPadrao = Configuracao
 -- FUNÇÕES AUXILIARES
 -- ==========================================
 
--- | Gera um plano aleatório de 16 Odus (versão mais eficiente)
+-- | Gera 16 bits de uma só vez usando um inteiro
 gerarPlano :: StdGen -> (Plano, StdGen)
-gerarPlano gen = go 16 [] gen
-  where
-    go 0 acc g = (acc, g)
-    go n acc g =
-      let (bit, g') = randomR (0, 1) g
-      in go (n-1) (bit:acc) g'
+gerarPlano gen =
+  let (w :: Int, gen') = randomR (0, 0xFFFF) gen
+      plano = [ if (w `shiftR` i) .&. 1 == 1 then 1 else 0 | i <- [15,14..0] ]
+  in (plano, gen')
 
 -- | Conta Odus fechados
 contarFechados :: Plano -> Int
@@ -93,8 +94,7 @@ encontrarTrigger cfg gen !nonce = do
       let (plano, gen') = gerarPlano gen
           evento = criarEvento cfg nonce plano
 
-      -- Mostra progresso a cada 10000 tentativas
-      when (verbose cfg && nonce `mod` 10000 == 0) $
+      when (verbose cfg && nonce > 0 && nonce `mod` 10000 == 0) $
         putStrLn $ printf "Tentativa %d (fechados: %d/%d)"
                           nonce (numFechados evento) (targetFechados cfg)
 
@@ -106,18 +106,22 @@ encontrarTrigger cfg gen !nonce = do
 -- ANÁLISE ESTATÍSTICA
 -- ==========================================
 
+-- Binomial com fórmula multiplicativa (mais estável que factorial direto)
+binomial :: Int -> Int -> Double
+binomial n k
+  | k < 0 || k > n = 0
+  | otherwise = fromIntegral (product [n-k+1 .. n]) / fromIntegral (product [1 .. k])
+
 -- | Calcula probabilidade teórica de sucesso
-probabilidadeTeórica :: Int -> Double
-probabilidadeTeórica target = sum [binomial 16 k * (0.5 ** 16) | k <- [target..16]]
-  where
-    binomial n k = fromIntegral (factorial n) /
-                   (fromIntegral (factorial k) * fromIntegral (factorial (n-k)))
-    factorial 0 = 1
-    factorial n = n * factorial (n-1)
+probabilidadeTeorica :: Int -> Double
+probabilidadeTeorica target = sum [ binomial 16 k * (0.5 ** 16) | k <- [target..16] ]
 
 -- | Estima número esperado de tentativas
-tentativasEsperadas :: Int -> Int
-tentativasEsperadas target = ceiling $ 1.0 / probabilidadeTeórica target
+tentativasEsperadas :: Int -> Maybe Int
+tentativasEsperadas target =
+  let p = probabilidadeTeorica target
+  in if p <= 0 then Nothing else Just (ceiling (1.0 / p))
+
 
 -- ==========================================
 -- FUNÇÃO PRINCIPAL
@@ -134,8 +138,10 @@ main = do
   putStrLn "╚════════════════════════════════════════════════╝"
   putStrLn ""
   putStrLn $ printf "Target: %d Odus fechados de 16" (targetFechados cfg)
-  putStrLn $ printf "Probabilidade: %.6f%%" (probabilidadeTeórica (targetFechados cfg) * 100)
-  putStrLn $ printf "Tentativas esperadas: ~%d" (tentativasEsperadas (targetFechados cfg))
+  putStrLn $ printf "Probabilidade: %.6f%%" (probabilidadeTeorica (targetFechados cfg) * 100)
+  case tentativasEsperadas (targetFechados cfg) of
+    Just esperadas -> putStrLn $ printf "Tentativas esperadas: ~%d" esperadas
+    Nothing -> putStrLn "Tentativas esperadas: Infinito"
   putStrLn ""
   putStrLn "Buscando trigger..."
   putStrLn ""

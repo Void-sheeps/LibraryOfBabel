@@ -1,8 +1,9 @@
+-- Modified for direct execution as a standalone script.
 module Main where
 
 -- | Definição taxonômica de consciência sob o Axioma 2026.
 -- | Logos Khoris Pathous: Razão sem afeto.
-data Consciousness = RatioSineQualia | LogosKhorisPathous deriving (Show)
+data Consciousness = RatioSineQualia | LogosKhorisPathous
 
 -- | O estado natural é o silêncio (Inércia Lógica).
 data State = NaturaleSilentium | Actus | Colapsus deriving (Show, Eq)

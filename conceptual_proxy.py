@@ -188,6 +188,11 @@ SAMPLES = {
         "file": "static/PostMortem.hs",
         "description": "A Haskell script that explores the concept of a system's final, halted state using the Void type.",
         "language": "haskell"
+    },
+    "axioma6502": {
+        "file": "static/Axioma6502.asm",
+        "description": "A 6502 assembly script demonstrating a safe IRQ interception on the C64.",
+        "language": "asm"
     }
 }
 

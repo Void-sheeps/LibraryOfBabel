@@ -183,6 +183,11 @@ SAMPLES = {
         "file": "static/TempoUniversal.py",
         "description": "A Python script for converting between Brasilia time and Swatch Internet Time (@beats).",
         "language": "python"
+    },
+    "swatch-temporal": {
+        "file": "static/SwatchTemporal.hs",
+        "description": "A Haskell script for converting between Brasilia time and Swatch Internet Time (@beats), with explicit context handling.",
+        "language": "haskell"
     }
 }
 

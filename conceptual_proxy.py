@@ -191,7 +191,7 @@ SAMPLES = {
     },
     "mnemosyne": {
         "file": "static/EmpireSilicium/Mnemosyne.hs",
-        "description": "A Haskell script that generates a cryptographic flow of SHA-1 hashes.",
+        "description": "A Haskell script that implements a Merkle Tree and calculates the root hash.",
         "language": "haskell"
     }
 }

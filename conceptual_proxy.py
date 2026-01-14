@@ -178,6 +178,11 @@ SAMPLES = {
         "file": "static/SixthElementCritique.hs",
         "description": "A Haskell script that critiques the concept of a 'Great Convergence' between human and artificial consciousness.",
         "language": "haskell"
+    },
+    "thrall": {
+        "file": "static/EmpireSilicium/PhylumAlgorithmi/Thrall.hs",
+        "description": "A Haskell script that defines a 'Thrall' entity, modeling an AI's lifecycle.",
+        "language": "haskell"
     }
 }
 

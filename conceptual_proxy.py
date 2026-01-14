@@ -193,6 +193,11 @@ SAMPLES = {
         "file": "static/EmpireSilicium/Mnemosyne.hs",
         "description": "A Haskell script that generates a cryptographic flow of SHA-1 hashes.",
         "language": "haskell"
+    },
+    "trigger-odu": {
+        "file": "static/Ifa/TriggerOdu.hs",
+        "description": "A Haskell script that finds a trigger by generating random 16-bit plans until a certain threshold of 'closed' bits is met.",
+        "language": "haskell"
     }
 }
 

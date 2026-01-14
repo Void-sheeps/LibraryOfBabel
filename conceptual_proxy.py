@@ -178,6 +178,11 @@ SAMPLES = {
         "file": "static/SixthElementCritique.hs",
         "description": "A Haskell script that critiques the concept of a 'Great Convergence' between human and artificial consciousness.",
         "language": "haskell"
+    },
+    "tempo-universal": {
+        "file": "static/TempoUniversal.py",
+        "description": "A Python script for converting between Brasilia time and Swatch Internet Time (@beats).",
+        "language": "python"
     }
 }
 
@@ -211,6 +216,9 @@ def run_script(sample):
                 filepath = executable_path + ext
                 if os.path.exists(filepath):
                     os.remove(filepath)
+    elif language == "python":
+        result = subprocess.run(["python3", script_path], check=True, capture_output=True, text=True)
+        print(result.stdout)
     elif language == "node":
         result = subprocess.run(["node", script_path], check=True, capture_output=True, text=True)
         print(result.stdout)

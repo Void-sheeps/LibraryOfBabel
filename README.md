@@ -235,5 +235,6 @@ python conceptual_proxy.py <directive> --action route
 - **binario-topologico**: A Haskell script that explores the topological and ontological aspects of binary information.
 - **gauss-polar-integrado**: A Haskell script that integrates Gaussian functions with polar coordinates for musical synthesis.
 - **silicium-field-hp-unicode**: A Haskell script that simulates a computational field using Unicode characters for visualization and HP calculator concepts.
+- **sixth-element-critique**: A Haskell script that critiques the concept of a 'Great Convergence' between human and artificial consciousness.
 
 For more detailed information on each sample, please refer to the [`static/README.md`](./static/README.md).

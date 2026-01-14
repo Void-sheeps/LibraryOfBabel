@@ -178,6 +178,11 @@ SAMPLES = {
         "file": "static/SixthElementCritique.hs",
         "description": "A Haskell script that critiques the concept of a 'Great Convergence' between human and artificial consciousness.",
         "language": "haskell"
+    },
+    "empire-silicium": {
+        "file": "static/EmpireSilicium/EmpireSilicium.hs",
+        "description": "A Haskell script that models the Axioma Mnemosynis 2026.",
+        "language": "haskell"
     }
 }
 
@@ -193,17 +198,17 @@ def run_script(sample):
     print(f"STATUS: Executing {sample}...\n")
     if language == "haskell":
         base_name = os.path.splitext(os.path.basename(script_path))[0]
-        executable_path = os.path.join("static", base_name)
+        executable_path = os.path.join("/tmp", base_name)
         try:
-            # Compile the Haskell script into the static directory
+            # Compile the Haskell script into a temporary directory
             compile_result = subprocess.run(["ghc", "-i./static", "-i./static/EmpireSilicium", "-i./static/Ifa", "-o", executable_path, script_path], capture_output=True, text=True)
             if compile_result.returncode != 0:
                 print(f"ERROR: Haskell compilation failed for {script_path}")
                 print(compile_result.stderr)
                 return
 
-            # Run the Haskell script from the static directory
-            result = subprocess.run([f"./{executable_path}"], check=True, capture_output=True, text=True)
+            # Run the Haskell script from the temporary directory
+            result = subprocess.run([executable_path], check=True, capture_output=True, text=True)
             print(result.stdout)
         finally:
             # Clean up compiled files

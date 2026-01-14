@@ -2,3 +2,7 @@
 *.o
 *.hi
 dist-newstyle/
+
+# Haskell
+*~
+.DS_Store

@@ -201,7 +201,7 @@ SAMPLES = {
     },
     "s-grid": {
         "file": "static/SGrid.hs",
-        "description": "A Haskell script that generates a 16x16 grid of 'S' characters.",
+        "description": "A Haskell script that generates a C64-themed grid of mathematical and physical constants.",
         "language": "haskell"
     },
 }

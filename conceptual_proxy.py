@@ -198,7 +198,12 @@ SAMPLES = {
         "file": "static/Ifa/TriggerOdu.hs",
         "description": "A Haskell script that finds a trigger by generating random 16-bit plans until a certain threshold of 'closed' bits is met.",
         "language": "haskell"
-    }
+    },
+    "s-grid": {
+        "file": "static/SGrid.hs",
+        "description": "A Haskell script that generates a C64-themed grid of mathematical and physical constants.",
+        "language": "haskell"
+    },
 }
 
 def run_script(sample):

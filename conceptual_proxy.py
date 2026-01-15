@@ -198,6 +198,11 @@ SAMPLES = {
         "file": "static/Ifa/TriggerOdu.hs",
         "description": "A Haskell script that finds a trigger by generating random 16-bit plans until a certain threshold of 'closed' bits is met.",
         "language": "haskell"
+    },
+    "gemini-dualidade": {
+        "file": "static/GeminiDualidade.hs",
+        "description": "A Haskell script modeling a dual-processing system named Gemini.",
+        "language": "haskell"
     }
 }
 

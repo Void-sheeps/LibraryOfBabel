@@ -225,6 +225,11 @@ SAMPLES = {
         "description": "A Haskell TUI that monitors the real-time conversion of Swatch Internet Time (.beats) into a compressed byte value.",
         "language": "haskell_tui"
     },
+    "gemini-mnemosynis": {
+        "file": "static/GeminiMnemosynis.hs",
+        "description": "A Haskell script that performs advanced structural analysis of binary trees.",
+        "language": "haskell"
+    },
 }
 
 def run_script(sample):

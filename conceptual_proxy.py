@@ -220,6 +220,11 @@ SAMPLES = {
         "description": "A Haskell script that demonstrates logarithmic compression by showing how close numbers fall into the same byte.",
         "language": "haskell"
     },
+    "sincronia-temporal": {
+        "file": "static/EmpireSilicium/SincroniaTemporal.hs",
+        "description": "A Haskell TUI that monitors the real-time conversion of Swatch Internet Time (.beats) into a compressed byte value.",
+        "language": "haskell_tui"
+    },
 }
 
 def run_script(sample):

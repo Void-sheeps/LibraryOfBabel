@@ -215,6 +215,11 @@ SAMPLES = {
         "description": "A Haskell script that provides an animated, step-by-step debugger for an esoteric computational process.",
         "language": "haskell_tui"
     },
+    "ritual-numeral-simples": {
+        "file": "static/RitualNumeralSimples.hs",
+        "description": "A Haskell script that demonstrates logarithmic compression by showing how close numbers fall into the same byte.",
+        "language": "haskell"
+    },
 }
 
 def run_script(sample):

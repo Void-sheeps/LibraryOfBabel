@@ -79,30 +79,6 @@ debuggarInefavel input seed = do
             animateExecution frames (delay + 1)
 
 -- Extended version with memory visualization
-data MemoryMap = MemoryMap {
-    zeroPage  :: [(Int, Double)],  -- 0x0000-0x00FF
-    stackArea :: [(Int, Double)],  -- 0x0100-0x01FF
-    basicRom  :: [(Int, String)],  -- 0xA000-0xBFFF
-    charRom   :: [(Int, Char)]     -- 0xD000-0xDFFF
-    }
-
--- Alternative view: Show the transformation as BASIC code
-showAsBASIC :: Double -> Int -> String
-showAsBASIC inputX seed = unlines [
-    "10 REM NUMENAL TRANSMUTATION",
-    "20 REM INPUT: " ++ show inputX,
-    "30 REM SEED: " ++ show seed,
-    "40 LET X = ABS(" ++ show inputX ++ ") + 1",
-    "50 LET Y = LOG(X)",
-    "60 LET Z = Y * " ++ show seed,
-    "70 LET B = INT(Z)",
-    "80 LET C = B - INT(B/255)*255",
-    "90 FOR I = 0 TO 5",
-    "100 PRINT CHR$(C + I)",
-    "110 NEXT I",
-    "120 END"
-    ]
-
 -- Main function with options
 -- Main function (non-interactive)
 main :: IO ()

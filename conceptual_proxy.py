@@ -2,6 +2,7 @@
 import subprocess
 import argparse
 import os
+import pty
 
 SAMPLES = {
     "metarede": {
@@ -209,6 +210,11 @@ SAMPLES = {
         "description": "A Haskell script that sends OSC commands to a SuperCollider SID emulator.",
         "language": "haskell"
     },
+    "numenal-debugger": {
+        "file": "static/NumenalDebugger.hs",
+        "description": "A Haskell script that provides an animated, step-by-step debugger for an esoteric computational process.",
+        "language": "haskell_tui"
+    },
 }
 
 def run_script(sample):
@@ -235,6 +241,26 @@ def run_script(sample):
             # Run the Haskell script from the static directory
             result = subprocess.run([f"./{executable_path}"], check=True, capture_output=True, text=True)
             print(result.stdout)
+        finally:
+            # Clean up compiled files
+            for ext in ["", ".o", ".hi"]:
+                filepath = executable_path + ext
+                if os.path.exists(filepath):
+                    os.remove(filepath)
+    elif language == "haskell_tui":
+        base_name = os.path.splitext(os.path.basename(script_path))[0]
+        executable_path = os.path.join("static", base_name)
+        try:
+            # Compile the Haskell script into the static directory
+            compile_result = subprocess.run(["ghc", "-i./static", "-i./static/EmpireSilicium", "-i./static/Ifa", "-o", executable_path, script_path], capture_output=True, text=True)
+            if compile_result.returncode != 0:
+                print(f"ERROR: Haskell compilation failed for {script_path}")
+                print(compile_result.stderr)
+                return
+
+            # Run the compiled executable in a pseudo-terminal
+            pty.spawn([f"./{executable_path}"])
+
         finally:
             # Clean up compiled files
             for ext in ["", ".o", ".hi"]:

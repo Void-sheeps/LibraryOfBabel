@@ -240,6 +240,16 @@ SAMPLES = {
         "description": "A Haskell script that models the schism between individual knowledge and proof-of-thought.",
         "language": "haskell"
     },
+    "matrix-dissonance": {
+        "file": "static/MatrixDissonance.cpp",
+        "description": "A C++ script that demonstrates the collapse of qualia into a boolean decision.",
+        "language": "cpp"
+    },
+    "nan-collapse": {
+        "file": "static/NanCollapse.cpp",
+        "description": "A C++ script demonstrating that comparisons with NaN always result in the fallback condition.",
+        "language": "cpp"
+    },
 }
 
 def run_script(sample):
@@ -304,6 +314,24 @@ def run_script(sample):
     elif language == "cat":
         with open(script_path, "r") as f:
             print(f.read())
+    elif language == "cpp":
+        base_name = os.path.splitext(os.path.basename(script_path))[0]
+        executable_path = os.path.join("static", base_name)
+        try:
+            # Compile the C++ script into the static directory
+            compile_result = subprocess.run(["g++", "-o", executable_path, script_path], capture_output=True, text=True)
+            if compile_result.returncode != 0:
+                print(f"ERROR: C++ compilation failed for {script_path}")
+                print(compile_result.stderr)
+                return
+
+            # Run the C++ script from the static directory
+            result = subprocess.run([f"./{executable_path}"], check=True, capture_output=True, text=True)
+            print(result.stdout)
+        finally:
+            # Clean up compiled files
+            if os.path.exists(executable_path):
+                os.remove(executable_path)
 
 def main():
     parser = argparse.ArgumentParser(

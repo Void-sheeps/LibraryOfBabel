@@ -230,6 +230,16 @@ SAMPLES = {
         "description": "A Haskell script that performs advanced structural analysis of binary trees.",
         "language": "haskell"
     },
+    "mnemosyne-cycle": {
+        "file": "static/Mnemosyne.hs",
+        "description": "A Haskell script that simulates the state cycle of a Mnemosyne system.",
+        "language": "haskell"
+    },
+    "kantian-numera": {
+        "file": "static/KantianNumera.hs",
+        "description": "A Haskell script that models the schism between individual knowledge and proof-of-thought.",
+        "language": "haskell"
+    },
 }
 
 def run_script(sample):

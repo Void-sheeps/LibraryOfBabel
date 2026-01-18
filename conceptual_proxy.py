@@ -245,6 +245,11 @@ SAMPLES = {
         "description": "A C++ script that demonstrates the collapse of qualia into a boolean decision.",
         "language": "cpp"
     },
+    "nan-collapse": {
+        "file": "static/NanCollapse.cpp",
+        "description": "A C++ script demonstrating that comparisons with NaN always result in the fallback condition.",
+        "language": "cpp"
+    },
 }
 
 def run_script(sample):

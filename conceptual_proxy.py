@@ -250,9 +250,9 @@ SAMPLES = {
         "description": "A C++ script demonstrating that comparisons with NaN always result in the fallback condition.",
         "language": "cpp"
     },
-    "amor_fati": {
-        "file": "static/amor_fati.cpp",
-        "description": "A C++ TUI that simulates the reception and acceptance of different types of 'destiny'.",
+    "amor_fati_game": {
+        "file": "static/amor_fati_game.cpp",
+        "description": "A C++ game that tests the user's ability to accept or reject different types of 'destiny'.",
         "language": "cpp"
     },
 }
@@ -324,7 +324,7 @@ def run_script(sample):
         executable_path = os.path.join("static", base_name)
         try:
             # Compile the C++ script into the static directory
-            compile_result = subprocess.run(["g++", "-o", executable_path, script_path], capture_output=True, text=True)
+            compile_result = subprocess.run(["g++", "-o", executable_path, script_path, "-pthread"], capture_output=True, text=True)
             if compile_result.returncode != 0:
                 print(f"ERROR: C++ compilation failed for {script_path}")
                 print(compile_result.stderr)

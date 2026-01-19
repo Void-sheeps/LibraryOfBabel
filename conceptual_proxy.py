@@ -260,6 +260,11 @@ SAMPLES = {
         "description": "A Haskell script that maps phenomena onto a 2D space of logic and morality, resulting in a 'topological' analysis of their existential state.",
         "language": "haskell"
     },
+    "art-analyzer": {
+        "file": "static/EmpireSilicium/ArtAnalyzer.cpp",
+        "description": "A C++ script that performs a quadrant analysis of art pieces based on quantitative and qualitative metrics.",
+        "language": "cpp"
+    },
 }
 
 def run_script(sample):

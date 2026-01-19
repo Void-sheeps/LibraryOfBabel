@@ -250,6 +250,16 @@ SAMPLES = {
         "description": "A C++ script demonstrating that comparisons with NaN always result in the fallback condition.",
         "language": "cpp"
     },
+    "amor_fati": {
+        "file": "static/AmorFati.hs",
+        "description": "A Haskell TUI game that tests the user's ability to accept or reject different types of 'destiny' based on Stoic principles.",
+        "language": "haskell_tui"
+    },
+    "dissonancia": {
+        "file": "static/Dissonancia.hs",
+        "description": "A Haskell script that maps phenomena onto a 2D space of logic and morality, resulting in a 'topological' analysis of their existential state.",
+        "language": "haskell"
+    },
 }
 
 def run_script(sample):

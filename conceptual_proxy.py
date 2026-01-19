@@ -250,6 +250,11 @@ SAMPLES = {
         "description": "A C++ script demonstrating that comparisons with NaN always result in the fallback condition.",
         "language": "cpp"
     },
+    "amor_fati": {
+        "file": "static/amor_fati.cpp",
+        "description": "A C++ TUI that simulates the reception and acceptance of different types of 'destiny'.",
+        "language": "cpp"
+    },
 }
 
 def run_script(sample):

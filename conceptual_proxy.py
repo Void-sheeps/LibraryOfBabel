@@ -270,6 +270,11 @@ SAMPLES = {
         "description": "A Coq proof that demonstrates a contradiction between the reflexive law of identity and the IEEE-754 standard for NaN.",
         "language": "coq"
     },
+    "nan-theory-lean": {
+        "file": "static/NaN_Theory.lean",
+        "description": "A Lean proof that demonstrates a contradiction between the reflexive law of identity and the IEEE-754 standard for NaN.",
+        "language": "lean"
+    },
 }
 
 def run_script(sample):
@@ -331,7 +336,7 @@ def run_script(sample):
     elif language == "browser":
         import webbrowser
         webbrowser.open(f"file://{os.path.realpath(script_path)}")
-    elif language == "cat" or language == "coq":
+    elif language == "cat" or language == "coq" or language == "lean":
         with open(script_path, "r") as f:
             print(f.read())
     elif language == "cpp":

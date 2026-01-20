@@ -272,7 +272,7 @@ SAMPLES = {
     },
     "nan-theory-lean": {
         "file": "static/NaN_Theory.lean",
-        "description": "A Lean proof that demonstrates a contradiction between the reflexive law of identity and the IEEE-754 standard for NaN.",
+        "description": "A Lean proof that uses inductive types to formalize that a non-number cannot be a number, demonstrating the concept by construction.",
         "language": "lean"
     },
 }

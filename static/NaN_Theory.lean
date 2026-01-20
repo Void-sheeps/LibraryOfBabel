@@ -1,55 +1,65 @@
 /-
-  NaN_Theory.lean
-  Postulado: a identidade não é garantida no silício.
+NaN_Theory.lean
+Postulado: um não-número não pode ser um número.
+Formalização por tipagem (lógica negativa válida).
 -/
 
 -- ===============================
--- 1. Domínio abstrato
+-- 1. Domínios
 -- ===============================
 
-constant Double : Type
+-- Domínio dos números naturais
+def NatNumber := Nat
 
-constant eqD : Double → Double → Prop
-infix:50 " ==" => eqD
+-- Domínio estendido com um marcador de não-número
+inductive ExtNumber
+| num : NatNumber → ExtNumber
+| NaN : ExtNumber
 
--- ===============================
--- 2. Lei esperada da identidade
--- ===============================
-
-axiom Eq_reflexiva :
-  ∀ x : Double, x == x
+open ExtNumber
 
 -- ===============================
--- 3. Predicado NaN
+-- 2. Predicados de pertencimento
 -- ===============================
 
-constant isNaN : Double → Prop
+-- É um número natural?
+def isNat : ExtNumber → Prop
+| num _ => True
+| NaN   => False
 
 -- ===============================
--- 4. Axioma IEEE-754
+-- 3. Teoremas fundamentais
 -- ===============================
 
-axiom NaN_nao_reflexivo :
-  ∀ x : Double, isNaN x → ¬ (x == x)
+-- 1 é um número natural
+theorem one_is_number : isNat (num 1) := by
+  trivial
+
+-- NaN não é um número natural
+theorem NaN_is_not_number : ¬ isNat NaN := by
+  intro h
+  cases h
 
 -- ===============================
--- 5. Existência de NaN
+-- 4. Desigualdade estrutural
 -- ===============================
 
-axiom existe_NaN :
-  ∃ n : Double, isNaN n
+-- NaN nunca pode ser igual a um número natural
+theorem NaN_ne_one : NaN ≠ num 1 := by
+  intro h
+  cases h
 
 -- ===============================
--- 6. Teorema: contradição
+-- 5. Forma conceitual (capacidade negativa)
 -- ===============================
 
-theorem contradicao_identidade : False :=
-by
-  -- Eliminamos o existencial
-  obtain ⟨n, hn⟩ := existe_NaN
-  -- Aplicamos o axioma IEEE-754
-  have h1 : ¬ (n == n) := NaN_nao_reflexivo n hn
-  -- Aplicamos a reflexividade
-  have h2 : n == n := Eq_reflexiva n
-  -- Contradição direta
-  exact h1 h2
+-- Se algo não é número, não pode ser igual a um número
+theorem non_number_ne_number :
+  ∀ x n, isNat x = False → x ≠ num n := by
+  intro x n h
+  cases x with
+  | num k =>
+      simp at h
+  | NaN =>
+      intro hEq
+      cases hEq

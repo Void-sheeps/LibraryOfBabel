@@ -265,6 +265,11 @@ SAMPLES = {
         "description": "A C++ script that performs a quadrant analysis of art pieces based on quantitative and qualitative metrics.",
         "language": "cpp"
     },
+    "nan-theory": {
+        "file": "static/NaN_Theory.v",
+        "description": "A Coq proof that demonstrates a contradiction between the reflexive law of identity and the IEEE-754 standard for NaN.",
+        "language": "coq"
+    },
 }
 
 def run_script(sample):
@@ -326,7 +331,7 @@ def run_script(sample):
     elif language == "browser":
         import webbrowser
         webbrowser.open(f"file://{os.path.realpath(script_path)}")
-    elif language == "cat":
+    elif language == "cat" or language == "coq":
         with open(script_path, "r") as f:
             print(f.read())
     elif language == "cpp":

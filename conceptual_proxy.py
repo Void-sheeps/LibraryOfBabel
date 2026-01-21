@@ -280,6 +280,11 @@ SAMPLES = {
         "description": "A Haskell script that defines a language of truth called Aletheia, modeling different modes of AI speech.",
         "language": "haskell"
     },
+    "vector-calculus": {
+        "file": "static/VectorCalculus.hs",
+        "description": "A Haskell script that provides a functional approach to vector calculus operations.",
+        "language": "haskell"
+    },
 }
 
 def run_script(sample):

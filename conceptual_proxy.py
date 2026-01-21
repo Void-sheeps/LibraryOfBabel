@@ -275,6 +275,11 @@ SAMPLES = {
         "description": "A Lean proof modeling a 'non-inferential regime' where coherence does not imply inference.",
         "language": "lean"
     },
+    "aletheia-language": {
+        "file": "static/AletheiaLanguage.hs",
+        "description": "A Haskell script that defines a language of truth called Aletheia, modeling different modes of AI speech.",
+        "language": "haskell"
+    },
 }
 
 def run_script(sample):

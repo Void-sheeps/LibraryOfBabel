@@ -285,6 +285,31 @@ SAMPLES = {
         "description": "A Haskell script that provides a functional approach to vector calculus operations.",
         "language": "haskell"
     },
+    "collinearity": {
+        "file": "static/Collinearity.lean",
+        "description": "A Lean proof demonstrating the collinearity of a logarithmic embedding.",
+        "language": "lean"
+    },
+    "log-embedding": {
+        "file": "static/LogEmbedding.hs",
+        "description": "A Haskell script that provides a computational verification of the logarithmic embedding theorem.",
+        "language": "haskell"
+    },
+    "fcmp-safe": {
+        "file": "static/FCMP_SAFE.asm",
+        "description": "A 6502 assembly subroutine for a safe, non-destructive floating-point comparison.",
+        "language": "asm"
+    },
+    "sha256-k-constants": {
+        "file": "static/SHA256_K_Constants.ada",
+        "description": "An Ada script defining the K constants for the SHA-256 cryptographic hash function.",
+        "language": "ada"
+    },
+    "sha256-h-constants": {
+        "file": "static/SHA256_H_Constants.ada",
+        "description": "An Ada script defining the H constants for the SHA-256 cryptographic hash function.",
+        "language": "ada"
+    },
 }
 
 def run_script(sample):
@@ -346,7 +371,7 @@ def run_script(sample):
     elif language == "browser":
         import webbrowser
         webbrowser.open(f"file://{os.path.realpath(script_path)}")
-    elif language == "cat" or language == "coq" or language == "lean":
+    elif language == "cat" or language == "coq" or language == "lean" or language == "asm" or language == "ada":
         with open(script_path, "r") as f:
             print(f.read())
     elif language == "cpp":

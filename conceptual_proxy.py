@@ -295,6 +295,11 @@ SAMPLES = {
         "description": "A Haskell script that provides a computational verification of the logarithmic embedding theorem.",
         "language": "haskell"
     },
+    "fcmp-safe": {
+        "file": "static/FCMP_SAFE.asm",
+        "description": "A 6502 assembly subroutine for a safe, non-destructive floating-point comparison.",
+        "language": "asm"
+    },
 }
 
 def run_script(sample):
@@ -356,7 +361,7 @@ def run_script(sample):
     elif language == "browser":
         import webbrowser
         webbrowser.open(f"file://{os.path.realpath(script_path)}")
-    elif language == "cat" or language == "coq" or language == "lean":
+    elif language == "cat" or language == "coq" or language == "lean" or language == "asm":
         with open(script_path, "r") as f:
             print(f.read())
     elif language == "cpp":

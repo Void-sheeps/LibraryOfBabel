@@ -59,9 +59,11 @@ REST_LOOP:
 
         pla               ; A = -1, 0 ou +1
         rts
-    jsr FCMP_SAFE
-    beq ValuesEqual     ; Z=1 → iguais
-    cmp #$01
-    beq Greater
-    cmp #$FF
-    beq Less
+
+; --- Exemplo de uso ---
+;   jsr FCMP_SAFE
+;   beq ValuesEqual     ; Z=1 → iguais
+;   cmp #$01
+;   beq Greater
+;   cmp #$FF
+;   beq Less

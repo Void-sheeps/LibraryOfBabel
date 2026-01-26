@@ -285,6 +285,11 @@ SAMPLES = {
         "description": "A Haskell script that provides a functional approach to vector calculus operations.",
         "language": "haskell"
     },
+    "collinearity": {
+        "file": "static/Collinearity.lean",
+        "description": "A Lean proof demonstrating the collinearity of a logarithmic embedding.",
+        "language": "lean"
+    },
 }
 
 def run_script(sample):

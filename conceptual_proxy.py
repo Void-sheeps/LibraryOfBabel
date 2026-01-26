@@ -290,6 +290,11 @@ SAMPLES = {
         "description": "A Lean proof demonstrating the collinearity of a logarithmic embedding.",
         "language": "lean"
     },
+    "log-embedding": {
+        "file": "static/LogEmbedding.hs",
+        "description": "A Haskell script that provides a computational verification of the logarithmic embedding theorem.",
+        "language": "haskell"
+    },
 }
 
 def run_script(sample):

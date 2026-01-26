@@ -305,6 +305,11 @@ SAMPLES = {
         "description": "An Ada script defining the K constants for the SHA-256 cryptographic hash function.",
         "language": "ada"
     },
+    "sha256-h-constants": {
+        "file": "static/SHA256_H_Constants.ada",
+        "description": "An Ada script defining the H constants for the SHA-256 cryptographic hash function.",
+        "language": "ada"
+    },
 }
 
 def run_script(sample):

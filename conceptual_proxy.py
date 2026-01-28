@@ -285,6 +285,16 @@ SAMPLES = {
         "description": "A Haskell script that provides a functional approach to vector calculus operations.",
         "language": "haskell"
     },
+    "topological-edge-measurement": {
+        "file": "static/TopologicalEdgeMeasurement.hs",
+        "description": "A Haskell script that provides advanced topological edge analysis in graphs, including centrality, persistence, and spectral analysis.",
+        "language": "haskell"
+    },
+    "semiotica-quantica": {
+        "file": "static/SemioticaQuantica.hs",
+        "description": "A Haskell script that simulates a quantum semiotic pipeline, evolving concepts through various states and analyzing their topological properties.",
+        "language": "haskell"
+    },
 }
 
 def run_script(sample):

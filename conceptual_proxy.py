@@ -295,6 +295,11 @@ SAMPLES = {
         "description": "A Haskell script that simulates a quantum semiotic pipeline, evolving concepts through various states and analyzing their topological properties.",
         "language": "haskell"
     },
+    "fermi-dirac-normalization": {
+        "file": "static/FermiDiracNormalization.lean",
+        "description": "A Lean 4 script that formally defines the Fermi-Dirac distribution and proves its exact normalization property.",
+        "language": "lean"
+    },
 }
 
 def run_script(sample):

@@ -184,3 +184,67 @@ class LoB(object):
             digits.append('-')
         digits.reverse()
         return ''.join(digits)
+
+import json
+
+class LoBVisualizer:
+    def __init__(self, lob_instance, patterns):
+        self.lob = lob_instance
+        self.patterns = patterns
+        self.pattern_bytes = [self.prepare_pattern(p) for p in patterns]
+
+    def prepare_pattern(self, text):
+        """Converte texto em lista de índices do alfabeto digs"""
+        return [self.lob.digs.index(c) for c in self.lob.text_prep(text)]
+
+    def analyze_page(self, page_text):
+        """Calcula gibberish por byte e localiza padrões"""
+        prepared = [self.lob.digs.index(c) for c in self.lob.text_prep(page_text)]
+        n = len(prepared)
+        heatmap = [1]*n  # 1 → gibberish, 0 → parte de padrão
+        pattern_positions = []
+
+        for idx, pat in enumerate(self.pattern_bytes):
+            plen = len(pat)
+            for i in range(n - plen + 1):
+                if prepared[i:i+plen] == pat:
+                    for j in range(i, i+plen):
+                        heatmap[j] = 0
+                    pattern_positions.append({"pattern_index": idx, "start": i, "end": i+plen})
+
+        gibberish_score = round(sum(heatmap)/n, 3)
+        return gibberish_score, heatmap, pattern_positions
+
+    def analyze_pages(self, page_addresses):
+        nodes = []
+        links = []
+        page_data = {}
+
+        for addr in page_addresses:
+            text = self.lob.getPage(addr)
+            score, heatmap, patterns_pos = self.analyze_page(text)
+            page_data[addr] = {
+                "gibberish_score": score,
+                "heatmap": heatmap,
+                "patterns": patterns_pos,
+                "length": len(text)
+            }
+            nodes.append({"id": addr, "gibberish_score": score, "length": len(text)})
+
+        # Links entre páginas que compartilham padrões
+        for i, p1 in enumerate(page_addresses):
+            for p2 in page_addresses[i+1:]:
+                shared = any(
+                    pat1["pattern_index"] == pat2["pattern_index"]
+                    for pat1 in page_data[p1]["patterns"]
+                    for pat2 in page_data[p2]["patterns"]
+                )
+                if shared:
+                    links.append({"source": p1, "target": p2, "shared_pattern": True})
+
+        return {"nodes": nodes, "links": links, "pages": page_data}
+
+    def save_json(self, analysis, filename="lob_visual.json"):
+        with open(filename, "w") as f:
+            json.dump(analysis, f, indent=2)
+        print(f"JSON saved as {filename}")
